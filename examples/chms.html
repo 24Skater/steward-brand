@@ -554,25 +554,101 @@
             </div>
           </div>
 
-          <!-- Quick Actions -->
+          <!-- Quick Actions with Tooltips -->
           <div class="card">
             <div class="card-header">
               <div class="card-title">Quick Actions</div>
             </div>
             <div class="flex flex-col gap-2">
-              <button class="btn btn-outline w-full justify-start">
-                <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
-                Add New Member
-              </button>
-              <button class="btn btn-outline w-full justify-start">
-                <i data-lucide="calendar-plus" style="width: 16px; height: 16px;"></i>
-                Create Event
-              </button>
-              <button class="btn btn-outline w-full justify-start">
-                <i data-lucide="send" style="width: 16px; height: 16px;"></i>
-                Send Announcement
-              </button>
+              <div class="tooltip-trigger" style="width: 100%;">
+                <button class="btn btn-outline w-full justify-start">
+                  <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
+                  Add New Member
+                </button>
+                <span class="tooltip-content right">Add a new person or family</span>
+              </div>
+              <div class="tooltip-trigger" style="width: 100%;">
+                <button class="btn btn-outline w-full justify-start">
+                  <i data-lucide="calendar-plus" style="width: 16px; height: 16px;"></i>
+                  Create Event
+                </button>
+                <span class="tooltip-content right">Schedule a new event</span>
+              </div>
+              <div class="tooltip-trigger" style="width: 100%;">
+                <button class="btn btn-outline w-full justify-start">
+                  <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                  Send Announcement
+                </button>
+                <span class="tooltip-content right">Email or text blast</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Quick Announcement (Textarea) -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Quick Announcement</div>
+              <div class="card-description">Send a message to your congregation</div>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div>
+                <label class="label">Recipients</label>
+                <select class="input">
+                  <option>All Members (1,248)</option>
+                  <option>Active Members (986)</option>
+                  <option>Volunteers (124)</option>
+                  <option>Youth Group (89)</option>
+                </select>
+              </div>
+              <div>
+                <label class="label">Message</label>
+                <textarea class="textarea" rows="4" placeholder="Write your announcement here..."></textarea>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-primary" style="flex: 1;">
+                  <i data-lucide="send" style="width: 14px; height: 14px;"></i>
+                  Send Now
+                </button>
+                <button class="btn btn-outline">
+                  <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                  Schedule
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Loading Skeleton Demo -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Loading Members...</div>
+            </div>
+            <div class="flex flex-col gap-4">
+              <!-- Skeleton member 1 -->
+              <div class="flex gap-3 items-center">
+                <div class="skeleton skeleton-avatar" style="width: 40px; height: 40px;"></div>
+                <div class="flex flex-col gap-2" style="flex: 1;">
+                  <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 40%; height: 10px;"></div>
+                </div>
+              </div>
+              <!-- Skeleton member 2 -->
+              <div class="flex gap-3 items-center">
+                <div class="skeleton skeleton-avatar" style="width: 40px; height: 40px;"></div>
+                <div class="flex flex-col gap-2" style="flex: 1;">
+                  <div class="skeleton skeleton-text" style="width: 70%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 35%; height: 10px;"></div>
+                </div>
+              </div>
+              <!-- Skeleton member 3 -->
+              <div class="flex gap-3 items-center">
+                <div class="skeleton skeleton-avatar" style="width: 40px; height: 40px;"></div>
+                <div class="flex flex-col gap-2" style="flex: 1;">
+                  <div class="skeleton skeleton-text" style="width: 55%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 45%; height: 10px;"></div>
+                </div>
+              </div>
+            </div>
+            <p class="text-caption text-muted mt-4 text-center">This shows the skeleton loading state</p>
           </div>
         </div>
       </div>

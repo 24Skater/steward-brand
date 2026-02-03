@@ -405,12 +405,25 @@
     <!-- Cart Section -->
     <div class="pos-cart">
       <div class="cart-header">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center mb-3">
           <h2 class="text-h3 font-semibold">Current Sale</h2>
-          <button class="btn btn-ghost btn-sm" style="color: var(--st-danger);">
-            <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
-            Clear
-          </button>
+          <div class="tooltip-trigger">
+            <button class="btn btn-ghost btn-sm" style="color: var(--st-danger);">
+              <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+              Clear
+            </button>
+            <span class="tooltip-content left">Clear all items</span>
+          </div>
+        </div>
+        <!-- Daily Sales Progress -->
+        <div style="padding: var(--st-spacing-3); background: var(--st-surfaceMuted); border-radius: var(--st-radius-md);">
+          <div class="progress-label" style="margin-bottom: var(--st-spacing-2);">
+            <span class="text-caption">Daily Sales Goal</span>
+            <span class="text-caption text-muted">$847 / $1,000</span>
+          </div>
+          <div class="progress progress-sm">
+            <div class="progress-bar success" style="width: 84.7%;"></div>
+          </div>
         </div>
       </div>
 
@@ -493,18 +506,27 @@
 
       <div class="cart-actions">
         <div class="payment-options">
-          <button class="payment-btn">
-            <i data-lucide="banknote" style="width: 20px; height: 20px;"></i>
-            <span>Cash</span>
-          </button>
-          <button class="payment-btn">
-            <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
-            <span>Card</span>
-          </button>
-          <button class="payment-btn">
-            <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
-            <span>Digital</span>
-          </button>
+          <div class="tooltip-trigger">
+            <button class="payment-btn">
+              <i data-lucide="banknote" style="width: 20px; height: 20px;"></i>
+              <span>Cash</span>
+            </button>
+            <span class="tooltip-content top">Pay with cash</span>
+          </div>
+          <div class="tooltip-trigger">
+            <button class="payment-btn">
+              <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
+              <span>Card</span>
+            </button>
+            <span class="tooltip-content top">Swipe/insert card</span>
+          </div>
+          <div class="tooltip-trigger">
+            <button class="payment-btn">
+              <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+              <span>Digital</span>
+            </button>
+            <span class="tooltip-content top">Apple Pay / Google Pay</span>
+          </div>
         </div>
         <button class="btn btn-primary btn-lg w-full">
           <i data-lucide="check" style="width: 20px; height: 20px;"></i>

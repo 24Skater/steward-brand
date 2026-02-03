@@ -337,26 +337,38 @@
             </div>
           </div>
 
-          <!-- Quick Actions -->
+          <!-- Quick Actions with Tooltips -->
           <div class="mb-6">
             <h3 class="text-small font-semibold mb-3">Quick Actions</h3>
             <div class="quick-actions">
-              <button class="quick-action">
-                <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
-                <span class="text-small">Email</span>
-              </button>
-              <button class="quick-action">
-                <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
-                <span class="text-small">Call</span>
-              </button>
-              <button class="quick-action">
-                <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
-                <span class="text-small">Schedule</span>
-              </button>
-              <button class="quick-action">
-                <i data-lucide="file-text" style="width: 20px; height: 20px;"></i>
-                <span class="text-small">Note</span>
-              </button>
+              <div class="tooltip-trigger">
+                <button class="quick-action">
+                  <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+                  <span class="text-small">Email</span>
+                </button>
+                <span class="tooltip-content top">Send an email to Sarah</span>
+              </div>
+              <div class="tooltip-trigger">
+                <button class="quick-action">
+                  <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                  <span class="text-small">Call</span>
+                </button>
+                <span class="tooltip-content top">Call (555) 123-4567</span>
+              </div>
+              <div class="tooltip-trigger">
+                <button class="quick-action">
+                  <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+                  <span class="text-small">Schedule</span>
+                </button>
+                <span class="tooltip-content top">Schedule a meeting</span>
+              </div>
+              <div class="tooltip-trigger">
+                <button class="quick-action">
+                  <i data-lucide="file-text" style="width: 20px; height: 20px;"></i>
+                  <span class="text-small">Note</span>
+                </button>
+                <span class="tooltip-content top">Add a note</span>
+              </div>
             </div>
           </div>
 
@@ -379,6 +391,19 @@
               <span class="detail-label">Total Giving</span>
               <span class="detail-value" style="color: var(--st-success); font-weight: 600;">$12,450.00</span>
             </div>
+          </div>
+
+          <!-- Giving Progress -->
+          <div class="mb-6">
+            <h3 class="text-small font-semibold mb-3">Annual Giving Goal</h3>
+            <div class="progress-label">
+              <span>Progress</span>
+              <span class="text-muted">$12,450 / $15,000</span>
+            </div>
+            <div class="progress progress-lg">
+              <div class="progress-bar success" style="width: 83%;"></div>
+            </div>
+            <p class="text-caption text-muted mt-2">83% of annual commitment reached</p>
           </div>
 
           <!-- Activity Timeline -->

@@ -548,8 +548,167 @@
             <div class="avatar avatar-sm">JD</div>
             <div class="avatar">JD</div>
             <div class="avatar avatar-lg">JD</div>
-            <div class="avatar" style="background: var(--st-success);">AB</div>
+            <div class="avatar avatar-xl">AB</div>
+            <div class="avatar" style="background: var(--st-success);">MK</div>
             <div class="avatar" style="background: var(--st-warning); color: var(--st-warningFg);">CD</div>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Textarea</div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div>
+              <label class="label">Message</label>
+              <textarea class="textarea" placeholder="Type your message here..." rows="3"></textarea>
+            </div>
+            <div>
+              <label class="label">Bio (with error)</label>
+              <textarea class="textarea error" rows="2">This field has an error...</textarea>
+              <p class="text-caption" style="color: var(--st-danger); margin-top: 4px;">Bio must be at least 50 characters.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Progress Bars</div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div>
+              <div class="progress-label">
+                <span>Upload Progress</span>
+                <span>75%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="progress-label">
+                <span>Fundraising Goal</span>
+                <span class="text-muted">$8,500 / $10,000</span>
+              </div>
+              <div class="progress progress-lg">
+                <div class="progress-bar success" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-center">
+              <span class="text-small">Small:</span>
+              <div class="progress progress-sm" style="flex: 1;">
+                <div class="progress-bar" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-center">
+              <span class="text-small">Warning:</span>
+              <div class="progress" style="flex: 1;">
+                <div class="progress-bar warning" style="width: 45%;"></div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-center">
+              <span class="text-small">Danger:</span>
+              <div class="progress" style="flex: 1;">
+                <div class="progress-bar danger" style="width: 25%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skeleton -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Skeleton Loaders</div>
+            <div class="card-description">Loading placeholders for content</div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <!-- Text Skeleton -->
+            <div class="flex flex-col gap-2">
+              <div class="skeleton skeleton-text" style="width: 80%;"></div>
+              <div class="skeleton skeleton-text" style="width: 100%;"></div>
+              <div class="skeleton skeleton-text" style="width: 60%;"></div>
+            </div>
+            <!-- Card Skeleton -->
+            <div style="border: 1px solid var(--st-border); border-radius: var(--st-radius-lg); padding: var(--st-spacing-4);">
+              <div class="flex gap-4 items-center mb-4">
+                <div class="skeleton skeleton-avatar" style="width: 48px; height: 48px;"></div>
+                <div class="flex flex-col gap-2" style="flex: 1;">
+                  <div class="skeleton skeleton-text" style="width: 40%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 25%; height: 12px;"></div>
+                </div>
+              </div>
+              <div class="skeleton skeleton-card" style="height: 100px; margin-bottom: var(--st-spacing-4);"></div>
+              <div class="flex gap-3">
+                <div class="skeleton" style="width: 80px; height: 32px; border-radius: var(--st-radius-md);"></div>
+                <div class="skeleton" style="width: 80px; height: 32px; border-radius: var(--st-radius-md);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tooltips -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Tooltips</div>
+            <div class="card-description">Hover over buttons to see tooltips</div>
+          </div>
+          <div class="flex gap-6 flex-wrap items-center">
+            <div class="tooltip-trigger">
+              <button class="btn btn-outline">
+                <i data-lucide="info" style="width: 16px; height: 16px;"></i>
+                Top Tooltip
+              </button>
+              <span class="tooltip-content top">This is a top tooltip</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-outline">
+                <i data-lucide="arrow-down" style="width: 16px; height: 16px;"></i>
+                Bottom
+              </button>
+              <span class="tooltip-content bottom">This is a bottom tooltip</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-outline">
+                <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                Left
+              </button>
+              <span class="tooltip-content left">Left tooltip</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-outline">
+                Right
+                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </button>
+              <span class="tooltip-content right">Right tooltip</span>
+            </div>
+          </div>
+          <div class="flex gap-4 mt-6">
+            <div class="tooltip-trigger">
+              <button class="btn btn-primary btn-sm">
+                <i data-lucide="edit" style="width: 14px; height: 14px;"></i>
+              </button>
+              <span class="tooltip-content top">Edit item</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-ghost btn-sm">
+                <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+              </button>
+              <span class="tooltip-content top">Delete item</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-outline btn-sm">
+                <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+              </button>
+              <span class="tooltip-content top">Copy to clipboard</span>
+            </div>
+            <div class="tooltip-trigger">
+              <button class="btn btn-secondary btn-sm">
+                <i data-lucide="share" style="width: 14px; height: 14px;"></i>
+              </button>
+              <span class="tooltip-content top">Share</span>
+            </div>
           </div>
         </div>
       </div>
