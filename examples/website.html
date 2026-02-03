@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Example - Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+  <style>
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+    }
+    .example-nav a:hover {
+      background: var(--st-surfaceMuted);
+      color: var(--st-fg);
+    }
+    .example-nav a.active {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .site-header {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-4) var(--st-spacing-6);
+    }
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-nav {
+      display: flex;
+      gap: var(--st-spacing-8);
+      list-style: none;
+    }
+    .site-nav a {
+      color: var(--st-muted);
+      text-decoration: none;
+      font-weight: var(--st-font-weight-medium);
+      transition: color 0.15s ease;
+    }
+    .site-nav a:hover {
+      color: var(--st-fg);
+    }
+    .site-hero {
+      background: linear-gradient(180deg, var(--st-surface) 0%, var(--st-bg) 100%);
+      padding: var(--st-spacing-24) var(--st-spacing-6);
+      text-align: center;
+    }
+    .site-hero h1 {
+      font-size: 56px;
+      font-weight: var(--st-font-weight-bold);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--st-spacing-6);
+    }
+    .site-hero h1 span {
+      color: var(--st-primary);
+    }
+    .site-hero p {
+      font-size: var(--st-font-size-h3);
+      color: var(--st-muted);
+      max-width: 640px;
+      margin: 0 auto var(--st-spacing-8);
+    }
+    .hero-cta {
+      display: flex;
+      gap: var(--st-spacing-4);
+      justify-content: center;
+    }
+    .logo-cloud {
+      padding: var(--st-spacing-12) var(--st-spacing-6);
+      text-align: center;
+      border-bottom: 1px solid var(--st-border);
+    }
+    .logo-cloud p {
+      color: var(--st-muted);
+      font-size: var(--st-font-size-small);
+      margin-bottom: var(--st-spacing-6);
+    }
+    .logo-cloud-items {
+      display: flex;
+      justify-content: center;
+      gap: var(--st-spacing-12);
+      flex-wrap: wrap;
+      opacity: 0.5;
+    }
+    .features-section {
+      padding: var(--st-spacing-24) var(--st-spacing-6);
+    }
+    .features-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto var(--st-spacing-16);
+    }
+    .features-header h2 {
+      font-size: var(--st-font-size-display);
+      font-weight: var(--st-font-weight-bold);
+      margin-bottom: var(--st-spacing-4);
+    }
+    .features-header p {
+      color: var(--st-muted);
+      font-size: var(--st-font-size-h3);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--st-spacing-8);
+    }
+    @media (max-width: 768px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-item {
+      text-align: center;
+      padding: var(--st-spacing-6);
+    }
+    .feature-icon-lg {
+      width: 64px;
+      height: 64px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: var(--st-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--st-spacing-4);
+      color: var(--st-primary);
+    }
+    .feature-item h3 {
+      font-size: var(--st-font-size-h3);
+      font-weight: var(--st-font-weight-semibold);
+      margin-bottom: var(--st-spacing-3);
+    }
+    .feature-item p {
+      color: var(--st-muted);
+      font-size: var(--st-font-size-body);
+    }
+    .testimonials-section {
+      background: var(--st-surfaceMuted);
+      padding: var(--st-spacing-24) var(--st-spacing-6);
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: var(--st-spacing-12);
+    }
+    .testimonials-header h2 {
+      font-size: var(--st-font-size-h1);
+      font-weight: var(--st-font-weight-bold);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--st-spacing-6);
+    }
+    @media (max-width: 768px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .testimonial-card {
+      background: var(--st-surface);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-lg);
+      padding: var(--st-spacing-6);
+    }
+    .testimonial-quote {
+      font-size: var(--st-font-size-body);
+      line-height: 1.6;
+      margin-bottom: var(--st-spacing-6);
+      color: var(--st-fg);
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--st-spacing-3);
+    }
+    .testimonial-author-info h4 {
+      font-weight: var(--st-font-weight-semibold);
+      font-size: var(--st-font-size-small);
+    }
+    .testimonial-author-info p {
+      font-size: var(--st-font-size-caption);
+      color: var(--st-muted);
+    }
+    .cta-section {
+      background: var(--st-color-brand-navy);
+      color: white;
+      padding: var(--st-spacing-24) var(--st-spacing-6);
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: var(--st-font-size-display);
+      font-weight: var(--st-font-weight-bold);
+      margin-bottom: var(--st-spacing-4);
+    }
+    .cta-section p {
+      font-size: var(--st-font-size-h3);
+      opacity: 0.8;
+      max-width: 500px;
+      margin: 0 auto var(--st-spacing-8);
+    }
+    .site-footer {
+      background: var(--st-accent);
+      color: var(--st-accentFg);
+      padding: var(--st-spacing-16) var(--st-spacing-6);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: var(--st-spacing-12);
+      margin-bottom: var(--st-spacing-12);
+    }
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--st-spacing-8);
+      }
+    }
+    .footer-brand p {
+      margin-top: var(--st-spacing-4);
+      opacity: 0.7;
+      font-size: var(--st-font-size-small);
+      max-width: 280px;
+    }
+    .footer-links h4 {
+      font-weight: var(--st-font-weight-semibold);
+      margin-bottom: var(--st-spacing-4);
+      font-size: var(--st-font-size-small);
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: var(--st-spacing-2);
+    }
+    .footer-links a {
+      color: inherit;
+      opacity: 0.7;
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      transition: opacity 0.15s ease;
+    }
+    .footer-links a:hover {
+      opacity: 1;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: var(--st-spacing-6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--st-font-size-small);
+      opacity: 0.6;
+    }
+    .pricing-badge {
+      background: var(--st-success);
+      color: var(--st-successFg);
+      padding: var(--st-spacing-1) var(--st-spacing-3);
+      border-radius: var(--st-radius-full);
+      font-size: var(--st-font-size-caption);
+      font-weight: var(--st-font-weight-semibold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Dev Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html" class="active">Website</a>
+    <a href="chms.html">Church Management</a>
+    <a href="crm.html">CRM</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="pos.html">Point of Sale</a>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#1B2A41"/>
+          <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+          <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+        </svg>
+        <span>Steward</span>
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="flex gap-3">
+        <a href="#" class="btn btn-ghost">Sign in</a>
+        <a href="#" class="btn btn-primary">Get Started</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="site-hero">
+    <h1>Church operations,<br><span>made simple.</span></h1>
+    <p>Steward brings together member management, giving, events, and more—all in one beautiful, easy-to-use platform.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+      <a href="#" class="btn btn-outline btn-lg">
+        <i data-lucide="play-circle" style="width: 20px; height: 20px;"></i>
+        Watch Demo
+      </a>
+    </div>
+    <p class="text-small text-muted mt-6">No credit card required · Free 14-day trial</p>
+  </section>
+
+  <!-- Logo Cloud -->
+  <section class="logo-cloud">
+    <p>Trusted by churches of all sizes</p>
+    <div class="logo-cloud-items">
+      <span class="text-h3 font-semibold">Grace Community</span>
+      <span class="text-h3 font-semibold">First Baptist</span>
+      <span class="text-h3 font-semibold">Hillside Church</span>
+      <span class="text-h3 font-semibold">New Life Fellowship</span>
+      <span class="text-h3 font-semibold">Crossroads</span>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-header">
+        <span class="pricing-badge mb-4" style="display: inline-block;">Open Source</span>
+        <h2>Everything you need to run your church</h2>
+        <p>Powerful features designed specifically for ministry, without the complexity.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="users" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Member Management</h3>
+          <p>Keep track of your congregation with detailed profiles, family connections, and communication history.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="heart" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Online Giving</h3>
+          <p>Accept donations online with low fees, automated receipts, and detailed giving reports.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="calendar" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Event Management</h3>
+          <p>Plan and promote events, manage registrations, and track attendance all in one place.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="mail" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Communication</h3>
+          <p>Send emails, texts, and push notifications to keep your congregation connected and informed.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="bar-chart-3" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Reports & Analytics</h3>
+          <p>Gain insights into attendance trends, giving patterns, and engagement metrics.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-lg">
+            <i data-lucide="smartphone" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Mobile App</h3>
+          <p>A branded mobile app for your members to connect, give, and stay engaged.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2>Loved by church leaders</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Steward has transformed how we manage our church. The interface is intuitive, and our volunteers picked it up in minutes. We've saved hours every week."</p>
+          <div class="testimonial-author">
+            <div class="avatar">PS</div>
+            <div class="testimonial-author-info">
+              <h4>Pastor Sarah Johnson</h4>
+              <p>Grace Community Church</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"The giving features alone have increased our online donations by 40%. The automatic receipts and year-end statements save us so much time."</p>
+          <div class="testimonial-author">
+            <div class="avatar" style="background: var(--st-success);">MD</div>
+            <div class="testimonial-author-info">
+              <h4>Michael Davis</h4>
+              <p>Finance Director, First Baptist</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Finally, a church management system that doesn't feel like it was built in 2005. Clean, modern, and actually enjoyable to use."</p>
+          <div class="testimonial-author">
+            <div class="avatar" style="background: var(--st-warning); color: var(--st-warningFg);">RW</div>
+            <div class="testimonial-author-info">
+              <h4>Rachel Williams</h4>
+              <p>Admin, Hillside Church</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to get started?</h2>
+    <p>Join thousands of churches using Steward to serve their communities better.</p>
+    <div class="flex justify-center gap-4">
+      <a href="#" class="btn btn-lg" style="background: white; color: var(--st-color-brand-navy);">Start Free Trial</a>
+      <a href="#" class="btn btn-lg" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;">Talk to Sales</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="flex items-center gap-3">
+            <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#FFFFFF"/>
+              <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+              <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+            </svg>
+            <span class="font-semibold">Steward</span>
+          </div>
+          <p>Open-source church operations software. Built with love for churches of all sizes.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Steward. All rights reserved.</span>
+        <div class="flex gap-4">
+          <a href="#"><i data-lucide="twitter" style="width: 18px; height: 18px;"></i></a>
+          <a href="#"><i data-lucide="github" style="width: 18px; height: 18px;"></i></a>
+          <a href="#"><i data-lucide="youtube" style="width: 18px; height: 18px;"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
+

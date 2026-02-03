@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting Example - Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+  <style>
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+    }
+    .example-nav a:hover {
+      background: var(--st-surfaceMuted);
+      color: var(--st-fg);
+    }
+    .example-nav a.active {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--st-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--st-spacing-3);
+    }
+    .stat-icon.blue { background: rgba(37, 99, 235, 0.1); color: var(--st-primary); }
+    .stat-icon.green { background: rgba(22, 163, 74, 0.1); color: var(--st-success); }
+    .stat-icon.amber { background: rgba(245, 158, 11, 0.1); color: #B45309; }
+    .stat-icon.red { background: rgba(220, 38, 38, 0.1); color: var(--st-danger); }
+    .chart-placeholder {
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+      border-radius: var(--st-radius-md);
+      height: 200px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--st-spacing-4);
+      gap: var(--st-spacing-2);
+    }
+    .chart-bar {
+      flex: 1;
+      background: var(--st-primary);
+      border-radius: var(--st-radius-sm) var(--st-radius-sm) 0 0;
+      min-height: 20px;
+    }
+    .invoice-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--st-spacing-4);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-md);
+      margin-bottom: var(--st-spacing-3);
+    }
+    .invoice-card:last-child {
+      margin-bottom: 0;
+    }
+    .account-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--st-spacing-3) 0;
+      border-bottom: 1px solid var(--st-border);
+    }
+    .account-row:last-child {
+      border-bottom: none;
+    }
+    .account-balance {
+      font-family: var(--st-font-mono);
+      font-weight: var(--st-font-weight-semibold);
+    }
+    .account-balance.positive { color: var(--st-success); }
+    .account-balance.negative { color: var(--st-danger); }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#1B2A41"/>
+        <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+        <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+      </svg>
+      <span>Steward Finance</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button class="btn btn-outline btn-sm">
+        <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+        Export
+      </button>
+      <button class="btn btn-primary btn-sm">
+        <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+        New Transaction
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Example Pages Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html">Website</a>
+    <a href="chms.html">Church Management</a>
+    <a href="crm.html">CRM</a>
+    <a href="accounting.html" class="active">Accounting</a>
+    <a href="pos.html">Point of Sale</a>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Overview</div>
+        <a href="#" class="sidebar-link active">
+          <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="wallet" style="width: 18px; height: 18px;"></i>
+          Accounts
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="arrow-left-right" style="width: 18px; height: 18px;"></i>
+          Transactions
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Receivables</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
+          Invoices
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="heart" style="width: 18px; height: 18px;"></i>
+          Donations
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Payables</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="receipt" style="width: 18px; height: 18px;"></i>
+          Bills
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="credit-card" style="width: 18px; height: 18px;"></i>
+          Expenses
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="users" style="width: 18px; height: 18px;"></i>
+          Payroll
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Reports</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="pie-chart" style="width: 18px; height: 18px;"></i>
+          Financial Reports
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="bar-chart-3" style="width: 18px; height: 18px;"></i>
+          Budget vs Actual
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Page Header -->
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-h1">Financial Dashboard</h1>
+          <p class="text-small text-muted mt-1">Overview for January 2024</p>
+        </div>
+        <div class="flex gap-3">
+          <select class="input" style="width: auto;">
+            <option>January 2024</option>
+            <option>December 2023</option>
+            <option>November 2023</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-4 mb-6">
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i data-lucide="trending-up" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="stat-label">Total Income</div>
+          <div class="stat-value">$48,250</div>
+          <div class="stat-change positive">
+            <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline;"></i>
+            12.5% from last month
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">
+            <i data-lucide="trending-down" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="stat-label">Total Expenses</div>
+          <div class="stat-value">$32,180</div>
+          <div class="stat-change negative">
+            <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline;"></i>
+            8.2% from last month
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="stat-label">Net Income</div>
+          <div class="stat-value">$16,070</div>
+          <div class="stat-change positive">
+            <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline;"></i>
+            24.1% from last month
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber">
+            <i data-lucide="piggy-bank" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="stat-label">Cash Balance</div>
+          <div class="stat-value">$124,500</div>
+          <div class="stat-change positive">
+            <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline;"></i>
+            Healthy reserves
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 2fr 1fr;">
+        <!-- Left Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Income Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex justify-between items-center">
+                <div class="card-title">Income Overview</div>
+                <div class="flex gap-2">
+                  <button class="btn btn-ghost btn-sm">Weekly</button>
+                  <button class="btn btn-outline btn-sm">Monthly</button>
+                </div>
+              </div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="chart-bar" style="height: 60%;"></div>
+              <div class="chart-bar" style="height: 45%;"></div>
+              <div class="chart-bar" style="height: 80%;"></div>
+              <div class="chart-bar" style="height: 65%;"></div>
+              <div class="chart-bar" style="height: 90%;"></div>
+              <div class="chart-bar" style="height: 75%;"></div>
+              <div class="chart-bar" style="height: 85%;"></div>
+              <div class="chart-bar" style="height: 70%;"></div>
+              <div class="chart-bar" style="height: 95%;"></div>
+              <div class="chart-bar" style="height: 80%;"></div>
+              <div class="chart-bar" style="height: 88%;"></div>
+              <div class="chart-bar" style="height: 100%;"></div>
+            </div>
+            <div class="flex justify-between mt-4 text-caption text-muted">
+              <span>Jan</span>
+              <span>Feb</span>
+              <span>Mar</span>
+              <span>Apr</span>
+              <span>May</span>
+              <span>Jun</span>
+              <span>Jul</span>
+              <span>Aug</span>
+              <span>Sep</span>
+              <span>Oct</span>
+              <span>Nov</span>
+              <span>Dec</span>
+            </div>
+          </div>
+
+          <!-- Recent Transactions -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div class="p-4" style="border-bottom: 1px solid var(--st-border);">
+              <div class="flex justify-between items-center">
+                <h3 class="card-title">Recent Transactions</h3>
+                <a href="#" class="text-small" style="color: var(--st-link); text-decoration: none;">View all</a>
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-small text-muted">Jan 28</td>
+                  <td>
+                    <div class="font-medium">Sunday Offering</div>
+                    <div class="text-caption text-muted">Weekly service collection</div>
+                  </td>
+                  <td><span class="badge badge-success">Income</span></td>
+                  <td class="text-right font-medium" style="color: var(--st-success);">+$8,450.00</td>
+                </tr>
+                <tr>
+                  <td class="text-small text-muted">Jan 27</td>
+                  <td>
+                    <div class="font-medium">Electric Bill</div>
+                    <div class="text-caption text-muted">City Power Co.</div>
+                  </td>
+                  <td><span class="badge badge-danger">Expense</span></td>
+                  <td class="text-right font-medium" style="color: var(--st-danger);">-$842.50</td>
+                </tr>
+                <tr>
+                  <td class="text-small text-muted">Jan 25</td>
+                  <td>
+                    <div class="font-medium">Online Donations</div>
+                    <div class="text-caption text-muted">Various donors</div>
+                  </td>
+                  <td><span class="badge badge-success">Income</span></td>
+                  <td class="text-right font-medium" style="color: var(--st-success);">+$2,150.00</td>
+                </tr>
+                <tr>
+                  <td class="text-small text-muted">Jan 24</td>
+                  <td>
+                    <div class="font-medium">Office Supplies</div>
+                    <div class="text-caption text-muted">Staples</div>
+                  </td>
+                  <td><span class="badge badge-danger">Expense</span></td>
+                  <td class="text-right font-medium" style="color: var(--st-danger);">-$156.78</td>
+                </tr>
+                <tr>
+                  <td class="text-small text-muted">Jan 22</td>
+                  <td>
+                    <div class="font-medium">Building Fund Donation</div>
+                    <div class="text-caption text-muted">Mitchell Family</div>
+                  </td>
+                  <td><span class="badge badge-success">Income</span></td>
+                  <td class="text-right font-medium" style="color: var(--st-success);">+$5,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Account Balances -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Account Balances</div>
+            </div>
+            <div class="account-row">
+              <div>
+                <div class="font-medium text-small">General Fund</div>
+                <div class="text-caption text-muted">Operating account</div>
+              </div>
+              <div class="account-balance positive">$45,230.00</div>
+            </div>
+            <div class="account-row">
+              <div>
+                <div class="font-medium text-small">Building Fund</div>
+                <div class="text-caption text-muted">Capital improvements</div>
+              </div>
+              <div class="account-balance positive">$62,150.00</div>
+            </div>
+            <div class="account-row">
+              <div>
+                <div class="font-medium text-small">Missions Fund</div>
+                <div class="text-caption text-muted">Outreach programs</div>
+              </div>
+              <div class="account-balance positive">$12,890.00</div>
+            </div>
+            <div class="account-row">
+              <div>
+                <div class="font-medium text-small">Youth Ministry</div>
+                <div class="text-caption text-muted">Youth programs</div>
+              </div>
+              <div class="account-balance positive">$4,230.00</div>
+            </div>
+          </div>
+
+          <!-- Pending Invoices -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex justify-between items-center">
+                <div class="card-title">Pending Invoices</div>
+                <span class="badge badge-warning">3 unpaid</span>
+              </div>
+            </div>
+            <div class="invoice-card">
+              <div>
+                <div class="font-medium text-small">INV-2024-012</div>
+                <div class="text-caption text-muted">Due Feb 5</div>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">$1,200.00</div>
+                <span class="badge badge-warning" style="font-size: 10px;">Pending</span>
+              </div>
+            </div>
+            <div class="invoice-card">
+              <div>
+                <div class="font-medium text-small">INV-2024-011</div>
+                <div class="text-caption text-muted">Due Feb 1</div>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">$450.00</div>
+                <span class="badge badge-warning" style="font-size: 10px;">Pending</span>
+              </div>
+            </div>
+            <div class="invoice-card">
+              <div>
+                <div class="font-medium text-small">INV-2024-009</div>
+                <div class="text-caption text-muted" style="color: var(--st-danger);">Overdue</div>
+              </div>
+              <div class="text-right">
+                <div class="font-medium">$875.00</div>
+                <span class="badge badge-danger" style="font-size: 10px;">Overdue</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Quick Actions</div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                Record Transaction
+              </button>
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
+                Create Invoice
+              </button>
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                Download Reports
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church Management Example - Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+  <style>
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+    }
+    .example-nav a:hover {
+      background: var(--st-surfaceMuted);
+      color: var(--st-fg);
+    }
+    .example-nav a.active {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .member-card {
+      display: flex;
+      gap: var(--st-spacing-4);
+      padding: var(--st-spacing-4);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-md);
+      margin-bottom: var(--st-spacing-3);
+      transition: all 0.15s ease;
+    }
+    .member-card:hover {
+      border-color: var(--st-primary);
+      box-shadow: var(--st-shadow-sm);
+    }
+    .event-card {
+      display: flex;
+      gap: var(--st-spacing-4);
+      padding: var(--st-spacing-4);
+      border-bottom: 1px solid var(--st-border);
+    }
+    .event-card:last-child {
+      border-bottom: none;
+    }
+    .event-date {
+      text-align: center;
+      padding: var(--st-spacing-2) var(--st-spacing-3);
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-md);
+      min-width: 60px;
+    }
+    .event-date .day {
+      font-size: var(--st-font-size-h2);
+      font-weight: var(--st-font-weight-bold);
+      line-height: 1;
+    }
+    .event-date .month {
+      font-size: var(--st-font-size-caption);
+      color: var(--st-muted);
+      text-transform: uppercase;
+    }
+    .giving-progress {
+      height: 8px;
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-full);
+      overflow: hidden;
+      margin: var(--st-spacing-3) 0;
+    }
+    .giving-progress-bar {
+      height: 100%;
+      background: var(--st-success);
+      border-radius: var(--st-radius-full);
+      transition: width 0.3s ease;
+    }
+    .attendance-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: var(--st-spacing-1);
+      margin-top: var(--st-spacing-4);
+    }
+    .attendance-day {
+      aspect-ratio: 1;
+      border-radius: var(--st-radius-sm);
+      font-size: var(--st-font-size-caption);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .attendance-day.header {
+      font-weight: var(--st-font-weight-semibold);
+      color: var(--st-muted);
+    }
+    .attendance-day.empty {
+      background: transparent;
+    }
+    .attendance-day.low {
+      background: rgba(220, 38, 38, 0.2);
+    }
+    .attendance-day.medium {
+      background: rgba(245, 158, 11, 0.3);
+    }
+    .attendance-day.high {
+      background: rgba(22, 163, 74, 0.3);
+    }
+    .quick-stat {
+      display: flex;
+      align-items: center;
+      gap: var(--st-spacing-4);
+      padding: var(--st-spacing-4);
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-md);
+    }
+    .quick-stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--st-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quick-stat-icon.blue { background: rgba(37, 99, 235, 0.15); color: var(--st-primary); }
+    .quick-stat-icon.green { background: rgba(22, 163, 74, 0.15); color: var(--st-success); }
+    .quick-stat-icon.amber { background: rgba(245, 158, 11, 0.15); color: #B45309; }
+    .quick-stat-icon.red { background: rgba(220, 38, 38, 0.15); color: var(--st-danger); }
+    .group-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--st-spacing-1);
+      padding: var(--st-spacing-1) var(--st-spacing-2);
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-sm);
+      font-size: var(--st-font-size-caption);
+      color: var(--st-mutedFg);
+    }
+    .check-in-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--st-spacing-2);
+      padding: var(--st-spacing-4);
+      background: linear-gradient(135deg, var(--st-primary) 0%, #1D4ED8 100%);
+      color: white;
+      border-radius: var(--st-radius-lg);
+      font-weight: var(--st-font-weight-semibold);
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      transition: all 0.15s ease;
+    }
+    .check-in-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--st-shadow-lg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#1B2A41"/>
+        <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+        <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+      </svg>
+      <span>Steward · ChMS</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button class="btn btn-outline btn-sm">
+        <i data-lucide="bell" style="width: 16px; height: 16px;"></i>
+      </button>
+      <div class="flex items-center gap-3">
+        <div class="avatar avatar-sm">PA</div>
+        <span class="text-small font-medium">Pastor Adams</span>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Example Pages Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html">Website</a>
+    <a href="chms.html" class="active">Church Management</a>
+    <a href="crm.html">CRM</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="pos.html">Point of Sale</a>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Main</div>
+        <a href="#" class="sidebar-link active">
+          <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="users" style="width: 18px; height: 18px;"></i>
+          People
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="users-2" style="width: 18px; height: 18px;"></i>
+          Groups
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          Events
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Ministry</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="heart" style="width: 18px; height: 18px;"></i>
+          Giving
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="check-square" style="width: 18px; height: 18px;"></i>
+          Check-in
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="hand-heart" style="width: 18px; height: 18px;"></i>
+          Volunteers
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Communication</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+          Email
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+          SMS
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Welcome Header -->
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-h1">Good morning, Pastor Adams</h1>
+          <p class="text-small text-muted mt-1">Here's what's happening at Grace Community Church</p>
+        </div>
+        <button class="btn btn-primary">
+          <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+          Quick Add
+        </button>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="grid grid-4 mb-6">
+        <div class="quick-stat">
+          <div class="quick-stat-icon blue">
+            <i data-lucide="users" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div>
+            <div class="text-caption text-muted">Total Members</div>
+            <div class="text-h3 font-bold">1,248</div>
+          </div>
+        </div>
+        <div class="quick-stat">
+          <div class="quick-stat-icon green">
+            <i data-lucide="trending-up" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div>
+            <div class="text-caption text-muted">Last Sunday</div>
+            <div class="text-h3 font-bold">892</div>
+          </div>
+        </div>
+        <div class="quick-stat">
+          <div class="quick-stat-icon amber">
+            <i data-lucide="heart" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div>
+            <div class="text-caption text-muted">Monthly Giving</div>
+            <div class="text-h3 font-bold">$48.2K</div>
+          </div>
+        </div>
+        <div class="quick-stat">
+          <div class="quick-stat-icon red">
+            <i data-lucide="user-plus" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div>
+            <div class="text-caption text-muted">New This Month</div>
+            <div class="text-h3 font-bold">23</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 2fr 1fr;">
+        <!-- Left Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Member Directory Preview -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex justify-between items-center">
+                <div class="card-title">Recent Members</div>
+                <a href="#" class="text-small" style="color: var(--st-link); text-decoration: none;">View all</a>
+              </div>
+            </div>
+            
+            <div class="member-card">
+              <div class="avatar">JW</div>
+              <div style="flex: 1;">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-medium">Jennifer Wilson</div>
+                    <div class="text-caption text-muted">Member since Jan 2024</div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="group-tag">
+                      <i data-lucide="music" style="width: 12px; height: 12px;"></i>
+                      Worship
+                    </span>
+                    <span class="group-tag">
+                      <i data-lucide="book-open" style="width: 12px; height: 12px;"></i>
+                      Bible Study
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="avatar" style="background: var(--st-success);">DM</div>
+              <div style="flex: 1;">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-medium">David Martinez</div>
+                    <div class="text-caption text-muted">Member since Dec 2023</div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="group-tag">
+                      <i data-lucide="users" style="width: 12px; height: 12px;"></i>
+                      Men's Group
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="avatar" style="background: var(--st-warning); color: var(--st-warningFg);">SK</div>
+              <div style="flex: 1;">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-medium">Sarah Kim</div>
+                    <div class="text-caption text-muted">Visitor · First time Jan 21</div>
+                  </div>
+                  <span class="badge badge-outline">New Visitor</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="avatar" style="background: var(--st-accent);">RT</div>
+              <div style="flex: 1;">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-medium">The Robinson Family</div>
+                    <div class="text-caption text-muted">4 members · Since 2019</div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="group-tag">
+                      <i data-lucide="baby" style="width: 12px; height: 12px;"></i>
+                      Kids Ministry
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance Widget -->
+          <div class="card">
+            <div class="card-header">
+              <div class="flex justify-between items-center">
+                <div class="card-title">Attendance Tracker</div>
+                <select class="input" style="width: auto; padding: 6px 12px;">
+                  <option>January 2024</option>
+                  <option>December 2023</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div>
+                <div class="text-caption text-muted">Average Attendance</div>
+                <div class="text-h1 font-bold">847</div>
+                <div class="text-small text-muted" style="color: var(--st-success);">
+                  <i data-lucide="arrow-up" style="width: 14px; height: 14px; display: inline;"></i>
+                  +5.2% from last month
+                </div>
+              </div>
+              <div class="divider" style="width: 1px; height: auto; margin: 0;"></div>
+              <div style="flex: 1;">
+                <div class="text-caption text-muted mb-2">Weekly breakdown</div>
+                <div class="attendance-grid">
+                  <div class="attendance-day header">S</div>
+                  <div class="attendance-day header">M</div>
+                  <div class="attendance-day header">T</div>
+                  <div class="attendance-day header">W</div>
+                  <div class="attendance-day header">T</div>
+                  <div class="attendance-day header">F</div>
+                  <div class="attendance-day header">S</div>
+                  
+                  <div class="attendance-day empty"></div>
+                  <div class="attendance-day low">1</div>
+                  <div class="attendance-day low">2</div>
+                  <div class="attendance-day medium">3</div>
+                  <div class="attendance-day low">4</div>
+                  <div class="attendance-day low">5</div>
+                  <div class="attendance-day medium">6</div>
+                  
+                  <div class="attendance-day high">7</div>
+                  <div class="attendance-day low">8</div>
+                  <div class="attendance-day low">9</div>
+                  <div class="attendance-day medium">10</div>
+                  <div class="attendance-day low">11</div>
+                  <div class="attendance-day low">12</div>
+                  <div class="attendance-day medium">13</div>
+                  
+                  <div class="attendance-day high">14</div>
+                  <div class="attendance-day low">15</div>
+                  <div class="attendance-day low">16</div>
+                  <div class="attendance-day medium">17</div>
+                  <div class="attendance-day low">18</div>
+                  <div class="attendance-day low">19</div>
+                  <div class="attendance-day medium">20</div>
+                  
+                  <div class="attendance-day high">21</div>
+                  <div class="attendance-day low">22</div>
+                  <div class="attendance-day low">23</div>
+                  <div class="attendance-day medium">24</div>
+                  <div class="attendance-day low">25</div>
+                  <div class="attendance-day low">26</div>
+                  <div class="attendance-day medium">27</div>
+                  
+                  <div class="attendance-day high">28</div>
+                  <div class="attendance-day low">29</div>
+                  <div class="attendance-day low">30</div>
+                  <div class="attendance-day medium">31</div>
+                  <div class="attendance-day empty"></div>
+                  <div class="attendance-day empty"></div>
+                  <div class="attendance-day empty"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Check-in Button -->
+          <button class="check-in-btn">
+            <i data-lucide="scan-line" style="width: 24px; height: 24px;"></i>
+            Start Check-in
+          </button>
+
+          <!-- Upcoming Events -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Upcoming Events</div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <div class="day">28</div>
+                <div class="month">Jan</div>
+              </div>
+              <div>
+                <div class="font-medium text-small">Sunday Service</div>
+                <div class="text-caption text-muted">9:00 AM & 11:00 AM</div>
+                <div class="text-caption text-muted mt-1">
+                  <i data-lucide="users" style="width: 12px; height: 12px; display: inline;"></i>
+                  142 registered
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <div class="day">30</div>
+                <div class="month">Jan</div>
+              </div>
+              <div>
+                <div class="font-medium text-small">Youth Night</div>
+                <div class="text-caption text-muted">6:30 PM</div>
+                <div class="text-caption text-muted mt-1">
+                  <i data-lucide="users" style="width: 12px; height: 12px; display: inline;"></i>
+                  48 registered
+                </div>
+              </div>
+            </div>
+            <div class="event-card">
+              <div class="event-date">
+                <div class="day">2</div>
+                <div class="month">Feb</div>
+              </div>
+              <div>
+                <div class="font-medium text-small">Women's Brunch</div>
+                <div class="text-caption text-muted">10:00 AM</div>
+                <div class="text-caption text-muted mt-1">
+                  <i data-lucide="users" style="width: 12px; height: 12px; display: inline;"></i>
+                  67 registered
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Giving Summary -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Giving This Month</div>
+            </div>
+            <div class="text-h2 font-bold">$48,250</div>
+            <div class="text-small text-muted">of $55,000 goal</div>
+            <div class="giving-progress">
+              <div class="giving-progress-bar" style="width: 87.7%;"></div>
+            </div>
+            <div class="flex justify-between text-caption">
+              <span class="text-muted">87.7% of goal</span>
+              <span style="color: var(--st-success);">$6,750 to go</span>
+            </div>
+            <div class="divider"></div>
+            <div class="flex justify-between text-small">
+              <span class="text-muted">General Fund</span>
+              <span class="font-medium">$32,100</span>
+            </div>
+            <div class="flex justify-between text-small mt-2">
+              <span class="text-muted">Building Fund</span>
+              <span class="font-medium">$12,450</span>
+            </div>
+            <div class="flex justify-between text-small mt-2">
+              <span class="text-muted">Missions</span>
+              <span class="font-medium">$3,700</span>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Quick Actions</div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
+                Add New Member
+              </button>
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="calendar-plus" style="width: 16px; height: 16px;"></i>
+                Create Event
+              </button>
+              <button class="btn btn-outline w-full justify-start">
+                <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                Send Announcement
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
+

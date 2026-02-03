@@ -1,0 +1,32 @@
+{
+  "$description": "Steward Dark Theme - Semantic Token Mappings",
+  
+  "semantic": {
+    "bg": "{color.neutral-dark.subtle}",
+    "fg": "{color.neutral-dark.ink}",
+    "surface": "{color.neutral-dark.surface}",
+    "surfaceMuted": "#1E293B",
+    "border": "{color.neutral-dark.border}",
+    
+    "primary": "#3B82F6",
+    "primaryFg": "#FFFFFF",
+    "secondary": "{color.neutral-dark.slate}",
+    "secondaryFg": "#0F172A",
+    "accent": "#60A5FA",
+    "accentFg": "#0F172A",
+    
+    "success": "#22C55E",
+    "successFg": "#0F172A",
+    "warning": "#FBBF24",
+    "warningFg": "#0F172A",
+    "danger": "#EF4444",
+    "dangerFg": "#FFFFFF",
+    
+    "link": "#60A5FA",
+    "focusRing": "#3B82F6",
+    
+    "muted": "{color.neutral-dark.muted}",
+    "mutedFg": "{color.neutral-dark.slate}"
+  }
+}
+

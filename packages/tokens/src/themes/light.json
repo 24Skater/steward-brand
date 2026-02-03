@@ -1,0 +1,32 @@
+{
+  "$description": "Steward Light Theme - Semantic Token Mappings",
+  
+  "semantic": {
+    "bg": "{color.neutral.subtle}",
+    "fg": "{color.neutral.ink}",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "{color.neutral.subtle}",
+    "border": "{color.neutral.border}",
+    
+    "primary": "{color.brand.blue}",
+    "primaryFg": "#FFFFFF",
+    "secondary": "{color.neutral.slate}",
+    "secondaryFg": "#FFFFFF",
+    "accent": "{color.brand.navy}",
+    "accentFg": "#FFFFFF",
+    
+    "success": "{color.brand.emerald}",
+    "successFg": "#FFFFFF",
+    "warning": "{color.brand.amber}",
+    "warningFg": "{color.neutral.ink}",
+    "danger": "{color.brand.red}",
+    "dangerFg": "#FFFFFF",
+    
+    "link": "{color.brand.blue}",
+    "focusRing": "{color.brand.blue}",
+    
+    "muted": "{color.neutral.muted}",
+    "mutedFg": "{color.neutral.slate}"
+  }
+}
+

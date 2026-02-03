@@ -1,0 +1,18 @@
+{
+  "name": "@steward/tsconfig",
+  "version": "0.1.0",
+  "description": "Shared TypeScript configurations for Steward projects",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steward-org/steward-brand.git",
+    "directory": "packages/tsconfig"
+  },
+  "files": [
+    "*.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
+

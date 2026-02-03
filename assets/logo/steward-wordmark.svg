@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <title>Steward Wordmark</title>
+  <!-- "Steward" text in brand typography -->
+  <text 
+    x="0" 
+    y="30" 
+    font-family="Inter, system-ui, -apple-system, sans-serif" 
+    font-size="32" 
+    font-weight="600" 
+    fill="#1B2A41"
+    letter-spacing="-0.02em"
+  >Steward</text>
+</svg>
+

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Example - Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+  <style>
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+    }
+    .example-nav a:hover {
+      background: var(--st-surfaceMuted);
+      color: var(--st-fg);
+    }
+    .example-nav a.active {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .activity-item {
+      display: flex;
+      gap: var(--st-spacing-4);
+      padding: var(--st-spacing-4) 0;
+      border-bottom: 1px solid var(--st-border);
+    }
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+    .activity-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--st-radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .activity-icon.email { background: rgba(37, 99, 235, 0.1); color: var(--st-primary); }
+    .activity-icon.call { background: rgba(22, 163, 74, 0.1); color: var(--st-success); }
+    .activity-icon.meeting { background: rgba(245, 158, 11, 0.1); color: #B45309; }
+    .activity-icon.note { background: rgba(100, 116, 139, 0.1); color: var(--st-muted); }
+    .contact-header {
+      display: flex;
+      gap: var(--st-spacing-6);
+      align-items: flex-start;
+      padding-bottom: var(--st-spacing-6);
+      border-bottom: 1px solid var(--st-border);
+      margin-bottom: var(--st-spacing-6);
+    }
+    .contact-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--st-radius-full);
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--st-font-size-h1);
+      font-weight: var(--st-font-weight-semibold);
+      flex-shrink: 0;
+    }
+    .contact-info h2 {
+      margin-bottom: var(--st-spacing-2);
+    }
+    .contact-meta {
+      display: flex;
+      gap: var(--st-spacing-6);
+      margin-top: var(--st-spacing-3);
+    }
+    .contact-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--st-spacing-2);
+      font-size: var(--st-font-size-small);
+      color: var(--st-muted);
+    }
+    .detail-row {
+      display: flex;
+      padding: var(--st-spacing-3) 0;
+      border-bottom: 1px solid var(--st-border);
+    }
+    .detail-label {
+      width: 140px;
+      font-size: var(--st-font-size-small);
+      color: var(--st-muted);
+      flex-shrink: 0;
+    }
+    .detail-value {
+      font-size: var(--st-font-size-small);
+    }
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--st-spacing-3);
+    }
+    .quick-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--st-spacing-2);
+      padding: var(--st-spacing-4);
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-md);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: none;
+      color: var(--st-fg);
+    }
+    .quick-action:hover {
+      background: var(--st-border);
+    }
+    .quick-action i {
+      color: var(--st-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#1B2A41"/>
+        <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+        <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+      </svg>
+      <span>Steward CRM</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button class="btn btn-primary btn-sm">
+        <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+        Add Contact
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Example Pages Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html">Website</a>
+    <a href="chms.html">Church Management</a>
+    <a href="crm.html" class="active">CRM</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="pos.html">Point of Sale</a>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Navigation</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link active">
+          <i data-lucide="users" style="width: 18px; height: 18px;"></i>
+          Contacts
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="building-2" style="width: 18px; height: 18px;"></i>
+          Organizations
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="target" style="width: 18px; height: 18px;"></i>
+          Deals
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+          Activities
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Lists</div>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+          VIP Contacts
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="user-check" style="width: 18px; height: 18px;"></i>
+          Active Donors
+        </a>
+        <a href="#" class="sidebar-link">
+          <i data-lucide="clock" style="width: 18px; height: 18px;"></i>
+          Follow-up Needed
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Page Header -->
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-h1">Contacts</h1>
+          <p class="text-small text-muted mt-1">Manage your relationships and communication history</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="position: relative;">
+            <i data-lucide="search" style="width: 18px; height: 18px; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--st-muted);"></i>
+            <input type="text" class="input" placeholder="Search contacts..." style="padding-left: 40px; width: 280px;">
+          </div>
+          <button class="btn btn-outline">
+            <i data-lucide="filter" style="width: 16px; height: 16px;"></i>
+            Filter
+          </button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr 400px;">
+        <!-- Contact List -->
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Last Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: var(--st-surfaceMuted);">
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar avatar-sm">SM</div>
+                    <div>
+                      <div class="font-medium">Sarah Mitchell</div>
+                      <div class="text-caption text-muted">Board Member</div>
+                    </div>
+                  </div>
+                </td>
+                <td>sarah.mitchell@email.com</td>
+                <td>(555) 123-4567</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="text-small text-muted">2 hours ago</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar avatar-sm" style="background: var(--st-success);">JD</div>
+                    <div>
+                      <div class="font-medium">John Davis</div>
+                      <div class="text-caption text-muted">Volunteer</div>
+                    </div>
+                  </div>
+                </td>
+                <td>john.davis@email.com</td>
+                <td>(555) 234-5678</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="text-small text-muted">1 day ago</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar avatar-sm" style="background: var(--st-warning); color: var(--st-warningFg);">EW</div>
+                    <div>
+                      <div class="font-medium">Emily Wilson</div>
+                      <div class="text-caption text-muted">Donor</div>
+                    </div>
+                  </div>
+                </td>
+                <td>emily.wilson@email.com</td>
+                <td>(555) 345-6789</td>
+                <td><span class="badge badge-warning">Follow-up</span></td>
+                <td class="text-small text-muted">3 days ago</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar avatar-sm" style="background: var(--st-accent);">MJ</div>
+                    <div>
+                      <div class="font-medium">Michael Johnson</div>
+                      <div class="text-caption text-muted">Member</div>
+                    </div>
+                  </div>
+                </td>
+                <td>m.johnson@email.com</td>
+                <td>(555) 456-7890</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td class="text-small text-muted">1 week ago</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar avatar-sm" style="background: var(--st-danger);">LB</div>
+                    <div>
+                      <div class="font-medium">Lisa Brown</div>
+                      <div class="text-caption text-muted">Visitor</div>
+                    </div>
+                  </div>
+                </td>
+                <td>lisa.brown@email.com</td>
+                <td>(555) 567-8901</td>
+                <td><span class="badge badge-outline">New</span></td>
+                <td class="text-small text-muted">2 weeks ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Contact Detail Panel -->
+        <div class="card">
+          <div class="contact-header">
+            <div class="contact-avatar">SM</div>
+            <div class="contact-info">
+              <h2 class="text-h2">Sarah Mitchell</h2>
+              <p class="text-small text-muted">Board Member</p>
+              <div class="contact-meta">
+                <div class="contact-meta-item">
+                  <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+                  sarah.mitchell@email.com
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="mb-6">
+            <h3 class="text-small font-semibold mb-3">Quick Actions</h3>
+            <div class="quick-actions">
+              <button class="quick-action">
+                <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+                <span class="text-small">Email</span>
+              </button>
+              <button class="quick-action">
+                <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                <span class="text-small">Call</span>
+              </button>
+              <button class="quick-action">
+                <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+                <span class="text-small">Schedule</span>
+              </button>
+              <button class="quick-action">
+                <i data-lucide="file-text" style="width: 20px; height: 20px;"></i>
+                <span class="text-small">Note</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="mb-6">
+            <h3 class="text-small font-semibold mb-3">Details</h3>
+            <div class="detail-row">
+              <span class="detail-label">Phone</span>
+              <span class="detail-value">(555) 123-4567</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Address</span>
+              <span class="detail-value">123 Main St, City, ST 12345</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Member Since</span>
+              <span class="detail-value">January 2020</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Total Giving</span>
+              <span class="detail-value" style="color: var(--st-success); font-weight: 600;">$12,450.00</span>
+            </div>
+          </div>
+
+          <!-- Activity Timeline -->
+          <div>
+            <h3 class="text-small font-semibold mb-3">Recent Activity</h3>
+            <div class="activity-item">
+              <div class="activity-icon email">
+                <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-small font-medium">Email sent</div>
+                <div class="text-caption text-muted">Monthly newsletter delivered</div>
+                <div class="text-caption text-muted mt-1">2 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon call">
+                <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-small font-medium">Phone call</div>
+                <div class="text-caption text-muted">Discussed volunteer opportunities</div>
+                <div class="text-caption text-muted mt-1">3 days ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon meeting">
+                <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-small font-medium">Meeting</div>
+                <div class="text-caption text-muted">Board meeting attendance</div>
+                <div class="text-caption text-muted mt-1">1 week ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon note">
+                <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-small font-medium">Note added</div>
+                <div class="text-caption text-muted">Interested in youth ministry support</div>
+                <div class="text-caption text-muted mt-1">2 weeks ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Point of Sale Example - Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+  <style>
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+    }
+    .example-nav a:hover {
+      background: var(--st-surfaceMuted);
+      color: var(--st-fg);
+    }
+    .example-nav a.active {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .pos-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      height: calc(100vh - 130px);
+      overflow: hidden;
+    }
+    .pos-products {
+      padding: var(--st-spacing-6);
+      overflow-y: auto;
+      background: var(--st-bg);
+    }
+    .pos-cart {
+      background: var(--st-surface);
+      border-left: 1px solid var(--st-border);
+      display: flex;
+      flex-direction: column;
+    }
+    .category-tabs {
+      display: flex;
+      gap: var(--st-spacing-2);
+      margin-bottom: var(--st-spacing-6);
+      flex-wrap: wrap;
+    }
+    .category-tab {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      background: var(--st-surface);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-full);
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .category-tab:hover {
+      border-color: var(--st-primary);
+      color: var(--st-primary);
+    }
+    .category-tab.active {
+      background: var(--st-primary);
+      border-color: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--st-spacing-4);
+    }
+    .product-card {
+      background: var(--st-surface);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-lg);
+      padding: var(--st-spacing-4);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .product-card:hover {
+      border-color: var(--st-primary);
+      box-shadow: var(--st-shadow-md);
+    }
+    .product-card:active {
+      transform: scale(0.98);
+    }
+    .product-image {
+      width: 80px;
+      height: 80px;
+      background: var(--st-surfaceMuted);
+      border-radius: var(--st-radius-md);
+      margin: 0 auto var(--st-spacing-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--st-muted);
+    }
+    .product-name {
+      font-weight: var(--st-font-weight-medium);
+      font-size: var(--st-font-size-small);
+      margin-bottom: var(--st-spacing-1);
+    }
+    .product-price {
+      color: var(--st-primary);
+      font-weight: var(--st-font-weight-semibold);
+    }
+    .cart-header {
+      padding: var(--st-spacing-4) var(--st-spacing-6);
+      border-bottom: 1px solid var(--st-border);
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--st-spacing-4);
+    }
+    .cart-item {
+      display: flex;
+      gap: var(--st-spacing-3);
+      padding: var(--st-spacing-3);
+      border-radius: var(--st-radius-md);
+      margin-bottom: var(--st-spacing-2);
+      background: var(--st-surfaceMuted);
+    }
+    .cart-item-image {
+      width: 48px;
+      height: 48px;
+      background: var(--st-surface);
+      border-radius: var(--st-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--st-muted);
+      flex-shrink: 0;
+    }
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .cart-item-name {
+      font-weight: var(--st-font-weight-medium);
+      font-size: var(--st-font-size-small);
+      margin-bottom: var(--st-spacing-1);
+    }
+    .cart-item-price {
+      font-size: var(--st-font-size-caption);
+      color: var(--st-muted);
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: var(--st-spacing-2);
+    }
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-sm);
+      background: var(--st-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .qty-btn:hover {
+      background: var(--st-primary);
+      border-color: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .cart-summary {
+      padding: var(--st-spacing-4) var(--st-spacing-6);
+      border-top: 1px solid var(--st-border);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--st-spacing-2);
+      font-size: var(--st-font-size-small);
+    }
+    .summary-row.total {
+      font-size: var(--st-font-size-h3);
+      font-weight: var(--st-font-weight-bold);
+      margin-top: var(--st-spacing-3);
+      padding-top: var(--st-spacing-3);
+      border-top: 1px solid var(--st-border);
+    }
+    .cart-actions {
+      padding: var(--st-spacing-4) var(--st-spacing-6);
+      border-top: 1px solid var(--st-border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--st-spacing-3);
+    }
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--st-spacing-2);
+    }
+    .payment-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--st-spacing-2);
+      padding: var(--st-spacing-3);
+      background: var(--st-surfaceMuted);
+      border: 1px solid var(--st-border);
+      border-radius: var(--st-radius-md);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .payment-btn:hover {
+      border-color: var(--st-primary);
+      color: var(--st-primary);
+    }
+    .payment-btn span {
+      font-size: var(--st-font-size-caption);
+      font-weight: var(--st-font-weight-medium);
+    }
+    .search-bar {
+      position: relative;
+      margin-bottom: var(--st-spacing-4);
+    }
+    .search-bar input {
+      padding-left: 44px;
+    }
+    .search-bar i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--st-muted);
+    }
+    .empty-cart {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--st-muted);
+      padding: var(--st-spacing-8);
+    }
+    .empty-cart i {
+      margin-bottom: var(--st-spacing-4);
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4L8 16v16c0 14.4 10.24 27.84 24 32 13.76-4.16 24-17.6 24-32V16L32 4z" fill="#1B2A41"/>
+        <path d="M32 14c-6.627 0-12 4.477-12 10 0 3.314 2.015 6.236 5.143 8L32 36l6.857-4c3.128-1.764 5.143-4.686 5.143-8 0-5.523-5.373-10-12-10z" fill="#2563EB"/>
+        <path d="M32 50c6.627 0 12-4.477 12-10 0-3.314-2.015-6.236-5.143-8L32 28l-6.857 4c-3.128 1.764-5.143 4.686-5.143 8 0 5.523 5.373 10 12 10z" fill="#2563EB"/>
+      </svg>
+      <span>Steward POS</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <span class="text-small text-muted">Terminal #1 · Main Campus</span>
+      <div class="divider" style="width: 1px; height: 20px; margin: 0;"></div>
+      <span class="badge badge-success">Online</span>
+      <button class="btn btn-outline btn-sm">
+        <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Example Pages Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html">Website</a>
+    <a href="chms.html">Church Management</a>
+    <a href="crm.html">CRM</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="pos.html" class="active">Point of Sale</a>
+  </div>
+
+  <!-- POS Layout -->
+  <div class="pos-layout">
+    <!-- Products Section -->
+    <div class="pos-products">
+      <!-- Search -->
+      <div class="search-bar">
+        <i data-lucide="search" style="width: 18px; height: 18px;"></i>
+        <input type="text" class="input" placeholder="Search products or scan barcode...">
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="category-tab active">All Items</button>
+        <button class="category-tab">Books</button>
+        <button class="category-tab">Apparel</button>
+        <button class="category-tab">Music</button>
+        <button class="category-tab">Gifts</button>
+        <button class="category-tab">Cafe</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="book" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Study Bible (NIV)</div>
+          <div class="product-price">$45.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="book-open" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Devotional Journal</div>
+          <div class="product-price">$18.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="shirt" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Church Logo Tee</div>
+          <div class="product-price">$25.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="coffee" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Coffee Mug</div>
+          <div class="product-price">$12.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="music" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Worship Album</div>
+          <div class="product-price">$15.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="gift" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Prayer Candle</div>
+          <div class="product-price">$8.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="bookmark" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Bookmark Set</div>
+          <div class="product-price">$6.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="headphones" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Sermon Series USB</div>
+          <div class="product-price">$20.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="baby" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Kids Bible</div>
+          <div class="product-price">$22.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="pen-tool" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Steward Pen</div>
+          <div class="product-price">$3.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Art Print</div>
+          <div class="product-price">$35.00</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <i data-lucide="cup-soda" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="product-name">Water Bottle</div>
+          <div class="product-price">$15.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div class="pos-cart">
+      <div class="cart-header">
+        <div class="flex justify-between items-center">
+          <h2 class="text-h3 font-semibold">Current Sale</h2>
+          <button class="btn btn-ghost btn-sm" style="color: var(--st-danger);">
+            <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-items">
+        <!-- Cart Item 1 -->
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <i data-lucide="book" style="width: 20px; height: 20px;"></i>
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">Study Bible (NIV)</div>
+            <div class="cart-item-price">$45.00 each</div>
+          </div>
+          <div class="cart-item-qty">
+            <button class="qty-btn">
+              <i data-lucide="minus" style="width: 14px; height: 14px;"></i>
+            </button>
+            <span class="font-medium">1</span>
+            <button class="qty-btn">
+              <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cart Item 2 -->
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <i data-lucide="shirt" style="width: 20px; height: 20px;"></i>
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">Church Logo Tee</div>
+            <div class="cart-item-price">$25.00 each</div>
+          </div>
+          <div class="cart-item-qty">
+            <button class="qty-btn">
+              <i data-lucide="minus" style="width: 14px; height: 14px;"></i>
+            </button>
+            <span class="font-medium">2</span>
+            <button class="qty-btn">
+              <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cart Item 3 -->
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <i data-lucide="coffee" style="width: 20px; height: 20px;"></i>
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">Coffee Mug</div>
+            <div class="cart-item-price">$12.00 each</div>
+          </div>
+          <div class="cart-item-qty">
+            <button class="qty-btn">
+              <i data-lucide="minus" style="width: 14px; height: 14px;"></i>
+            </button>
+            <span class="font-medium">1</span>
+            <button class="qty-btn">
+              <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span class="text-muted">Subtotal</span>
+          <span>$107.00</span>
+        </div>
+        <div class="summary-row">
+          <span class="text-muted">Tax (8%)</span>
+          <span>$8.56</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span>$115.56</span>
+        </div>
+      </div>
+
+      <div class="cart-actions">
+        <div class="payment-options">
+          <button class="payment-btn">
+            <i data-lucide="banknote" style="width: 20px; height: 20px;"></i>
+            <span>Cash</span>
+          </button>
+          <button class="payment-btn">
+            <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
+            <span>Card</span>
+          </button>
+          <button class="payment-btn">
+            <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+            <span>Digital</span>
+          </button>
+        </div>
+        <button class="btn btn-primary btn-lg w-full">
+          <i data-lucide="check" style="width: 20px; height: 20px;"></i>
+          Complete Sale — $115.56
+        </button>
+        <div class="flex gap-2">
+          <button class="btn btn-outline w-full">
+            <i data-lucide="pause" style="width: 16px; height: 16px;"></i>
+            Hold
+          </button>
+          <button class="btn btn-outline w-full">
+            <i data-lucide="receipt" style="width: 16px; height: 16px;"></i>
+            Quote
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+    
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
+

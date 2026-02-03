@@ -1,0 +1,43 @@
+{
+  "name": "@steward/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for the Steward design system",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steward-org/steward-brand.git",
+    "directory": "packages/tokens"
+  },
+  "type": "module",
+  "main": "./dist/tokens.js",
+  "module": "./dist/tokens.js",
+  "types": "./dist/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js"
+    },
+    "./css": "./dist/tokens.css",
+    "./dist/tokens.css": "./dist/tokens.css",
+    "./json": "./dist/tokens.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsx build/build-tokens.ts",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@steward/tsconfig": "workspace:*",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
+

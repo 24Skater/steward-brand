@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json.schemastore.org/design-tokens.json",
+  "$description": "Steward Design System - Core Design Tokens (DTCG Format)",
+
+  "color": {
+    "$type": "color",
+    
+    "brand": {
+      "navy": { "$value": "#1B2A41", "$description": "Steward Navy - Primary brand color" },
+      "blue": { "$value": "#2563EB", "$description": "Steward Blue - Action/CTA color" },
+      "emerald": { "$value": "#16A34A", "$description": "Steward Emerald - Success color" },
+      "amber": { "$value": "#F59E0B", "$description": "Steward Amber - Warning/Attention color" },
+      "red": { "$value": "#DC2626", "$description": "Steward Red - Danger/Error color" }
+    },
+
+    "neutral": {
+      "ink": { "$value": "#0B1220", "$description": "Darkest text color" },
+      "slate": { "$value": "#334155", "$description": "Secondary text color" },
+      "muted": { "$value": "#64748B", "$description": "Muted/placeholder text" },
+      "border": { "$value": "#E2E8F0", "$description": "Border color" },
+      "surface": { "$value": "#FFFFFF", "$description": "Surface/card background" },
+      "subtle": { "$value": "#F8FAFC", "$description": "Subtle background" }
+    },
+
+    "neutral-dark": {
+      "ink": { "$value": "#F8FAFC", "$description": "Darkest text color (dark mode)" },
+      "slate": { "$value": "#CBD5E1", "$description": "Secondary text color (dark mode)" },
+      "muted": { "$value": "#94A3B8", "$description": "Muted/placeholder text (dark mode)" },
+      "border": { "$value": "#334155", "$description": "Border color (dark mode)" },
+      "surface": { "$value": "#1E293B", "$description": "Surface/card background (dark mode)" },
+      "subtle": { "$value": "#0F172A", "$description": "Subtle background (dark mode)" }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "$type": "fontFamily",
+      "sans": { "$value": ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"] },
+      "mono": { "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"] }
+    },
+
+    "fontSize": {
+      "$type": "dimension",
+      "display": { "$value": "36px" },
+      "h1": { "$value": "30px" },
+      "h2": { "$value": "24px" },
+      "h3": { "$value": "20px" },
+      "body": { "$value": "16px" },
+      "small": { "$value": "14px" },
+      "caption": { "$value": "12px" }
+    },
+
+    "lineHeight": {
+      "$type": "dimension",
+      "display": { "$value": "44px" },
+      "h1": { "$value": "38px" },
+      "h2": { "$value": "32px" },
+      "h3": { "$value": "28px" },
+      "body": { "$value": "24px" },
+      "small": { "$value": "20px" },
+      "caption": { "$value": "16px" }
+    },
+
+    "fontWeight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    }
+  },
+
+  "spacing": {
+    "$type": "dimension",
+    "0": { "$value": "0px" },
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "20px" },
+    "6": { "$value": "24px" },
+    "8": { "$value": "32px" },
+    "10": { "$value": "40px" },
+    "12": { "$value": "48px" },
+    "16": { "$value": "64px" },
+    "20": { "$value": "80px" },
+    "24": { "$value": "96px" }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "none": { "$value": "0px" },
+    "sm": { "$value": "6px" },
+    "md": { "$value": "10px" },
+    "lg": { "$value": "16px" },
+    "full": { "$value": "9999px" }
+  },
+
+  "shadow": {
+    "$type": "shadow",
+    "sm": {
+      "$value": {
+        "color": "#0000000D",
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0px"
+      }
+    },
+    "md": {
+      "$value": {
+        "color": "#0000001A",
+        "offsetX": "0px",
+        "offsetY": "4px",
+        "blur": "6px",
+        "spread": "-1px"
+      }
+    },
+    "lg": {
+      "$value": {
+        "color": "#0000001A",
+        "offsetX": "0px",
+        "offsetY": "10px",
+        "blur": "15px",
+        "spread": "-3px"
+      }
+    }
+  }
+}
+

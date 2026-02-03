@@ -1,0 +1,39 @@
+{
+  "name": "steward-brand",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Steward Design System - Brand tokens, UI components, and shared configs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steward-org/steward-brand.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:tokens": "pnpm --filter @steward/tokens build",
+    "build:ui": "pnpm --filter @steward/ui build",
+    "dev": "pnpm -r --parallel dev",
+    "dev:docs": "pnpm --filter docs dev",
+    "dev:storybook": "pnpm --filter @steward/ui storybook",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean && rimraf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.10",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
+
