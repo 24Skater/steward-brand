@@ -87,4 +87,17 @@ export {
   ToastClose,
   ToastAction,
 } from "./components/Toast";
+export { Textarea, type TextareaProps } from "./components/Textarea";
+export {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  avatarVariants,
+  type AvatarProps,
+  type AvatarImageProps,
+  type AvatarFallbackProps,
+} from "./components/Avatar";
+export { Skeleton, type SkeletonProps } from "./components/Skeleton";
+export { Tooltip, type TooltipProps } from "./components/Tooltip";
+export { Progress, type ProgressProps } from "./components/Progress";
 

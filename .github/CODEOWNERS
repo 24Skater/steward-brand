@@ -1,0 +1,11 @@
+# Default owners for everything in the repo
+* @steward-org/maintainers
+
+# Package-specific owners
+/packages/tokens/ @steward-org/design
+/packages/ui/ @steward-org/frontend
+/packages/email-templates/ @steward-org/backend
+
+# CI/CD and config
+/.github/ @steward-org/devops
+
