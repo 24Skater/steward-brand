@@ -88,106 +88,20 @@ Our colors are purposeful. Navy grounds us. Blue calls to action. Semantic color
 
 ### Brand Colors
 
-<table>
-<tr>
-<td align="center">
-<img src="https://via.placeholder.com/80/1B2A41/1B2A41?text=+" width="80" height="80" style="border-radius: 8px;">
-<br>
-<strong>Navy</strong>
-<br>
-<code>#1B2A41</code>
-<br>
-<sub>Primary brand</sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/80/2563EB/2563EB?text=+" width="80" height="80" style="border-radius: 8px;">
-<br>
-<strong>Blue</strong>
-<br>
-<code>#2563EB</code>
-<br>
-<sub>Actions & links</sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/80/16A34A/16A34A?text=+" width="80" height="80" style="border-radius: 8px;">
-<br>
-<strong>Emerald</strong>
-<br>
-<code>#16A34A</code>
-<br>
-<sub>Success states</sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/80/F59E0B/F59E0B?text=+" width="80" height="80" style="border-radius: 8px;">
-<br>
-<strong>Amber</strong>
-<br>
-<code>#F59E0B</code>
-<br>
-<sub>Warnings</sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/80/DC2626/DC2626?text=+" width="80" height="80" style="border-radius: 8px;">
-<br>
-<strong>Red</strong>
-<br>
-<code>#DC2626</code>
-<br>
-<sub>Errors & danger</sub>
-</td>
-</tr>
-</table>
+| | Navy | Blue | Emerald | Amber | Red |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| | ![Navy](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-1B2A41?style=for-the-badge) | ![Blue](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-2563EB?style=for-the-badge) | ![Emerald](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-16A34A?style=for-the-badge) | ![Amber](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-F59E0B?style=for-the-badge) | ![Red](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-DC2626?style=for-the-badge) |
+| **Hex** | `#1B2A41` | `#2563EB` | `#16A34A` | `#F59E0B` | `#DC2626` |
+| **Use** | Primary brand | Actions & links | Success | Warnings | Errors |
 
 <br>
 
 ### Neutral Palette
 
-<table>
-<tr>
-<td align="center">
-<img src="https://via.placeholder.com/60/0B1220/0B1220?text=+" width="60" height="60">
-<br>
-<sub><strong>Ink</strong></sub>
-<br>
-<sub><code>#0B1220</code></sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/60/334155/334155?text=+" width="60" height="60">
-<br>
-<sub><strong>Slate</strong></sub>
-<br>
-<sub><code>#334155</code></sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/60/64748B/64748B?text=+" width="60" height="60">
-<br>
-<sub><strong>Muted</strong></sub>
-<br>
-<sub><code>#64748B</code></sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/60/E2E8F0/E2E8F0?text=+" width="60" height="60">
-<br>
-<sub><strong>Border</strong></sub>
-<br>
-<sub><code>#E2E8F0</code></sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/60/FFFFFF/FFFFFF?text=+" width="60" height="60" style="border: 1px solid #E2E8F0;">
-<br>
-<sub><strong>Surface</strong></sub>
-<br>
-<sub><code>#FFFFFF</code></sub>
-</td>
-<td align="center">
-<img src="https://via.placeholder.com/60/F8FAFC/F8FAFC?text=+" width="60" height="60">
-<br>
-<sub><strong>Subtle</strong></sub>
-<br>
-<sub><code>#F8FAFC</code></sub>
-</td>
-</tr>
-</table>
+| Ink | Slate | Muted | Border | Surface | Subtle |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| ![Ink](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-0B1220?style=flat-square) | ![Slate](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-334155?style=flat-square) | ![Muted](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-64748B?style=flat-square) | ![Border](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-E2E8F0?style=flat-square) | ![Surface](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-FFFFFF?style=flat-square) | ![Subtle](https://img.shields.io/badge/%20%20%20%20%20%20%20%20-F8FAFC?style=flat-square) |
+| `#0B1220` | `#334155` | `#64748B` | `#E2E8F0` | `#FFFFFF` | `#F8FAFC` |
 
 <br>
 <br>
