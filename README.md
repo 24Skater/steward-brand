@@ -17,9 +17,9 @@
 
 <br>
 
-[![MIT License](https://img.shields.io/badge/license-MIT-1B2A41?style=flat-square)](LICENSE)
-[![npm @steward/ui](https://img.shields.io/npm/v/@steward/ui?style=flat-square&label=%40steward%2Fui&color=2563EB)](https://www.npmjs.com/package/@steward/ui)
-[![npm @steward/tokens](https://img.shields.io/npm/v/@steward/tokens?style=flat-square&label=%40steward%2Ftokens&color=16A34A)](https://www.npmjs.com/package/@steward/tokens)
+![MIT License](https://img.shields.io/badge/license-MIT-1B2A41?style=flat-square)
+![tokens](https://img.shields.io/badge/%40steward%2Ftokens-0.1.0-16A34A?style=flat-square)
+![ui](https://img.shields.io/badge/%40steward%2Fui-0.1.0-2563EB?style=flat-square)
 
 <br>
 
