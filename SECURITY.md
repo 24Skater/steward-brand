@@ -62,7 +62,7 @@ All maintainers with npm publish access must:
 
 ### For Package Consumers
 
-When using `@steward/*` packages:
+When using `@steward-app/*` packages:
 
 1. Keep packages updated to the latest versions
 2. Run `npm audit` or `pnpm audit` regularly

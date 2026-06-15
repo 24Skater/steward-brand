@@ -23,7 +23,7 @@ importers:
 
   packages/email-templates:
     devDependencies:
-      '@steward/tsconfig':
+      '@steward-app/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       rimraf:
@@ -62,7 +62,7 @@ importers:
 
   packages/icons:
     devDependencies:
-      '@steward/tsconfig':
+      '@steward-app/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':
@@ -83,7 +83,7 @@ importers:
 
   packages/tokens:
     devDependencies:
-      '@steward/tsconfig':
+      '@steward-app/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       rimraf:
@@ -143,10 +143,10 @@ importers:
         specifier: ^2.6.0
         version: 2.6.1
     devDependencies:
-      '@steward/tokens':
+      '@steward-app/tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@steward/tsconfig':
+      '@steward-app/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':

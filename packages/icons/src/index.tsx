@@ -1,12 +1,12 @@
 /**
- * @steward/icons
+ * @steward-app/icons
  * Church ministry and operations icons for the Steward ecosystem.
  *
  * Design standard: 1.5px stroke, consistent optical padding in viewBox,
  * rounded line caps. All icons use currentColor — apply color via className.
  *
  * Usage:
- *   import { GivingIcon } from '@steward/icons'
+ *   import { GivingIcon } from '@steward-app/icons'
  *   <GivingIcon aria-label="Giving" size={24} className="text-primary" />
  *
  * Accessibility: always provide aria-label for interactive icon-only buttons.

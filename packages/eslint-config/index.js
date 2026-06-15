@@ -1,5 +1,5 @@
 /**
- * @steward/eslint-config
+ * @steward-app/eslint-config
  * Base ESLint configuration for all Steward projects
  */
 

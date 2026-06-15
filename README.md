@@ -264,17 +264,17 @@ We speak like a helpful colleague, not a corporation.
 
 ```bash
 # Install the design system
-pnpm add @steward/tokens @steward/ui
+pnpm add @steward-app/tokens @steward-app/ui
 ```
 
 ```css
 /* Import tokens in your app */
-@import '@steward/tokens/dist/tokens.css';
+@import '@steward-app/tokens/dist/tokens.css';
 ```
 
 ```js
 // Use the Tailwind preset
-import stewardPreset from '@steward/ui/tailwind.preset';
+import stewardPreset from '@steward-app/ui/tailwind.preset';
 
 export default {
   presets: [stewardPreset],
@@ -288,11 +288,11 @@ export default {
 
 | Package | Description |
 |---------|-------------|
-| [`@steward/tokens`](packages/tokens) | Design tokens (CSS, JS, JSON) |
-| [`@steward/ui`](packages/ui) | React component library |
-| [`@steward/email-templates`](packages/email-templates) | Branded email templates |
-| [`@steward/eslint-config`](packages/eslint-config) | Shared linting rules |
-| [`@steward/tsconfig`](packages/tsconfig) | TypeScript configurations |
+| [`@steward-app/tokens`](packages/tokens) | Design tokens (CSS, JS, JSON) |
+| [`@steward-app/ui`](packages/ui) | React component library |
+| [`@steward-app/email-templates`](packages/email-templates) | Branded email templates |
+| [`@steward-app/eslint-config`](packages/eslint-config) | Shared linting rules |
+| [`@steward-app/tsconfig`](packages/tsconfig) | TypeScript configurations |
 
 <br>
 

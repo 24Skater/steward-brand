@@ -1,5 +1,5 @@
 {
-  "extends": "@steward/tsconfig/react.json",
+  "extends": "@steward-app/tsconfig/react.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src"

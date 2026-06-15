@@ -1,11 +1,11 @@
-# @steward/ui
+# @steward-app/ui
 
 React component library for the Steward design system. Built with Radix UI primitives, Tailwind CSS, and full accessibility support.
 
 ## Installation
 
 ```bash
-pnpm add @steward/ui @steward/tokens
+pnpm add @steward-app/ui @steward-app/tokens
 ```
 
 ## Setup
@@ -16,13 +16,13 @@ Add the global styles to your app's root CSS file:
 
 ```css
 /* app.css or globals.css */
-@import "@steward/ui/styles";
+@import "@steward-app/ui/styles";
 ```
 
 Or import the tokens CSS directly and add your own Tailwind setup:
 
 ```css
-@import "@steward/tokens/dist/tokens.css";
+@import "@steward-app/tokens/dist/tokens.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,14 +34,14 @@ Extend your Tailwind config with the Steward preset:
 
 ```js
 // tailwind.config.js
-import stewardPreset from "@steward/ui/tailwind.preset";
+import stewardPreset from "@steward-app/ui/tailwind.preset";
 
 export default {
   presets: [stewardPreset],
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    // Include @steward/ui components in content
-    "./node_modules/@steward/ui/dist/**/*.{js,ts,jsx,tsx}",
+    // Include @steward-app/ui components in content
+    "./node_modules/@steward-app/ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
 };
 ```
@@ -51,7 +51,7 @@ export default {
 ### Button
 
 ```tsx
-import { Button } from "@steward/ui";
+import { Button } from "@steward-app/ui";
 
 <Button variant="primary">Save</Button>
 <Button variant="secondary">Cancel</Button>
@@ -72,7 +72,7 @@ import { Button } from "@steward/ui";
 ### Input & FormField
 
 ```tsx
-import { Input, FormField, Label } from "@steward/ui";
+import { Input, FormField, Label } from "@steward-app/ui";
 
 // Basic input
 <Input placeholder="Enter your name" />
@@ -98,7 +98,7 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from "@steward/ui";
+} from "@steward-app/ui";
 
 <Select>
   <SelectTrigger>
@@ -122,7 +122,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@steward/ui";
+} from "@steward-app/ui";
 
 <Card>
   <CardHeader>
@@ -141,7 +141,7 @@ import {
 ### Badge
 
 ```tsx
-import { Badge } from "@steward/ui";
+import { Badge } from "@steward-app/ui";
 
 <Badge>Default</Badge>
 <Badge variant="success">Active</Badge>
@@ -153,7 +153,7 @@ import { Badge } from "@steward/ui";
 ### Alert
 
 ```tsx
-import { Alert, AlertTitle, AlertDescription } from "@steward/ui";
+import { Alert, AlertTitle, AlertDescription } from "@steward-app/ui";
 
 <Alert variant="success" showIcon>
   <AlertTitle>Success!</AlertTitle>
@@ -177,7 +177,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@steward/ui";
+} from "@steward-app/ui";
 
 <Dialog>
   <DialogTrigger asChild>
@@ -208,7 +208,7 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@steward/ui";
+} from "@steward-app/ui";
 
 <Table>
   <TableHeader>
@@ -231,7 +231,7 @@ import {
 ### Tabs
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@steward/ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@steward-app/ui";
 
 <Tabs defaultValue="general">
   <TabsList>
@@ -272,6 +272,6 @@ All components are built with accessibility in mind:
 All components are fully typed with TypeScript. Import types directly:
 
 ```tsx
-import type { ButtonProps, CardProps, AlertProps } from "@steward/ui";
+import type { ButtonProps, CardProps, AlertProps } from "@steward-app/ui";
 ```
 

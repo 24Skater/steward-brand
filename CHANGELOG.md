@@ -6,7 +6,7 @@ This changelog is automatically updated by [Changesets](https://github.com/chang
 
 ## [Unreleased]
 
-### @steward/tokens
+### @steward-app/tokens
 
 - Initial release with DTCG-format design tokens
 - Brand colors: Navy, Blue, Emerald, Amber, Red
@@ -17,7 +17,7 @@ This changelog is automatically updated by [Changesets](https://github.com/chang
 - Shadow tokens
 - CSS, TypeScript, and JSON output formats
 
-### @steward/ui
+### @steward-app/ui
 
 - Initial release with React component library
 - Core components:
@@ -36,21 +36,21 @@ This changelog is automatically updated by [Changesets](https://github.com/chang
 - Full dark mode support
 - Accessibility-first design
 
-### @steward/email-templates
+### @steward-app/email-templates
 
 - Initial release with HTML email templates
 - Receipt email template
 - Welcome email template
 - Shared email theme with brand tokens
 
-### @steward/eslint-config
+### @steward-app/eslint-config
 
 - Initial release with shared ESLint configuration
 - Base config for all projects
 - React-specific rules
 - Node.js-specific rules
 
-### @steward/tsconfig
+### @steward-app/tsconfig
 
 - Initial release with shared TypeScript configurations
 - Base config

@@ -1,11 +1,11 @@
-# @steward/email-templates
+# @steward-app/email-templates
 
 HTML email templates for the Steward ecosystem. Uses the same brand colors and typography as the UI components.
 
 ## Installation
 
 ```bash
-pnpm add @steward/email-templates
+pnpm add @steward-app/email-templates
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ pnpm add @steward/email-templates
 ### Receipt Email
 
 ```typescript
-import { receiptEmail } from "@steward/email-templates";
+import { receiptEmail } from "@steward-app/email-templates";
 
 const html = receiptEmail({
   organizationName: "Grace Community Church",
@@ -42,7 +42,7 @@ await sendEmail({
 ### Welcome Email
 
 ```typescript
-import { welcomeEmail } from "@steward/email-templates";
+import { welcomeEmail } from "@steward-app/email-templates";
 
 const html = welcomeEmail({
   organizationName: "Grace Community Church",
@@ -74,7 +74,7 @@ const html = welcomeEmail({
 Access the theme directly for custom templates:
 
 ```typescript
-import { emailTheme, inlineStyles, emailButtonStyles } from "@steward/email-templates";
+import { emailTheme, inlineStyles, emailButtonStyles } from "@steward-app/email-templates";
 
 // Access colors
 const primaryColor = emailTheme.colors.blue; // "#2563EB"

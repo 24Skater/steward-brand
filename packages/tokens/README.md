@@ -1,11 +1,11 @@
-# @steward/tokens
+# @steward-app/tokens
 
 Design tokens for the Steward design system. Single source of truth for colors, typography, spacing, and more.
 
 ## Installation
 
 ```bash
-pnpm add @steward/tokens
+pnpm add @steward-app/tokens
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ Import the CSS file in your app's root stylesheet:
 
 ```css
 /* app.css or globals.css */
-@import '@steward/tokens/dist/tokens.css';
+@import '@steward-app/tokens/dist/tokens.css';
 ```
 
 Then use the CSS variables:
@@ -38,7 +38,7 @@ Then use the CSS variables:
 ### TypeScript
 
 ```typescript
-import { tokens, semanticTokens } from '@steward/tokens';
+import { tokens, semanticTokens } from '@steward-app/tokens';
 
 // Access raw tokens
 console.log(tokens.color.brand.blue); // "#2563EB"
@@ -52,7 +52,7 @@ console.log(semanticTokens.dark.primary); // "#3B82F6"
 ### JSON
 
 ```javascript
-import tokens from '@steward/tokens/json';
+import tokens from '@steward-app/tokens/json';
 ```
 
 ## Token Categories
