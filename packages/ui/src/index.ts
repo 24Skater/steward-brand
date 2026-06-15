@@ -100,4 +100,5 @@ export {
 export { Skeleton, type SkeletonProps } from "./components/Skeleton";
 export { Tooltip, type TooltipProps } from "./components/Tooltip";
 export { Progress, type ProgressProps } from "./components/Progress";
+export { ConfirmDialog, type ConfirmDialogProps } from "./components/ConfirmDialog";
 
