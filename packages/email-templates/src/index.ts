@@ -14,9 +14,9 @@ export {
   emailLinkStyles,
   emailHeaderStyles,
   emailFooterStyles,
-} from "./shared/email-theme";
+} from "./shared/email-theme.js";
 
 // Templates
-export { receiptEmail, type ReceiptEmailProps } from "./receipt";
-export { welcomeEmail, type WelcomeEmailProps } from "./welcome";
+export { receiptEmail, type ReceiptEmailProps } from "./receipt.js";
+export { welcomeEmail, type WelcomeEmailProps } from "./welcome.js";
 

@@ -11,7 +11,23 @@ import {
   emailHeaderStyles,
   emailFooterStyles,
   inlineStyles,
-} from "./shared/email-theme";
+} from "./shared/email-theme.js";
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function safeUrl(url: string): string {
+  if (/^(https?:|mailto:)/i.test(url.trim())) {
+    return escapeHtml(url);
+  }
+  return "#";
+}
 
 export interface ReceiptEmailProps {
   /** Organization name */
@@ -62,15 +78,21 @@ export function receiptEmail(props: ReceiptEmailProps): string {
     supportEmail,
   } = props;
 
+  const safeOrgName = escapeHtml(organizationName);
+  const safeRecipient = escapeHtml(recipientName);
+  const safeReceiptNumber = escapeHtml(receiptNumber);
+  const safeDate = escapeHtml(date);
+  const safeTotal = escapeHtml(total);
+
   const itemRows = items
     .map(
       (item) => `
       <tr>
         <td style="${inlineStyles({ padding: "12px 0", borderBottom: `1px solid ${emailTheme.colors.border}` })}">
-          ${item.description}
+          ${escapeHtml(item.description)}
         </td>
         <td style="${inlineStyles({ padding: "12px 0", borderBottom: `1px solid ${emailTheme.colors.border}`, textAlign: "right" })}">
-          ${item.amount}
+          ${escapeHtml(item.amount)}
         </td>
       </tr>
     `
@@ -83,7 +105,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receipt from ${organizationName}</title>
+  <title>Receipt from ${safeOrgName}</title>
 </head>
 <body style="${emailWrapperStyles}">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="${emailWrapperStyles}">
@@ -93,7 +115,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
           <!-- Header -->
           <tr>
             <td style="${emailHeaderStyles}">
-              ${logoUrl ? `<img src="${logoUrl}" alt="${organizationName}" height="40" style="display: block; margin-bottom: 16px;">` : ""}
+              ${logoUrl ? `<img src="${safeUrl(logoUrl)}" alt="${safeOrgName}" height="40" style="display: block; margin-bottom: 16px;">` : ""}
               <h1 style="${inlineStyles({ margin: "0", fontSize: emailTheme.fontSizes.h2, fontWeight: "600", color: emailTheme.colors.navy })}">
                 Receipt
               </h1>
@@ -104,7 +126,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
           <tr>
             <td style="padding: ${emailTheme.spacing.md} 0;">
               <p style="margin: 0 0 16px;">
-                Hi ${recipientName},
+                Hi ${safeRecipient},
               </p>
               <p style="margin: 0 0 24px;">
                 Thank you for your payment. Here's your receipt:
@@ -120,7 +142,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
                           Receipt #
                         </td>
                         <td style="${inlineStyles({ textAlign: "right", fontWeight: "500" })}">
-                          ${receiptNumber}
+                          ${safeReceiptNumber}
                         </td>
                       </tr>
                       <tr>
@@ -128,7 +150,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
                           Date
                         </td>
                         <td style="${inlineStyles({ textAlign: "right", fontWeight: "500", paddingTop: "8px" })}">
-                          ${date}
+                          ${safeDate}
                         </td>
                       </tr>
                       ${
@@ -139,7 +161,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
                           Payment Method
                         </td>
                         <td style="${inlineStyles({ textAlign: "right", fontWeight: "500", paddingTop: "8px" })}">
-                          ${paymentMethod}
+                          ${escapeHtml(paymentMethod)}
                         </td>
                       </tr>
                       `
@@ -171,7 +193,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
                       Total
                     </td>
                     <td style="${inlineStyles({ padding: "16px 0", fontWeight: "600", fontSize: emailTheme.fontSizes.h3, textAlign: "right" })}">
-                      ${total}
+                      ${safeTotal}
                     </td>
                   </tr>
                 </tfoot>
@@ -181,7 +203,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
                 note
                   ? `
               <p style="${inlineStyles({ margin: `0 0 ${emailTheme.spacing.lg}`, padding: emailTheme.spacing.md, backgroundColor: emailTheme.colors.subtle, borderRadius: emailTheme.borderRadius.sm, fontSize: emailTheme.fontSizes.small })}">
-                <strong>Note:</strong> ${note}
+                <strong>Note:</strong> ${escapeHtml(note)}
               </p>
               `
                   : ""
@@ -193,7 +215,7 @@ export function receiptEmail(props: ReceiptEmailProps): string {
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center" style="padding: ${emailTheme.spacing.md} 0;">
-                    <a href="${viewDetailsUrl}" style="${emailButtonStyles("primary")}">
+                    <a href="${safeUrl(viewDetailsUrl)}" style="${emailButtonStyles("primary")}">
                       View Details
                     </a>
                   </td>
@@ -209,10 +231,10 @@ export function receiptEmail(props: ReceiptEmailProps): string {
           <tr>
             <td style="${emailFooterStyles}">
               <p style="margin: 0 0 8px;">
-                ${organizationName}
+                ${safeOrgName}
               </p>
-              ${organizationAddress ? `<p style="margin: 0 0 8px;">${organizationAddress}</p>` : ""}
-              ${supportEmail ? `<p style="margin: 0;">Questions? Contact us at <a href="mailto:${supportEmail}" style="color: ${emailTheme.colors.blue};">${supportEmail}</a></p>` : ""}
+              ${organizationAddress ? `<p style="margin: 0 0 8px;">${escapeHtml(organizationAddress)}</p>` : ""}
+              ${supportEmail ? `<p style="margin: 0;">Questions? Contact us at <a href="mailto:${escapeHtml(supportEmail)}" style="color: ${emailTheme.colors.blue};">${escapeHtml(supportEmail)}</a></p>` : ""}
             </td>
           </tr>
         </table>
@@ -223,4 +245,3 @@ export function receiptEmail(props: ReceiptEmailProps): string {
 </html>
   `.trim();
 }
-

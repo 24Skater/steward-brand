@@ -1,0 +1,9 @@
+{
+  "$description": "Steward Table - Product Theme Overrides. Cooler neutral palette with a hospitality/operations feel. Data-dense layout requires consistent spacing tokens.",
+
+  "semantic": {
+    "bg": "#F8FAFB",
+    "surface": "{color.neutral.surface}",
+    "accent": "#0E7490"
+  }
+}

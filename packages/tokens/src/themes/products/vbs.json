@@ -1,0 +1,9 @@
+{
+  "$description": "Steward VBS - Product Theme Overrides. Warm expressive palette for youth programming. Accent color is intentionally more vibrant than the core brand.",
+
+  "semantic": {
+    "bg": "#FFFBF0",
+    "surfaceMuted": "{color.neutral.warmSurface}",
+    "accent": "#F97316"
+  }
+}

@@ -42,7 +42,7 @@ export interface TooltipProps {
 const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   ({ content, children, side = "top", delayDuration = 200, className }, ref) => {
     const [isVisible, setIsVisible] = React.useState(false);
-    const timeoutRef = React.useRef<NodeJS.Timeout>();
+    const timeoutRef = React.useRef<ReturnType<typeof setTimeout>>();
 
     const handleMouseEnter = () => {
       timeoutRef.current = setTimeout(() => {

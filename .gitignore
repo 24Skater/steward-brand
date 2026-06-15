@@ -5,6 +5,8 @@ node_modules/
 # Build outputs
 dist/
 build/
+# Exception: packages/tokens/build/ contains source scripts, not artifacts
+!packages/tokens/build/
 .next/
 out/
 

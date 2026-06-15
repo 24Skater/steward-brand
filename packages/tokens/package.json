@@ -19,7 +19,10 @@
     },
     "./css": "./dist/tokens.css",
     "./dist/tokens.css": "./dist/tokens.css",
-    "./json": "./dist/tokens.json"
+    "./json": "./dist/tokens.json",
+    "./themes/chms": "./dist/themes/chms.css",
+    "./themes/table": "./dist/themes/table.css",
+    "./themes/vbs": "./dist/themes/vbs.css"
   },
   "files": [
     "dist",

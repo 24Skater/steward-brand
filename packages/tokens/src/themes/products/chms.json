@@ -1,0 +1,10 @@
+{
+  "$description": "Steward Congregation (ChMS) - Product Theme Overrides. Overrides semantic tokens only; behavioral tokens (focus ring, border style) stay consistent across all products.",
+
+  "semantic": {
+    "bg": "{color.neutral.warmSubtle}",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "{color.neutral.warmSurface}",
+    "accent": "{color.brand.navy}"
+  }
+}

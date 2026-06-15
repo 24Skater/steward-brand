@@ -11,7 +11,7 @@ import {
   emailHeaderStyles,
   emailFooterStyles,
   inlineStyles,
-} from "./shared/email-theme";
+} from "./shared/email-theme.js";
 
 export interface WelcomeEmailProps {
   /** Organization name */

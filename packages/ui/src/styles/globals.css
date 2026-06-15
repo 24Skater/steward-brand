@@ -1,13 +1,11 @@
 /**
  * Steward UI Global Styles
  * Import this file at the root of your application
+ * Requires Tailwind CSS v4 to process @import "tailwindcss"
  */
 
+@import "tailwindcss";
 @import "@steward/tokens/dist/tokens.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   *,
@@ -29,13 +27,11 @@
     color: var(--st-fg);
   }
 
-  /* Focus visible styles */
   :focus-visible {
     outline: 2px solid var(--st-focusRing);
     outline-offset: 2px;
   }
 
-  /* Selection styles */
   ::selection {
     background-color: var(--st-primary);
     color: var(--st-primaryFg);
@@ -43,8 +39,9 @@
 }
 
 @layer components {
-  /* Typography presets */
+  /* Display scale uses Georgia for warmth; all other sizes use Inter */
   .text-display {
+    font-family: var(--st-font-display);
     font-size: var(--st-font-size-display);
     line-height: var(--st-line-height-display);
     font-weight: var(--st-font-weight-bold);
@@ -87,7 +84,6 @@
 }
 
 @layer utilities {
-  /* Animation utilities */
   .animate-in {
     animation: animate-in 0.2s ease-out;
   }
@@ -118,4 +114,3 @@
     }
   }
 }
-

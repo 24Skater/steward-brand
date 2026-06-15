@@ -4,10 +4,12 @@
 
   "color": {
     "$type": "color",
-    
+
     "brand": {
-      "navy": { "$value": "#1B2A41", "$description": "Steward Navy - Primary brand color" },
-      "blue": { "$value": "#2563EB", "$description": "Steward Blue - Action/CTA color" },
+      "navy": { "$value": "#1B2A41", "$description": "Steward Navy - Accent/sidebar color" },
+      "gold": { "$value": "#E8B847", "$description": "Kingdom Gold - Brand primary (surfaces only; use dark text on gold)" },
+      "goldDark": { "$value": "#C49A2E", "$description": "Kingdom Gold Dark - Hover state for gold surfaces" },
+      "blue": { "$value": "#2563EB", "$description": "Steward Blue - Links and interactive chrome (action color)" },
       "emerald": { "$value": "#16A34A", "$description": "Steward Emerald - Success color" },
       "amber": { "$value": "#F59E0B", "$description": "Steward Amber - Warning/Attention color" },
       "red": { "$value": "#DC2626", "$description": "Steward Red - Danger/Error color" }
@@ -19,7 +21,9 @@
       "muted": { "$value": "#64748B", "$description": "Muted/placeholder text" },
       "border": { "$value": "#E2E8F0", "$description": "Border color" },
       "surface": { "$value": "#FFFFFF", "$description": "Surface/card background" },
-      "subtle": { "$value": "#F8FAFC", "$description": "Subtle background" }
+      "subtle": { "$value": "#F8FAFC", "$description": "Subtle background" },
+      "warmSubtle": { "$value": "#FAF7F2", "$description": "Warm parchment background — ChMS/Congregation default" },
+      "warmSurface": { "$value": "#F5EED8", "$description": "Warm golden surface — accent backgrounds" }
     },
 
     "neutral-dark": {
@@ -27,8 +31,8 @@
       "slate": { "$value": "#CBD5E1", "$description": "Secondary text color (dark mode)" },
       "muted": { "$value": "#94A3B8", "$description": "Muted/placeholder text (dark mode)" },
       "border": { "$value": "#334155", "$description": "Border color (dark mode)" },
-      "surface": { "$value": "#1E293B", "$description": "Surface/card background (dark mode)" },
-      "subtle": { "$value": "#0F172A", "$description": "Subtle background (dark mode)" }
+      "surface": { "$value": "#1E2F4A", "$description": "Surface/card background (dark mode) — warm navy" },
+      "subtle": { "$value": "#1A2740", "$description": "Subtle background (dark mode) — warm navy, not pure black" }
     }
   },
 
@@ -36,7 +40,8 @@
     "fontFamily": {
       "$type": "fontFamily",
       "sans": { "$value": ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"] },
-      "mono": { "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"] }
+      "mono": { "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"] },
+      "display": { "$value": ["Georgia", "Times New Roman", "serif"], "$description": "Display/heading-xl serif — adds warmth at hero scale; Inter for all other sizes" }
     },
 
     "fontSize": {
@@ -127,4 +132,3 @@
     }
   }
 }
-

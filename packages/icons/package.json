@@ -1,0 +1,44 @@
+{
+  "name": "@steward/icons",
+  "version": "0.1.0",
+  "description": "SVG icons for the Steward design system — church ministry, operations, and community icons",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steward-org/steward-brand.git",
+    "directory": "packages/icons"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@steward/tsconfig": "workspace:*",
+    "@types/react": "^18.3.17",
+    "react": "^18.3.1",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
