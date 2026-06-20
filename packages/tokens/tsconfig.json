@@ -2,9 +2,9 @@
   "extends": "@steward-apps/tsconfig/library.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": ".",
+    "types": ["node"]
   },
-  "include": ["src", "build"],
+  "include": ["build"],
   "exclude": ["node_modules", "dist"]
 }
-

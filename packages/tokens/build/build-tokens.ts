@@ -37,11 +37,11 @@ function resolveReference(ref: string, src: object): string {
   const match = ref.match(/^\{(.+)\}$/);
   if (!match) return ref;
 
-  const path = match[1].split(".");
+  const path = (match[1] ?? "").split(".");
   let current: unknown = src;
 
   for (let i = 0; i < path.length; i++) {
-    const key = path[i];
+    const key = path[i] ?? "";
     if (typeof current === "object" && current !== null && key in current) {
       current = (current as Record<string, unknown>)[key];
     } else {
