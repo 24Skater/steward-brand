@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/ui",
+  "name": "@steward-apps/ui",
   "version": "1.0.0",
   "description": "React component library for the Steward design system",
   "license": "MIT",
@@ -59,8 +59,8 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@steward-app/tokens": "workspace:*",
-    "@steward-app/tsconfig": "workspace:*",
+    "@steward-apps/tokens": "workspace:*",
+    "@steward-apps/tsconfig": "workspace:*",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "react": "^18.3.1",

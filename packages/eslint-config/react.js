@@ -1,5 +1,5 @@
 /**
- * @steward-app/eslint-config/react
+ * @steward-apps/eslint-config/react
  * ESLint configuration for React projects
  */
 

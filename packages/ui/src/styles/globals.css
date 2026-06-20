@@ -5,7 +5,7 @@
  */
 
 @import "tailwindcss";
-@import "@steward-app/tokens/dist/tokens.css";
+@import "@steward-apps/tokens/dist/tokens.css";
 
 @layer base {
   *,

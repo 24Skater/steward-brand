@@ -1,5 +1,5 @@
 /**
- * @steward-app/ui
+ * @steward-apps/ui
  * React component library for the Steward design system
  */
 

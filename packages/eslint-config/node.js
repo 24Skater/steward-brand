@@ -1,5 +1,5 @@
 /**
- * @steward-app/eslint-config/node
+ * @steward-apps/eslint-config/node
  * ESLint configuration for Node.js projects
  */
 

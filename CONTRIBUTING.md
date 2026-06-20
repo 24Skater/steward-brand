@@ -32,8 +32,8 @@ pnpm build
 pnpm dev
 
 # Watch specific package
-pnpm --filter @steward-app/ui dev
-pnpm --filter @steward-app/tokens dev
+pnpm --filter @steward-apps/ui dev
+pnpm --filter @steward-apps/tokens dev
 ```
 
 ### Building
@@ -67,11 +67,11 @@ pnpm format
 
 | Package | Description |
 |---------|-------------|
-| `@steward-app/tokens` | Design tokens (colors, typography, spacing) |
-| `@steward-app/ui` | React component library |
-| `@steward-app/email-templates` | HTML email templates |
-| `@steward-app/eslint-config` | Shared ESLint configuration |
-| `@steward-app/tsconfig` | Shared TypeScript configuration |
+| `@steward-apps/tokens` | Design tokens (colors, typography, spacing) |
+| `@steward-apps/ui` | React component library |
+| `@steward-apps/email-templates` | HTML email templates |
+| `@steward-apps/eslint-config` | Shared ESLint configuration |
+| `@steward-apps/tsconfig` | Shared TypeScript configuration |
 
 ## Making Changes
 

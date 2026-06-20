@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/eslint-config",
+  "name": "@steward-apps/eslint-config",
   "version": "0.1.0",
   "description": "Shared ESLint configuration for Steward projects",
   "license": "MIT",

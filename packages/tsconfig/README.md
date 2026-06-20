@@ -1,11 +1,11 @@
-# @steward-app/tsconfig
+# @steward-apps/tsconfig
 
 Shared TypeScript configurations for Steward projects.
 
 ## Installation
 
 ```bash
-pnpm add -D @steward-app/tsconfig
+pnpm add -D @steward-apps/tsconfig
 ```
 
 ## Available Configs
@@ -25,7 +25,7 @@ Extend the appropriate config in your `tsconfig.json`:
 
 ```json
 {
-  "extends": "@steward-app/tsconfig/react.json",
+  "extends": "@steward-apps/tsconfig/react.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -41,7 +41,7 @@ Extend the appropriate config in your `tsconfig.json`:
 
 ```json
 {
-  "extends": "@steward-app/tsconfig/node.json",
+  "extends": "@steward-apps/tsconfig/node.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -55,7 +55,7 @@ Extend the appropriate config in your `tsconfig.json`:
 
 ```json
 {
-  "extends": "@steward-app/tsconfig/library.json",
+  "extends": "@steward-apps/tsconfig/library.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"

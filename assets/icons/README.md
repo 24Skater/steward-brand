@@ -18,7 +18,7 @@ Custom product icons and specialized UI icons will be added here as needed.
 ## Usage
 
 ```tsx
-import { CustomIcon } from '@steward-app/ui/icons';
+import { CustomIcon } from '@steward-apps/ui/icons';
 
 // Icons inherit color from text color
 <CustomIcon className="w-6 h-6 text-primary" />

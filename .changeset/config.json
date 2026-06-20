@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@steward-app/tokens", "@steward-app/ui", "@steward-app/icons"]],
+  "linked": [["@steward-apps/tokens", "@steward-apps/ui", "@steward-apps/icons"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

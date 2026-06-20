@@ -1,5 +1,5 @@
 /**
- * @steward-app/email-templates
+ * @steward-apps/email-templates
  * HTML email templates for the Steward ecosystem
  */
 

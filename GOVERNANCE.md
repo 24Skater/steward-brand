@@ -13,9 +13,9 @@ Succession plan: If the current maintainer is unavailable for more than 60 days,
 
 - Renaming a CSS custom property (`--st-*`)
 - Changing the resolved value of a semantic token in a way that shifts visual output
-- Removing a component from `@steward-app/ui`
+- Removing a component from `@steward-apps/ui`
 - Changing a component's required props
-- Removing an icon from `@steward-app/icons`
+- Removing an icon from `@steward-apps/icons`
 
 Breaking changes must be:
 1. Announced in a GitHub issue tagged `breaking-change`

@@ -1,20 +1,20 @@
-# @steward-app/eslint-config
+# @steward-apps/eslint-config
 
 Shared ESLint configuration for Steward projects. Uses ESLint flat config (v9+).
 
 ## Installation
 
 ```bash
-pnpm add -D @steward-app/eslint-config eslint typescript
+pnpm add -D @steward-apps/eslint-config eslint typescript
 ```
 
 ## Available Configs
 
 | Config | Use Case |
 |--------|----------|
-| `@steward-app/eslint-config` | Base config for all projects |
-| `@steward-app/eslint-config/react` | React applications |
-| `@steward-app/eslint-config/node` | Node.js backends |
+| `@steward-apps/eslint-config` | Base config for all projects |
+| `@steward-apps/eslint-config/react` | React applications |
+| `@steward-apps/eslint-config/node` | Node.js backends |
 
 ## Usage
 
@@ -23,7 +23,7 @@ Create an `eslint.config.js` file in your project root:
 ### React Application
 
 ```js
-import stewardConfig from "@steward-app/eslint-config/react";
+import stewardConfig from "@steward-apps/eslint-config/react";
 
 export default [
   ...stewardConfig,
@@ -39,7 +39,7 @@ export default [
 ### Node.js Backend
 
 ```js
-import stewardConfig from "@steward-app/eslint-config/node";
+import stewardConfig from "@steward-apps/eslint-config/node";
 
 export default [
   ...stewardConfig,

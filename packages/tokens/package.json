@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/tokens",
+  "name": "@steward-apps/tokens",
   "version": "1.0.0",
   "description": "Design tokens for the Steward design system",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@steward-app/tsconfig": "workspace:*",
+    "@steward-apps/tsconfig": "workspace:*",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

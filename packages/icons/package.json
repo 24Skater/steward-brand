@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/icons",
+  "name": "@steward-apps/icons",
   "version": "1.0.0",
   "description": "SVG icons for the Steward design system — church ministry, operations, and community icons",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "react": ">=18.0.0"
   },
   "devDependencies": {
-    "@steward-app/tsconfig": "workspace:*",
+    "@steward-apps/tsconfig": "workspace:*",
     "@types/react": "^18.3.17",
     "react": "^18.3.1",
     "rimraf": "^6.0.1",

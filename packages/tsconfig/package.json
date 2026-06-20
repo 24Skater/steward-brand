@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/tsconfig",
+  "name": "@steward-apps/tsconfig",
   "version": "0.1.0",
   "description": "Shared TypeScript configurations for Steward projects",
   "license": "MIT",

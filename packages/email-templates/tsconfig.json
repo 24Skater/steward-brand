@@ -1,5 +1,5 @@
 {
-  "extends": "@steward-app/tsconfig/node.json",
+  "extends": "@steward-apps/tsconfig/node.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"

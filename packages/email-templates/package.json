@@ -1,5 +1,5 @@
 {
-  "name": "@steward-app/email-templates",
+  "name": "@steward-apps/email-templates",
   "version": "0.1.0",
   "description": "HTML email templates for the Steward ecosystem",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@steward-app/tsconfig": "workspace:*",
+    "@steward-apps/tsconfig": "workspace:*",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"

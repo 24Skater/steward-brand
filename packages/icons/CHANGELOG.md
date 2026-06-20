@@ -1,4 +1,4 @@
-# @steward-app/icons
+# @steward-apps/icons
 
 ## 1.0.0
 
@@ -11,6 +11,6 @@
   - Per-product semantic theme layer: `chms`, `table`, `vbs`
   - Georgia display font (`--st-font-display`) at heading-xl scale
   - `ConfirmDialog` component for irreversible actions (Radix AlertDialog)
-  - 10 church ministry icons in `@steward-app/icons`
+  - 10 church ministry icons in `@steward-apps/icons`
   - Tailwind v4 compatible
   - XSS-safe email templates
