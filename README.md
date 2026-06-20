@@ -21,11 +21,15 @@
 
 <br>
 
-![License](https://img.shields.io/badge/license-MIT-0D1B2E?style=flat-square)
+[![tokens](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&label=%40steward-apps%2Ftokens&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens)
+[![ui](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&label=%40steward-apps%2Fui&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui)
+[![icons](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&label=%40steward-apps%2Ficons&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons)
+[![email-templates](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&label=%40steward-apps%2Femail-templates&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates)
+
+![License](https://img.shields.io/badge/license-MIT-6B7A8D?style=flat-square)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
-![pnpm](https://img.shields.io/badge/pnpm-workspace-F69220?style=flat-square&logo=pnpm&logoColor=white)
 ![Tests](https://img.shields.io/badge/tests-42%20passing-6E9F18?style=flat-square&logo=vitest&logoColor=white)
 [![Pages](https://img.shields.io/badge/demo-live-0D1B2E?style=flat-square&logo=github&logoColor=E8B847)](https://24skater.github.io/steward-brand/examples/)
 
@@ -94,14 +98,14 @@ The auth layout ships as a composable React component — drop it in and both th
 
 Six packages — one shared design language across every Steward product:
 
-| Package | Contents | Key exports |
-|---|---|---|
-| [`@steward-apps/tokens`](packages/tokens) | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css` |
-| [`@steward-apps/ui`](packages/ui) | 25+ React components built on Radix UI + Tailwind v4 | `Button`, `Sidebar`, `Pagination`, `Combobox`, … |
-| [`@steward-apps/icons`](packages/icons) | Ministry-specific SVG icon set | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, … |
-| [`@steward-apps/email-templates`](packages/email-templates) | Inline-style HTML email templates | `welcomeEmail`, `receiptEmail`, `passwordResetEmail` |
-| [`@steward-apps/eslint-config`](packages/eslint-config) | Shared ESLint configuration | `base`, `react` |
-| [`@steward-apps/tsconfig`](packages/tsconfig) | Shared TypeScript configurations | `base.json`, `library.json`, `react.json` |
+| Package | npm | Contents | Key exports |
+|---|---|---|---|
+| [`@steward-apps/tokens`](packages/tokens) | [![npm](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens) | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css` |
+| [`@steward-apps/ui`](packages/ui) | [![npm](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui) | 25+ React components built on Radix UI + Tailwind v4 | `Button`, `Sidebar`, `Pagination`, `Combobox`, … |
+| [`@steward-apps/icons`](packages/icons) | [![npm](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons) | Ministry-specific SVG icon set | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, … |
+| [`@steward-apps/email-templates`](packages/email-templates) | [![npm](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates) | Inline-style HTML email templates | `welcomeEmail`, `receiptEmail`, `passwordResetEmail` |
+| [`@steward-apps/eslint-config`](packages/eslint-config) | [![npm](https://img.shields.io/npm/v/@steward-apps/eslint-config?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/eslint-config) | Shared ESLint configuration | `base`, `react` |
+| [`@steward-apps/tsconfig`](packages/tsconfig) | [![npm](https://img.shields.io/npm/v/@steward-apps/tsconfig?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tsconfig) | Shared TypeScript configurations | `base.json`, `library.json`, `react.json` |
 
 ---
 
