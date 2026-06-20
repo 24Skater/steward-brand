@@ -39,10 +39,7 @@ export default [
       "react/jsx-key": "error",
       "react/no-array-index-key": "warn",
       "react/self-closing-comp": "error",
-      "react/jsx-curly-brace-presence": [
-        "error",
-        { props: "never", children: "never" },
-      ],
+      "react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
 
       // React Hooks
       "react-hooks/rules-of-hooks": "error",
@@ -50,4 +47,3 @@ export default [
     },
   },
 ];
-

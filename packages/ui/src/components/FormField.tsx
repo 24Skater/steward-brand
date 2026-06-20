@@ -60,9 +60,7 @@ const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
           {label}
           {required && <span className="text-danger ml-1">*</span>}
         </Label>
-        <div
-          aria-describedby={error ? errorId : helpText ? describedById : undefined}
-        >
+        <div aria-describedby={error ? errorId : helpText ? describedById : undefined}>
           {children}
         </div>
         {helpText && !error && (
@@ -82,4 +80,3 @@ const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
 FormField.displayName = "FormField";
 
 export { FormField };
-

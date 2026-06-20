@@ -151,4 +151,3 @@ export const emailFooterStyles = inlineStyles({
   color: emailTheme.colors.muted,
   textAlign: "center",
 });
-

@@ -21,10 +21,7 @@ export interface IconProps {
   "aria-hidden"?: boolean;
 }
 
-function icon(
-  displayName: string,
-  children: React.ReactNode
-): React.FC<IconProps> {
+function icon(displayName: string, children: React.ReactNode): React.FC<IconProps> {
   const Icon = ({
     size = 24,
     className,

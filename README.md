@@ -98,14 +98,14 @@ The auth layout ships as a composable React component — drop it in and both th
 
 Six packages — one shared design language across every Steward product:
 
-| Package | npm | Contents | Key exports |
-|---|---|---|---|
-| [`@steward-apps/tokens`](packages/tokens) | [![npm](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens) | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css` |
-| [`@steward-apps/ui`](packages/ui) | [![npm](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui) | 25+ React components built on Radix UI + Tailwind v4 | `Button`, `Sidebar`, `Pagination`, `Combobox`, … |
-| [`@steward-apps/icons`](packages/icons) | [![npm](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons) | Ministry-specific SVG icon set | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, … |
-| [`@steward-apps/email-templates`](packages/email-templates) | [![npm](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates) | Inline-style HTML email templates | `welcomeEmail`, `receiptEmail`, `passwordResetEmail` |
-| [`@steward-apps/eslint-config`](packages/eslint-config) | [![npm](https://img.shields.io/npm/v/@steward-apps/eslint-config?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/eslint-config) | Shared ESLint configuration | `base`, `react` |
-| [`@steward-apps/tsconfig`](packages/tsconfig) | [![npm](https://img.shields.io/npm/v/@steward-apps/tsconfig?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tsconfig) | Shared TypeScript configurations | `base.json`, `library.json`, `react.json` |
+| Package                                                     | npm                                                                                                                                                              | Contents                                                   | Key exports                                          |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| [`@steward-apps/tokens`](packages/tokens)                   | [![npm](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens)                   | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css`            |
+| [`@steward-apps/ui`](packages/ui)                           | [![npm](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui)                           | 25+ React components built on Radix UI + Tailwind v4       | `Button`, `Sidebar`, `Pagination`, `Combobox`, …     |
+| [`@steward-apps/icons`](packages/icons)                     | [![npm](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons)                     | Ministry-specific SVG icon set                             | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, …      |
+| [`@steward-apps/email-templates`](packages/email-templates) | [![npm](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates) | Inline-style HTML email templates                          | `welcomeEmail`, `receiptEmail`, `passwordResetEmail` |
+| [`@steward-apps/eslint-config`](packages/eslint-config)     | [![npm](https://img.shields.io/npm/v/@steward-apps/eslint-config?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/eslint-config)     | Shared ESLint configuration                                | `base`, `react`                                      |
+| [`@steward-apps/tsconfig`](packages/tsconfig)               | [![npm](https://img.shields.io/npm/v/@steward-apps/tsconfig?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tsconfig)               | Shared TypeScript configurations                           | `base.json`, `library.json`, `react.json`            |
 
 ---
 
@@ -129,20 +129,20 @@ The CSS output covers both light and dark mode automatically — no JavaScript r
 ```css
 /* Base layer: dist/tokens.css */
 :root {
-  --st-primary:  #E8B847;   /* Kingdom Gold */
-  --st-fg:       #0D1B2E;   /* Navy foreground */
-  --st-bg:       #FAF7F2;   /* Parchment background */
-  --st-surface:  #FFFFFF;   /* Card / panel surface */
-  --st-border:   #DDD0A8;
-  --st-muted:    #6B7A8D;
+  --st-primary: #e8b847; /* Kingdom Gold */
+  --st-fg: #0d1b2e; /* Navy foreground */
+  --st-bg: #faf7f2; /* Parchment background */
+  --st-surface: #ffffff; /* Card / panel surface */
+  --st-border: #ddd0a8;
+  --st-muted: #6b7a8d;
 }
 
 .dark {
-  --st-fg:       #F5EED8;
-  --st-bg:       #060F1A;
-  --st-surface:  #0D1B2E;
-  --st-border:   #1A2F4A;
-  --st-muted:    #8A7A5C;
+  --st-fg: #f5eed8;
+  --st-bg: #060f1a;
+  --st-surface: #0d1b2e;
+  --st-border: #1a2f4a;
+  --st-muted: #8a7a5c;
 }
 ```
 
@@ -199,14 +199,14 @@ Apply a theme with one import and one attribute:
 </body>
 ```
 
-| Theme file | Product | Palette |
-|---|---|---|
-| `themes/chms.css` | Church Management | Navy sidebar, parchment, Kingdom Gold |
-| `themes/accounting.css` | Finance / Ledger | Cool slate, blue accent |
-| `themes/crm.css` | Contacts / Relationships | Warm stone, emerald accent |
-| `themes/register.css` | Point of Sale | High-contrast transaction UI |
-| `themes/vbs.css` | Youth / VBS | Vibrant, playful |
-| `themes/website.css` | Public marketing site | Full parchment brand |
+| Theme file              | Product                  | Palette                               |
+| ----------------------- | ------------------------ | ------------------------------------- |
+| `themes/chms.css`       | Church Management        | Navy sidebar, parchment, Kingdom Gold |
+| `themes/accounting.css` | Finance / Ledger         | Cool slate, blue accent               |
+| `themes/crm.css`        | Contacts / Relationships | Warm stone, emerald accent            |
+| `themes/register.css`   | Point of Sale            | High-contrast transaction UI          |
+| `themes/vbs.css`        | Youth / VBS              | Vibrant, playful                      |
+| `themes/website.css`    | Public marketing site    | Full parchment brand                  |
 
 ---
 
@@ -251,24 +251,26 @@ pnpm add @steward-apps/email-templates
 
 ```css
 /* 1. Base token layer — light and dark mode variables */
-@import '@steward-apps/tokens/dist/tokens.css';
+@import "@steward-apps/tokens/dist/tokens.css";
 
 /* 2. Optional: load a product theme */
-@import '@steward-apps/tokens/dist/themes/chms.css';
+@import "@steward-apps/tokens/dist/themes/chms.css";
 ```
 
 ```tsx
 /* Tokens are plain CSS variables — use them anywhere */
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
-    <div style={{
-      background: 'var(--st-surface)',
-      border: '1px solid var(--st-border)',
-      borderRadius: '8px',
-      padding: '1.5rem',
-    }}>
-      <p style={{ color: 'var(--st-muted)', fontSize: '0.875rem' }}>{label}</p>
-      <p style={{ color: 'var(--st-fg)', fontSize: '1.5rem', fontWeight: 600 }}>{value}</p>
+    <div
+      style={{
+        background: "var(--st-surface)",
+        border: "1px solid var(--st-border)",
+        borderRadius: "8px",
+        padding: "1.5rem",
+      }}
+    >
+      <p style={{ color: "var(--st-muted)", fontSize: "0.875rem" }}>{label}</p>
+      <p style={{ color: "var(--st-fg)", fontSize: "1.5rem", fontWeight: 600 }}>{value}</p>
     </div>
   );
 }
@@ -277,18 +279,18 @@ function StatCard({ label, value }: { label: string; value: string }) {
 Or import the typed JavaScript map:
 
 ```ts
-import tokens from '@steward-apps/tokens';
+import tokens from "@steward-apps/tokens";
 
-tokens.color.brand.gold    // "#E8B847"
-tokens.color.brand.navy    // "#0D1B2E"
-tokens.space.lg            // "1.5rem"
+tokens.color.brand.gold; // "#E8B847"
+tokens.color.brand.navy; // "#0D1B2E"
+tokens.space.lg; // "1.5rem"
 ```
 
 Configure Tailwind to reference the same variables:
 
 ```js
 // tailwind.config.js
-import stewardPreset from '@steward-apps/ui/tailwind.preset';
+import stewardPreset from "@steward-apps/ui/tailwind.preset";
 
 export default {
   presets: [stewardPreset],
@@ -304,13 +306,13 @@ pnpm add @steward-apps/ui
 ```
 
 ```tsx
-import '@steward-apps/ui/styles';
-import { Button, Input, Card, CardContent, Pagination, Combobox } from '@steward-apps/ui';
-import { useState } from 'react';
+import "@steward-apps/ui/styles";
+import { Button, Input, Card, CardContent, Pagination, Combobox } from "@steward-apps/ui";
+import { useState } from "react";
 
 export function MemberSearch() {
   const [page, setPage] = useState(1);
-  const [ministry, setMinistry] = useState('');
+  const [ministry, setMinistry] = useState("");
 
   return (
     <Card>
@@ -336,10 +338,16 @@ The sidebar system reads from `--st-sidebar-*` CSS variables so it adopts each p
 
 ```tsx
 import {
-  Sidebar, SidebarHeader, SidebarContent, SidebarFooter,
-  SidebarSection, SidebarSectionTitle, SidebarLink, SidebarSeparator,
-} from '@steward-apps/ui';
-import { Users, DollarSign, Calendar, Settings } from 'lucide-react';
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarSection,
+  SidebarSectionTitle,
+  SidebarLink,
+  SidebarSeparator,
+} from "@steward-apps/ui";
+import { Users, DollarSign, Calendar, Settings } from "lucide-react";
 
 export function AppSidebar({ path }: { path: string }) {
   return (
@@ -352,13 +360,13 @@ export function AppSidebar({ path }: { path: string }) {
       <SidebarContent>
         <SidebarSection>
           <SidebarSectionTitle>Ministry</SidebarSectionTitle>
-          <SidebarLink href="/members" icon={<Users />} active={path === '/members'}>
+          <SidebarLink href="/members" icon={<Users />} active={path === "/members"}>
             Members
           </SidebarLink>
-          <SidebarLink href="/giving" icon={<DollarSign />} active={path === '/giving'}>
+          <SidebarLink href="/giving" icon={<DollarSign />} active={path === "/giving"}>
             Giving
           </SidebarLink>
-          <SidebarLink href="/events" icon={<Calendar />} active={path === '/events'}>
+          <SidebarLink href="/events" icon={<Calendar />} active={path === "/events"}>
             Events
           </SidebarLink>
         </SidebarSection>
@@ -366,7 +374,7 @@ export function AppSidebar({ path }: { path: string }) {
         <SidebarSeparator />
 
         <SidebarSection>
-          <SidebarLink href="/settings" icon={<Settings />} active={path === '/settings'}>
+          <SidebarLink href="/settings" icon={<Settings />} active={path === "/settings"}>
             Settings
           </SidebarLink>
         </SidebarSection>
@@ -385,56 +393,56 @@ export function AppSidebar({ path }: { path: string }) {
 
 **Layout**
 
-| Component | Description |
-|---|---|
-| `AuthLayout` `AuthForm` `AuthPanel` `AuthDivider` | Login / sign-up page shell |
-| `Sidebar` `SidebarHeader` `SidebarContent` `SidebarFooter` | App navigation sidebar |
-| `SidebarSection` `SidebarSectionTitle` `SidebarLink` `SidebarSeparator` | Sidebar internals |
+| Component                                                               | Description                |
+| ----------------------------------------------------------------------- | -------------------------- |
+| `AuthLayout` `AuthForm` `AuthPanel` `AuthDivider`                       | Login / sign-up page shell |
+| `Sidebar` `SidebarHeader` `SidebarContent` `SidebarFooter`              | App navigation sidebar     |
+| `SidebarSection` `SidebarSectionTitle` `SidebarLink` `SidebarSeparator` | Sidebar internals          |
 
 **Forms**
 
-| Component | Description |
-|---|---|
-| `Button` | Primary, outline, ghost, destructive variants |
-| `Input` `Textarea` `Label` `FormField` `FormFieldRow` | Text inputs and field wrappers |
-| `Select` | Native-enhanced select via Radix UI |
-| `Checkbox` `Switch` | Toggle controls |
-| `CurrencyInput` | Locale-aware currency field with format-on-blur |
-| `Combobox` | Searchable select — no external popover dependency |
+| Component                                             | Description                                        |
+| ----------------------------------------------------- | -------------------------------------------------- |
+| `Button`                                              | Primary, outline, ghost, destructive variants      |
+| `Input` `Textarea` `Label` `FormField` `FormFieldRow` | Text inputs and field wrappers                     |
+| `Select`                                              | Native-enhanced select via Radix UI                |
+| `Checkbox` `Switch`                                   | Toggle controls                                    |
+| `CurrencyInput`                                       | Locale-aware currency field with format-on-blur    |
+| `Combobox`                                            | Searchable select — no external popover dependency |
 
 **Feedback & Overlay**
 
-| Component | Description |
-|---|---|
-| `Alert` `AlertTitle` `AlertDescription` | Inline status banners |
-| `Badge` | Colored status labels |
-| `Toast` `ToastProvider` `ToastViewport` | Notification toasts |
-| `Spinner` | Accessible loading indicator (xs – xl) |
-| `Skeleton` `Progress` | Loading states |
-| `Dialog` `ConfirmDialog` | Modal dialogs |
-| `Tooltip` | Hover / focus tooltips |
+| Component                               | Description                            |
+| --------------------------------------- | -------------------------------------- |
+| `Alert` `AlertTitle` `AlertDescription` | Inline status banners                  |
+| `Badge`                                 | Colored status labels                  |
+| `Toast` `ToastProvider` `ToastViewport` | Notification toasts                    |
+| `Spinner`                               | Accessible loading indicator (xs – xl) |
+| `Skeleton` `Progress`                   | Loading states                         |
+| `Dialog` `ConfirmDialog`                | Modal dialogs                          |
+| `Tooltip`                               | Hover / focus tooltips                 |
 
 **Data Display**
 
-| Component | Description |
-|---|---|
-| `Table` `TableHeader` `TableBody` `TableRow` `TableCell` `TableCaption` | Data table |
-| `Pagination` | Ellipsis-aware page navigation |
+| Component                                                               | Description                    |
+| ----------------------------------------------------------------------- | ------------------------------ |
+| `Table` `TableHeader` `TableBody` `TableRow` `TableCell` `TableCaption` | Data table                     |
+| `Pagination`                                                            | Ellipsis-aware page navigation |
 
 **Navigation**
 
-| Component | Description |
-|---|---|
-| `Tabs` `TabsList` `TabsTrigger` `TabsContent` | Horizontal tab panels |
-| `DropdownMenu` | Accessible dropdown via Radix UI |
-| `Breadcrumb` | Path trail with aria-current |
+| Component                                     | Description                      |
+| --------------------------------------------- | -------------------------------- |
+| `Tabs` `TabsList` `TabsTrigger` `TabsContent` | Horizontal tab panels            |
+| `DropdownMenu`                                | Accessible dropdown via Radix UI |
+| `Breadcrumb`                                  | Path trail with aria-current     |
 
 **Containers**
 
-| Component | Description |
-|---|---|
-| `Card` `CardHeader` `CardContent` `CardFooter` | Surface containers |
-| `Avatar` `AvatarImage` `AvatarFallback` | User avatar with fallback initials |
+| Component                                      | Description                        |
+| ---------------------------------------------- | ---------------------------------- |
+| `Card` `CardHeader` `CardContent` `CardFooter` | Surface containers                 |
+| `Avatar` `AvatarImage` `AvatarFallback`        | User avatar with fallback initials |
 
 </details>
 
@@ -449,42 +457,42 @@ pnpm add @steward-apps/email-templates
 ```
 
 ```ts
-import { welcomeEmail, receiptEmail, passwordResetEmail } from '@steward-apps/email-templates';
+import { welcomeEmail, receiptEmail, passwordResetEmail } from "@steward-apps/email-templates";
 
 // New member onboarding
 const welcome = welcomeEmail({
-  organizationName: 'Grace Community Church',
-  recipientName:    'Sarah',
-  ctaUrl:           'https://app.steward.com/onboarding',
+  organizationName: "Grace Community Church",
+  recipientName: "Sarah",
+  ctaUrl: "https://app.steward.com/onboarding",
 });
 
 // Giving receipt
 const receipt = receiptEmail({
-  organizationName: 'Grace Community Church',
-  recipientName:    'John',
-  amount:           150,
-  date:             '2024-06-15',
-  transactionId:    'TXN-4521',
+  organizationName: "Grace Community Church",
+  recipientName: "John",
+  amount: 150,
+  date: "2024-06-15",
+  transactionId: "TXN-4521",
 });
 
 // Password reset
 const reset = passwordResetEmail({
-  organizationName: 'Grace Community Church',
-  recipientName:    'Sarah',
-  resetUrl:         'https://app.steward.com/reset?token=abc123',
+  organizationName: "Grace Community Church",
+  recipientName: "Sarah",
+  resetUrl: "https://app.steward.com/reset?token=abc123",
   expiresInMinutes: 60,
-  supportEmail:     'help@gracechurch.com',
+  supportEmail: "help@gracechurch.com",
 });
 
 // Pass to any provider — Resend, Postmark, SendGrid, Nodemailer, etc.
 await resend.emails.send({ to, subject, html: welcome });
 ```
 
-| Template | Function | Required props |
-|---|---|---|
-| Welcome | `welcomeEmail()` | `organizationName` · `recipientName` · `ctaUrl` |
-| Giving Receipt | `receiptEmail()` | `organizationName` · `recipientName` · `amount` · `date` |
-| Password Reset | `passwordResetEmail()` | `organizationName` · `recipientName` · `resetUrl` |
+| Template       | Function               | Required props                                           |
+| -------------- | ---------------------- | -------------------------------------------------------- |
+| Welcome        | `welcomeEmail()`       | `organizationName` · `recipientName` · `ctaUrl`          |
+| Giving Receipt | `receiptEmail()`       | `organizationName` · `recipientName` · `amount` · `date` |
+| Password Reset | `passwordResetEmail()` | `organizationName` · `recipientName` · `resetUrl`        |
 
 ---
 
@@ -492,14 +500,14 @@ await resend.emails.send({ to, subject, html: welcome });
 
 ### Color Palette
 
-| Swatch | Token | Value | Use |
-|:---:|---|---|---|
-| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-0D1B2E?style=for-the-badge) | `--st-fg` | `#0D1B2E` | Foreground · Navy |
+|                                              Swatch                                               | Token          | Value     | Use                                 |
+| :-----------------------------------------------------------------------------------------------: | -------------- | --------- | ----------------------------------- |
+| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-0D1B2E?style=for-the-badge) | `--st-fg`      | `#0D1B2E` | Foreground · Navy                   |
 | ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-E8B847?style=for-the-badge) | `--st-primary` | `#E8B847` | Kingdom Gold · actions · highlights |
-| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-FAF7F2?style=for-the-badge) | `--st-bg` | `#FAF7F2` | Parchment · page background |
-| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-FFFFFF?style=for-the-badge) | `--st-surface` | `#FFFFFF` | Card · panel surface |
-| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-DDD0A8?style=for-the-badge) | `--st-border` | `#DDD0A8` | Borders |
-| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-6B7A8D?style=for-the-badge) | `--st-muted` | `#6B7A8D` | Secondary text |
+| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-FAF7F2?style=for-the-badge) | `--st-bg`      | `#FAF7F2` | Parchment · page background         |
+| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-FFFFFF?style=for-the-badge) | `--st-surface` | `#FFFFFF` | Card · panel surface                |
+| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-DDD0A8?style=for-the-badge) | `--st-border`  | `#DDD0A8` | Borders                             |
+| ![](https://img.shields.io/badge/%20%20%20%20%20%20%20%20%20%20%20%20-6B7A8D?style=for-the-badge) | `--st-muted`   | `#6B7A8D` | Secondary text                      |
 
 Dark mode inverts the surface and background tokens on `.dark` automatically — no per-component overrides needed.
 
@@ -507,15 +515,15 @@ Dark mode inverts the surface and background tokens on `.dark` automatically —
 
 **Inter** across all products. `Inter, system-ui, -apple-system, sans-serif`
 
-| Scale | Size | Weight | Where it's used |
-|---|---|---|---|
-| Display | 36px | 700 | Hero headlines |
-| H1 | 30px | 600 | Page titles |
-| H2 | 24px | 600 | Section headers |
-| H3 | 20px | 500 | Card titles |
-| Body | 16px | 400 | Primary content |
-| Small | 14px | 400 | Secondary text, labels |
-| Caption | 12px | 400 | Metadata, timestamps |
+| Scale   | Size | Weight | Where it's used        |
+| ------- | ---- | ------ | ---------------------- |
+| Display | 36px | 700    | Hero headlines         |
+| H1      | 30px | 600    | Page titles            |
+| H2      | 24px | 600    | Section headers        |
+| H3      | 20px | 500    | Card titles            |
+| Body    | 16px | 400    | Primary content        |
+| Small   | 14px | 400    | Secondary text, labels |
+| Caption | 12px | 400    | Metadata, timestamps   |
 
 ### Logo System
 
@@ -562,25 +570,25 @@ Dark mode inverts the surface and background tokens on `.dark` automatically —
 
 In app headers, use the dot-separator format: `Steward · ChMS`
 
-| Product | Name |
-|---|---|
-| Church Management | Steward ChMS |
-| Point of Sale | Steward Register |
-| Finance / Ledger | Steward Accounting |
-| Contacts | Steward CRM |
-| Youth Programming | Steward VBS |
-| Marketing Site | Steward Website |
+| Product           | Name               |
+| ----------------- | ------------------ |
+| Church Management | Steward ChMS       |
+| Point of Sale     | Steward Register   |
+| Finance / Ledger  | Steward Accounting |
+| Contacts          | Steward CRM        |
+| Youth Programming | Steward VBS        |
+| Marketing Site    | Steward Website    |
 
 ### Voice & Tone
 
 Speak like a helpful teammate — not enterprise software.
 
-| Write this | Not this |
-|---|---|
-| "Saved." | "Your changes have been successfully saved to the database." |
-| "Member updated." | "Member record modification complete." |
-| "Add an email to continue." | "Error: Required field 'email' is empty." |
-| "Payment recorded." | "Transaction #4521 has been processed." |
+| Write this                  | Not this                                                     |
+| --------------------------- | ------------------------------------------------------------ |
+| "Saved."                    | "Your changes have been successfully saved to the database." |
+| "Member updated."           | "Member record modification complete."                       |
+| "Add an email to continue." | "Error: Required field 'email' is empty."                    |
+| "Payment recorded."         | "Transaction #4521 has been processed."                      |
 
 Calm. Clear. Helpful. The product fades into the background so ministry can shine.
 
@@ -589,10 +597,10 @@ Calm. Clear. Helpful. The product fades into the background so ministry can shin
 Pre-built SVG favicons live in `assets/favicon/`. Copy them to your `public/` directory:
 
 ```html
-<link rel="icon"             href="/favicon.svg" type="image/svg+xml" />
-<link rel="icon"             href="/favicon-32.svg" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.svg" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
-<link rel="manifest"         href="/site.webmanifest" />
+<link rel="manifest" href="/site.webmanifest" />
 ```
 
 ---
@@ -628,10 +636,10 @@ pnpm screenshots
 pnpm screenshots:compare
 ```
 
-| Suite | Framework | Coverage |
-|---|---|---|
+| Suite                | Framework                | Coverage                                                                               |
+| -------------------- | ------------------------ | -------------------------------------------------------------------------------------- |
 | Component unit tests | Vitest + Testing Library | 42 tests across Spinner · Breadcrumb · Pagination · Sidebar · Combobox · CurrencyInput |
-| Visual regression | Playwright | 14 screenshots — 7 pages × light + dark |
+| Visual regression    | Playwright               | 14 screenshots — 7 pages × light + dark                                                |
 
 ### Adding a Component
 

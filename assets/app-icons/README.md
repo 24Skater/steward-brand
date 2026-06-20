@@ -26,7 +26,7 @@ app-icons/
 ## Generation
 
 Generate app icons from the source mark using:
+
 - [Expo Asset Generator](https://github.com/expo/expo/tree/main/packages/%40expo/image-utils) for React Native
 - Android Studio's Image Asset Studio
 - Xcode's Asset Catalog
-

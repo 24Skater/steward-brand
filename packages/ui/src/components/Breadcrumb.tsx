@@ -36,10 +36,7 @@ const Breadcrumb = ({
                 {item.label}
               </span>
             ) : (
-              <a
-                href={item.href}
-                className="transition-colors hover:text-foreground"
-              >
+              <a href={item.href} className="transition-colors hover:text-foreground">
                 {item.label}
               </a>
             )}

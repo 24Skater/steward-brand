@@ -63,49 +63,50 @@ Apps activate their theme by adding `data-product="<product>"` to `<html>`.
 
 All tokens are prefixed `--st-`. The full list:
 
-| Token | Description | Example value |
-|-------|-------------|---------------|
-| `--st-bg` | Page background | `#F9FAFB` |
-| `--st-fg` | Body text | `#111827` |
-| `--st-surface` | Card / panel background | `#FFFFFF` |
-| `--st-surfaceMuted` | Subtle background | `#F3F4F6` |
-| `--st-border` | Default border | `#D1D5DB` |
-| `--st-primary` | Brand primary (Kingdom Gold) | `#E8B847` |
-| `--st-primaryFg` | Text on primary | `#0D1B2E` |
-| `--st-secondary` | Secondary action | `#F9FAFB` |
-| `--st-secondaryFg` | Text on secondary | `#111827` |
-| `--st-accent` | Product accent | varies per product |
-| `--st-accentFg` | Text on accent | varies per product |
-| `--st-muted` | Muted text | `#6B7280` |
-| `--st-mutedFg` | Muted text foreground | `#374151` |
-| `--st-danger` | Destructive state | `#DC2626` |
-| `--st-dangerFg` | Text on danger | `#FFFFFF` |
-| `--st-focusRing` | Focus outline | `#E8B847` |
-| `--st-link` | Link color | `#C49A2E` |
-| `--st-font-sans` | Sans-serif font stack | `Inter, system-ui, sans-serif` |
-| `--st-font-display` | Display font (headings) | `Georgia, serif` |
-| `--st-font-mono` | Monospace font | `JetBrains Mono, monospace` |
-| `--st-radius-sm` | Small border radius | `0.25rem` |
-| `--st-radius-md` | Medium border radius | `0.375rem` |
-| `--st-radius-lg` | Large border radius | `0.5rem` |
-| `--st-shadow-sm` | Small shadow | `0 1px 2px ...` |
-| `--st-shadow-md` | Medium shadow | `0 4px 6px ...` |
-| `--st-shadow-lg` | Large shadow | `0 10px 15px ...` |
+| Token               | Description                  | Example value                  |
+| ------------------- | ---------------------------- | ------------------------------ |
+| `--st-bg`           | Page background              | `#F9FAFB`                      |
+| `--st-fg`           | Body text                    | `#111827`                      |
+| `--st-surface`      | Card / panel background      | `#FFFFFF`                      |
+| `--st-surfaceMuted` | Subtle background            | `#F3F4F6`                      |
+| `--st-border`       | Default border               | `#D1D5DB`                      |
+| `--st-primary`      | Brand primary (Kingdom Gold) | `#E8B847`                      |
+| `--st-primaryFg`    | Text on primary              | `#0D1B2E`                      |
+| `--st-secondary`    | Secondary action             | `#F9FAFB`                      |
+| `--st-secondaryFg`  | Text on secondary            | `#111827`                      |
+| `--st-accent`       | Product accent               | varies per product             |
+| `--st-accentFg`     | Text on accent               | varies per product             |
+| `--st-muted`        | Muted text                   | `#6B7280`                      |
+| `--st-mutedFg`      | Muted text foreground        | `#374151`                      |
+| `--st-danger`       | Destructive state            | `#DC2626`                      |
+| `--st-dangerFg`     | Text on danger               | `#FFFFFF`                      |
+| `--st-focusRing`    | Focus outline                | `#E8B847`                      |
+| `--st-link`         | Link color                   | `#C49A2E`                      |
+| `--st-font-sans`    | Sans-serif font stack        | `Inter, system-ui, sans-serif` |
+| `--st-font-display` | Display font (headings)      | `Georgia, serif`               |
+| `--st-font-mono`    | Monospace font               | `JetBrains Mono, monospace`    |
+| `--st-radius-sm`    | Small border radius          | `0.25rem`                      |
+| `--st-radius-md`    | Medium border radius         | `0.375rem`                     |
+| `--st-radius-lg`    | Large border radius          | `0.5rem`                       |
+| `--st-shadow-sm`    | Small shadow                 | `0 1px 2px ...`                |
+| `--st-shadow-md`    | Medium shadow                | `0 4px 6px ...`                |
+| `--st-shadow-lg`    | Large shadow                 | `0 10px 15px ...`              |
 
 ---
 
 ## Product Themes
 
 Each product activates a theme by:
+
 1. Importing the theme CSS file
 2. Setting `data-product` on `<html>`
 
-| Product | Import | `data-product` |
-|---------|--------|----------------|
-| Congregation (ChMS) | `@import "@steward-apps/tokens/themes/chms"` | `"chms"` |
-| Register (POS) | `@import "@steward-apps/tokens/themes/register"` | `"register"` |
-| Table | `@import "@steward-apps/tokens/themes/table"` | `"table"` |
-| VBS | `@import "@steward-apps/tokens/themes/vbs"` | `"vbs"` |
+| Product             | Import                                           | `data-product` |
+| ------------------- | ------------------------------------------------ | -------------- |
+| Congregation (ChMS) | `@import "@steward-apps/tokens/themes/chms"`     | `"chms"`       |
+| Register (POS)      | `@import "@steward-apps/tokens/themes/register"` | `"register"`   |
+| Table               | `@import "@steward-apps/tokens/themes/table"`    | `"table"`      |
+| VBS                 | `@import "@steward-apps/tokens/themes/vbs"`      | `"vbs"`        |
 
 ---
 
@@ -116,6 +117,7 @@ Each product activates a theme by:
 Since `@steward-apps/tokens` is not yet published to npm, copy the built dist into node_modules:
 
 **Windows (PowerShell):**
+
 ```powershell
 $src = "C:\path\to\steward-brand\packages\tokens"
 $dst = ".\node_modules\@steward-apps\tokens"
@@ -125,11 +127,13 @@ Copy-Item -Force "$src\package.json" "$dst\package.json"
 ```
 
 Once npm-published, this becomes:
+
 ```bash
 pnpm add @steward-apps/tokens@1.0.0
 ```
 
 Then add to `package.json`:
+
 ```json
 "@steward-apps/tokens": "1.0.0"
 ```
@@ -137,6 +141,7 @@ Then add to `package.json`:
 ### 2. Update globals.css
 
 **Tailwind v4 (Vite — `@tailwindcss/vite` plugin):**
+
 ```css
 @import "tailwindcss";
 @import "@steward-apps/tokens/css";
@@ -165,8 +170,13 @@ Then add to `package.json`:
 }
 
 @layer base {
-  * { border-color: var(--st-border); }
-  body { background-color: var(--st-bg); color: var(--st-fg); }
+  * {
+    border-color: var(--st-border);
+  }
+  body {
+    background-color: var(--st-bg);
+    color: var(--st-fg);
+  }
 }
 ```
 
@@ -175,34 +185,37 @@ Then add to `package.json`:
 ### 3. Set `data-product` on `<html>`
 
 **Next.js (`app/layout.tsx`):**
+
 ```tsx
 <html lang="en" data-product="register">
 ```
 
 **Vite + React (`index.html`):**
+
 ```html
-<html lang="en" data-product="register">
+<html lang="en" data-product="register"></html>
 ```
 
 ### 4. Replace hardcoded color classes
 
 Replace raw palette classes with semantic Tailwind classes that map to tokens:
 
-| Old class | New class |
-|-----------|-----------|
-| `bg-white` | `bg-background` or `bg-card` |
-| `bg-gray-50` | `bg-muted` |
-| `text-gray-900` | `text-foreground` |
-| `text-gray-500` | `text-muted-foreground` |
-| `bg-blue-600` | `bg-primary` |
-| `text-blue-600` | `text-primary` |
-| `text-white` (on primary) | `text-primary-foreground` |
-| `border-gray-200` | `border-border` |
-| `ring-blue-500` | `ring-ring` |
+| Old class                 | New class                    |
+| ------------------------- | ---------------------------- |
+| `bg-white`                | `bg-background` or `bg-card` |
+| `bg-gray-50`              | `bg-muted`                   |
+| `text-gray-900`           | `text-foreground`            |
+| `text-gray-500`           | `text-muted-foreground`      |
+| `bg-blue-600`             | `bg-primary`                 |
+| `text-blue-600`           | `text-primary`               |
+| `text-white` (on primary) | `text-primary-foreground`    |
+| `border-gray-200`         | `border-border`              |
+| `ring-blue-500`           | `ring-ring`                  |
 
 ### 5. Replace `--sp-*` or other legacy custom properties
 
 Any local `--sp-*`, `--pos-*`, `--chms-*` variables that duplicate tokens should be:
+
 - Replaced with their `--st-*` equivalent, or
 - Aliased temporarily: `--sp-gold: var(--st-primary);`
 
@@ -210,12 +223,12 @@ Any local `--sp-*`, `--pos-*`, `--chms-*` variables that duplicate tokens should
 
 Replace old product names in UI text:
 
-| Old | New |
-|-----|-----|
-| `StewardChMS` | `Steward · Congregation` |
-| `StewardPOS` / `Steward POS` | `Steward · Register` |
-| `Steward Table` | `Steward · Table` |
-| `VBS App` | `Steward · VBS` |
+| Old                          | New                      |
+| ---------------------------- | ------------------------ |
+| `StewardChMS`                | `Steward · Congregation` |
+| `StewardPOS` / `Steward POS` | `Steward · Register`     |
+| `Steward Table`              | `Steward · Table`        |
+| `VBS App`                    | `Steward · VBS`          |
 
 ### 7. Verify token propagation
 
@@ -225,9 +238,7 @@ Add this Playwright assertion to the app's E2E suite:
 test("steward tokens are active", async ({ page }) => {
   await page.goto("/");
   const primary = await page.evaluate(() =>
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--st-primary")
-      .trim()
+    getComputedStyle(document.documentElement).getPropertyValue("--st-primary").trim()
   );
   expect(primary).toBe("#E8B847");
 });
@@ -241,6 +252,7 @@ pnpm typecheck
 ```
 
 Check that no hardcoded hex values remain in component files:
+
 ```bash
 grep -r "#2563EB\|#3B82F6\|#1D4ED8" src/  # should return nothing
 ```

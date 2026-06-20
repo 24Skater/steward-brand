@@ -16,7 +16,7 @@ Import the CSS file in your app's root stylesheet:
 
 ```css
 /* app.css or globals.css */
-@import '@steward-apps/tokens/dist/tokens.css';
+@import "@steward-apps/tokens/dist/tokens.css";
 ```
 
 Then use the CSS variables:
@@ -38,7 +38,7 @@ Then use the CSS variables:
 ### TypeScript
 
 ```typescript
-import { tokens, semanticTokens } from '@steward-apps/tokens';
+import { tokens, semanticTokens } from "@steward-apps/tokens";
 
 // Access raw tokens
 console.log(tokens.color.brand.blue); // "#2563EB"
@@ -52,7 +52,7 @@ console.log(semanticTokens.dark.primary); // "#3B82F6"
 ### JSON
 
 ```javascript
-import tokens from '@steward-apps/tokens/json';
+import tokens from "@steward-apps/tokens/json";
 ```
 
 ## Token Categories
@@ -60,6 +60,7 @@ import tokens from '@steward-apps/tokens/json';
 ### Colors
 
 **Brand Colors:**
+
 - `navy` - Primary brand color (#1B2A41)
 - `blue` - Action/CTA color (#2563EB)
 - `emerald` - Success color (#16A34A)
@@ -67,6 +68,7 @@ import tokens from '@steward-apps/tokens/json';
 - `red` - Danger/error color (#DC2626)
 
 **Semantic Tokens:**
+
 - `--st-bg` / `--st-fg` - Background and foreground
 - `--st-surface` / `--st-surfaceMuted` - Surface colors
 - `--st-border` - Border color
@@ -120,17 +122,23 @@ The tokens automatically support dark mode via the `.dark` class or `[data-theme
 ```html
 <!-- Light mode (default) -->
 <html>
-  <body>...</body>
+  <body>
+    ...
+  </body>
 </html>
 
 <!-- Dark mode -->
 <html class="dark">
-  <body>...</body>
+  <body>
+    ...
+  </body>
 </html>
 
 <!-- Or with data attribute -->
 <html data-theme="dark">
-  <body>...</body>
+  <body>
+    ...
+  </body>
 </html>
 ```
 
@@ -152,8 +160,8 @@ pnpm build
 ```
 
 This generates:
+
 - `dist/tokens.css` - CSS variables
 - `dist/tokens.js` - ES module with typed tokens
 - `dist/tokens.d.ts` - TypeScript declarations
 - `dist/tokens.json` - JSON format for tooling
-

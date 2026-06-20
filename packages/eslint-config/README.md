@@ -10,11 +10,11 @@ pnpm add -D @steward-apps/eslint-config eslint typescript
 
 ## Available Configs
 
-| Config | Use Case |
-|--------|----------|
-| `@steward-apps/eslint-config` | Base config for all projects |
-| `@steward-apps/eslint-config/react` | React applications |
-| `@steward-apps/eslint-config/node` | Node.js backends |
+| Config                              | Use Case                     |
+| ----------------------------------- | ---------------------------- |
+| `@steward-apps/eslint-config`       | Base config for all projects |
+| `@steward-apps/eslint-config/react` | React applications           |
+| `@steward-apps/eslint-config/node`  | Node.js backends             |
 
 ## Usage
 
@@ -52,17 +52,20 @@ export default [
 ## Key Rules
 
 ### TypeScript
+
 - Unused variables must be prefixed with `_`
 - Consistent type imports enforced
 - No explicit `any` (warning)
 
 ### React (when using /react config)
+
 - Rules of Hooks enforced
 - Exhaustive deps warning
 - Self-closing components required
 - Array keys required
 
 ### General
+
 - `console.log` warnings (except warn/error)
 - Strict equality required
 - `const` preferred over `let`
@@ -80,4 +83,3 @@ Add to your `package.json`:
   }
 }
 ```
-

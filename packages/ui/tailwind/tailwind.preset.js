@@ -96,4 +96,3 @@ const stewardPreset = {
 
 export default stewardPreset;
 module.exports = stewardPreset;
-

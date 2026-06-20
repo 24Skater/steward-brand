@@ -16,11 +16,7 @@ export interface PaginationProps {
   className?: string;
 }
 
-function getPageRange(
-  current: number,
-  total: number,
-  siblings: number
-): (number | "...")[] {
+function getPageRange(current: number, total: number, siblings: number): (number | "...")[] {
   const delta = siblings;
   const left = current - delta;
   const right = current + delta;

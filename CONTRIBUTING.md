@@ -65,13 +65,13 @@ pnpm format
 
 ## Package Structure
 
-| Package | Description |
-|---------|-------------|
-| `@steward-apps/tokens` | Design tokens (colors, typography, spacing) |
-| `@steward-apps/ui` | React component library |
-| `@steward-apps/email-templates` | HTML email templates |
-| `@steward-apps/eslint-config` | Shared ESLint configuration |
-| `@steward-apps/tsconfig` | Shared TypeScript configuration |
+| Package                         | Description                                 |
+| ------------------------------- | ------------------------------------------- |
+| `@steward-apps/tokens`          | Design tokens (colors, typography, spacing) |
+| `@steward-apps/ui`              | React component library                     |
+| `@steward-apps/email-templates` | HTML email templates                        |
+| `@steward-apps/eslint-config`   | Shared ESLint configuration                 |
+| `@steward-apps/tsconfig`        | Shared TypeScript configuration             |
 
 ## Making Changes
 
@@ -98,6 +98,7 @@ pnpm changeset
 ```
 
 Follow the prompts to:
+
 1. Select the packages you've changed
 2. Choose the semver bump type (patch/minor/major)
 3. Write a description of your changes
@@ -110,6 +111,7 @@ git commit -m "feat: description of your changes"
 ```
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
 - `feat:` New features
 - `fix:` Bug fixes
 - `docs:` Documentation changes
@@ -147,7 +149,7 @@ When adding or modifying UI components:
 
 ### Example Component Structure
 
-```tsx
+````tsx
 import * as React from "react";
 import { cn } from "../utils";
 
@@ -159,7 +161,7 @@ export interface MyComponentProps {
 
 /**
  * MyComponent description
- * 
+ *
  * @example
  * ```tsx
  * <MyComponent variant="default">Content</MyComponent>
@@ -170,11 +172,7 @@ const MyComponent = React.forwardRef<HTMLDivElement, MyComponentProps>(
     return (
       <div
         ref={ref}
-        className={cn(
-          "base-styles",
-          variant === "alt" && "alt-styles",
-          className
-        )}
+        className={cn("base-styles", variant === "alt" && "alt-styles", className)}
         {...props}
       >
         {children}
@@ -185,7 +183,7 @@ const MyComponent = React.forwardRef<HTMLDivElement, MyComponentProps>(
 MyComponent.displayName = "MyComponent";
 
 export { MyComponent };
-```
+````
 
 ## Token Guidelines
 
@@ -211,4 +209,3 @@ If you are unsure whether your change qualifies as breaking, open an issue and a
 ## Questions?
 
 If you have questions, please open an issue or reach out to the maintainers.
-

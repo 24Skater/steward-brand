@@ -10,12 +10,12 @@ pnpm add -D @steward-apps/tsconfig
 
 ## Available Configs
 
-| Config | Use Case |
-|--------|----------|
-| `base.json` | Base configuration for all projects |
-| `react.json` | React applications (Next.js, Vite) |
-| `node.json` | Node.js backend services |
-| `library.json` | Publishable packages/libraries |
+| Config         | Use Case                            |
+| -------------- | ----------------------------------- |
+| `base.json`    | Base configuration for all projects |
+| `react.json`   | React applications (Next.js, Vite)  |
+| `node.json`    | Node.js backend services            |
+| `library.json` | Publishable packages/libraries      |
 
 ## Usage
 
@@ -71,4 +71,3 @@ Extend the appropriate config in your `tsconfig.json`:
 - **Module:** ESNext with bundler resolution
 - **Strict mode:** Enabled with `noUncheckedIndexedAccess`
 - **Declarations:** Generated with source maps
-

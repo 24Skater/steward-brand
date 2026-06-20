@@ -25,7 +25,9 @@ describe("Sidebar", () => {
           <SidebarSection>
             <SidebarSectionTitle>Ministry</SidebarSectionTitle>
             <SidebarLink href="/dashboard">Dashboard</SidebarLink>
-            <SidebarLink href="/members" active>Members</SidebarLink>
+            <SidebarLink href="/members" active>
+              Members
+            </SidebarLink>
           </SidebarSection>
         </SidebarContent>
         <SidebarFooter>Footer</SidebarFooter>
@@ -46,7 +48,11 @@ describe("SidebarLink", () => {
   });
 
   it("sets aria-current=page when active", () => {
-    render(<SidebarLink href="/members" active>Members</SidebarLink>);
+    render(
+      <SidebarLink href="/members" active>
+        Members
+      </SidebarLink>
+    );
     expect(screen.getByRole("link")).toHaveAttribute("aria-current", "page");
   });
 

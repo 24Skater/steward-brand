@@ -18,9 +18,7 @@ const AuthLayout = ({ panel, children, className }: AuthLayoutProps) => (
     <div
       className={cn(
         "flex flex-col justify-center px-8 py-16",
-        panel
-          ? "w-full lg:w-[480px] xl:w-[520px] shrink-0"
-          : "w-full max-w-md mx-auto"
+        panel ? "w-full lg:w-[480px] xl:w-[520px] shrink-0" : "w-full max-w-md mx-auto"
       )}
     >
       {children}
@@ -29,9 +27,7 @@ const AuthLayout = ({ panel, children, className }: AuthLayoutProps) => (
     {/* Right: decorative panel — hidden below lg */}
     {panel && (
       <div className="hidden lg:flex flex-1 items-stretch p-6">
-        <div className="flex-1 rounded-2xl bg-muted overflow-hidden">
-          {panel}
-        </div>
+        <div className="flex-1 rounded-2xl bg-muted overflow-hidden">{panel}</div>
       </div>
     )}
   </div>
@@ -56,13 +52,9 @@ const AuthForm = ({ heading, description, footer, children, className }: AuthFor
   <div className={cn("w-full max-w-sm", className)}>
     {/* Heading block */}
     <div className="mb-8">
-      <h1 className="text-3xl font-bold tracking-tight text-foreground leading-tight">
-        {heading}
-      </h1>
+      <h1 className="text-3xl font-bold tracking-tight text-foreground leading-tight">{heading}</h1>
       {description && (
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-          {description}
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{description}</p>
       )}
     </div>
 
@@ -70,9 +62,7 @@ const AuthForm = ({ heading, description, footer, children, className }: AuthFor
     <div className="space-y-5">{children}</div>
 
     {/* Footer link */}
-    {footer && (
-      <p className="mt-8 text-sm text-muted-foreground">{footer}</p>
-    )}
+    {footer && <p className="mt-8 text-sm text-muted-foreground">{footer}</p>}
   </div>
 );
 AuthForm.displayName = "AuthForm";
@@ -121,27 +111,16 @@ const AuthPanel = ({
   activeDot = 0,
   className,
 }: AuthPanelProps) => (
-  <div
-    className={cn(
-      "flex flex-col items-center justify-between h-full py-10 px-6",
-      className
-    )}
-  >
+  <div className={cn("flex flex-col items-center justify-between h-full py-10 px-6", className)}>
     {/* Visual area */}
-    <div className="flex-1 flex items-center justify-center w-full">
-      {visual}
-    </div>
+    <div className="flex-1 flex items-center justify-center w-full">{visual}</div>
 
     {/* Text + dots */}
     {(heading || description || dots > 1) && (
       <div className="mt-8 flex flex-col items-center gap-4 text-center max-w-xs">
-        {heading && (
-          <h2 className="text-xl font-bold text-foreground">{heading}</h2>
-        )}
+        {heading && <h2 className="text-xl font-bold text-foreground">{heading}</h2>}
         {description && (
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {description}
-          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
         )}
         {dots > 1 && (
           <div className="flex gap-2" role="tablist" aria-label="Slide indicators">
@@ -152,9 +131,7 @@ const AuthPanel = ({
                 aria-selected={i === activeDot}
                 className={cn(
                   "block w-2 h-2 rounded-full transition-colors",
-                  i === activeDot
-                    ? "bg-foreground"
-                    : "bg-border"
+                  i === activeDot ? "bg-foreground" : "bg-border"
                 )}
               />
             ))}

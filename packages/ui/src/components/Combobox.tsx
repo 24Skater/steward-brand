@@ -43,9 +43,7 @@ const Combobox = ({
   const selected = options.find((o) => o.value === value);
 
   const filtered = query.trim()
-    ? options.filter((o) =>
-        o.label.toLowerCase().includes(query.toLowerCase())
-      )
+    ? options.filter((o) => o.label.toLowerCase().includes(query.toLowerCase()))
     : options;
 
   const handleSelect = (option: ComboboxOption) => {
@@ -124,9 +122,7 @@ const Combobox = ({
           {/* Options list */}
           <ul className="max-h-60 overflow-y-auto py-1">
             {filtered.length === 0 ? (
-              <li className="px-3 py-2 text-sm text-muted-foreground">
-                {emptyMessage}
-              </li>
+              <li className="px-3 py-2 text-sm text-muted-foreground">{emptyMessage}</li>
             ) : (
               filtered.map((option) => (
                 <li

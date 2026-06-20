@@ -154,4 +154,3 @@ export function welcomeEmail(props: WelcomeEmailProps): string {
 </html>
   `.trim();
 }
-

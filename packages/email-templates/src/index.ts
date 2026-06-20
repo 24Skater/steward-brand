@@ -20,4 +20,3 @@ export {
 export { receiptEmail, type ReceiptEmailProps } from "./receipt.js";
 export { welcomeEmail, type WelcomeEmailProps } from "./welcome.js";
 export { passwordResetEmail, type PasswordResetEmailProps } from "./password-reset.js";
-

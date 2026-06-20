@@ -30,9 +30,7 @@ export interface SidebarHeaderProps {
 }
 
 const SidebarHeader = ({ children, className }: SidebarHeaderProps) => (
-  <div className={cn("flex items-center px-4 py-4 shrink-0", className)}>
-    {children}
-  </div>
+  <div className={cn("flex items-center px-4 py-4 shrink-0", className)}>{children}</div>
 );
 SidebarHeader.displayName = "SidebarHeader";
 
@@ -44,9 +42,7 @@ export interface SidebarContentProps {
 }
 
 const SidebarContent = ({ children, className }: SidebarContentProps) => (
-  <div className={cn("flex-1 overflow-y-auto px-2 py-2", className)}>
-    {children}
-  </div>
+  <div className={cn("flex-1 overflow-y-auto px-2 py-2", className)}>{children}</div>
 );
 SidebarContent.displayName = "SidebarContent";
 
@@ -135,9 +131,7 @@ const SidebarLink = ({
     )}
     aria-current={active ? "page" : undefined}
   >
-    {icon && (
-      <span className="shrink-0 [&_svg]:size-4 [&_svg]:shrink-0">{icon}</span>
-    )}
+    {icon && <span className="shrink-0 [&_svg]:size-4 [&_svg]:shrink-0">{icon}</span>}
     {children}
   </a>
 );
@@ -151,10 +145,7 @@ export interface SidebarSeparatorProps {
 
 const SidebarSeparator = ({ className }: SidebarSeparatorProps) => (
   <div
-    className={cn(
-      "mx-3 my-2 h-px bg-[var(--st-sidebar-border,#1A2F4A)]",
-      className
-    )}
+    className={cn("mx-3 my-2 h-px bg-[var(--st-sidebar-border,#1A2F4A)]", className)}
     role="separator"
   />
 );

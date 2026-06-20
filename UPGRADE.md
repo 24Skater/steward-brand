@@ -17,12 +17,12 @@ This guide is for church IT administrators and volunteers who manage a self-host
 
 ## Version Compatibility
 
-| App | Minimum version | Requires |
-|-----|----------------|---------|
-| Steward · Congregation | 1.0.0 | Node 20+, PostgreSQL 15+ |
-| Steward · Register | 1.0.0 | Node 20+, PostgreSQL 15+ |
-| Steward · Table | 1.0.0 | Node 20+, PostgreSQL 15+ |
-| Steward · VBS | 1.0.0 | Node 20+, PostgreSQL 15+ |
+| App                    | Minimum version | Requires                 |
+| ---------------------- | --------------- | ------------------------ |
+| Steward · Congregation | 1.0.0           | Node 20+, PostgreSQL 15+ |
+| Steward · Register     | 1.0.0           | Node 20+, PostgreSQL 15+ |
+| Steward · Table        | 1.0.0           | Node 20+, PostgreSQL 15+ |
+| Steward · VBS          | 1.0.0           | Node 20+, PostgreSQL 15+ |
 
 All Steward apps run on the same infrastructure requirements. You do not need separate database servers for each app.
 
@@ -106,7 +106,7 @@ Edit `docker-compose.yml` and change the `image:` tag back to the previous versi
 ```yaml
 services:
   app:
-    image: ghcr.io/24Skater/steward-table:1.2.0  # ← pin the old version here
+    image: ghcr.io/24Skater/steward-table:1.2.0 # ← pin the old version here
 ```
 
 ### Step 4 — Start the old version
@@ -152,6 +152,7 @@ pm2 restart steward
 **Date:** June 2026
 
 **What changed:**
+
 - All Steward apps now share a unified design system (Kingdom Gold primary color, consistent typography)
 - Product display names updated across all apps:
   - StewardChMS → Steward · Congregation
@@ -193,6 +194,7 @@ Upgrade one major version at a time. For example: 1.0 → 1.x → 2.0. Do not sk
 No. Managed hosting providers handle upgrades for you. Contact your provider if you have questions about their upgrade schedule.
 
 **How do I know which version I'm running?**
+
 - In-app: check the About or Settings page
 - Command line: `docker compose ps` shows the image tag
 - Code: the version is in `package.json` at the root of the repository

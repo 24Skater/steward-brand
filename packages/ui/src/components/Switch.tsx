@@ -2,8 +2,7 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { cn } from "../utils";
 
-export interface SwitchProps
-  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {}
+export interface SwitchProps extends React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> {}
 
 /**
  * Switch component for toggling boolean states
@@ -37,4 +36,3 @@ const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitive.Root>, S
 Switch.displayName = SwitchPrimitive.Root.displayName;
 
 export { Switch };
-

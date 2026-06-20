@@ -134,19 +134,7 @@ export {
   type SidebarSeparatorProps,
 } from "./components/Sidebar";
 export { Pagination, type PaginationProps } from "./components/Pagination";
-export {
-  Breadcrumb,
-  type BreadcrumbProps,
-  type BreadcrumbItem,
-} from "./components/Breadcrumb";
+export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from "./components/Breadcrumb";
 export { Spinner, type SpinnerProps } from "./components/Spinner";
-export {
-  Combobox,
-  type ComboboxProps,
-  type ComboboxOption,
-} from "./components/Combobox";
-export {
-  CurrencyInput,
-  type CurrencyInputProps,
-} from "./components/CurrencyInput";
-
+export { Combobox, type ComboboxProps, type ComboboxOption } from "./components/Combobox";
+export { CurrencyInput, type CurrencyInputProps } from "./components/CurrencyInput";

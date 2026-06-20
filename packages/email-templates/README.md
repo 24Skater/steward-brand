@@ -93,6 +93,7 @@ const buttonStyle = emailButtonStyles("primary");
 ### Theme Values
 
 **Colors:**
+
 - `navy`: #1B2A41 (primary brand)
 - `blue`: #2563EB (action/links)
 - `emerald`: #16A34A (success)
@@ -101,10 +102,12 @@ const buttonStyle = emailButtonStyles("primary");
 - `ink`, `slate`, `muted`, `border`, `surface`, `subtle` (neutrals)
 
 **Typography:**
+
 - Font: Inter system stack
 - Sizes: display, h1, h2, h3, body, small, caption
 
 **Spacing:**
+
 - xs: 4px, sm: 8px, md: 16px, lg: 24px, xl: 32px, 2xl: 48px
 
 ## Email Client Compatibility
@@ -118,8 +121,8 @@ These templates are designed for maximum email client compatibility:
 - ✅ Most mobile email apps
 
 Templates use:
+
 - Table-based layouts
 - Inline styles
 - Web-safe fonts with fallbacks
 - No external CSS files
-

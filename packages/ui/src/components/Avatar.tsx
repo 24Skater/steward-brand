@@ -2,26 +2,22 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../utils";
 
-const avatarVariants = cva(
-  "relative flex shrink-0 overflow-hidden rounded-full",
-  {
-    variants: {
-      size: {
-        sm: "h-8 w-8 text-xs",
-        md: "h-10 w-10 text-sm",
-        lg: "h-14 w-14 text-lg",
-        xl: "h-20 w-20 text-xl",
-      },
+const avatarVariants = cva("relative flex shrink-0 overflow-hidden rounded-full", {
+  variants: {
+    size: {
+      sm: "h-8 w-8 text-xs",
+      md: "h-10 w-10 text-sm",
+      lg: "h-14 w-14 text-lg",
+      xl: "h-20 w-20 text-xl",
     },
-    defaultVariants: {
-      size: "md",
-    },
-  }
-);
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
 
 export interface AvatarProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof avatarVariants> {}
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {}
 
 /**
  * Avatar container component
@@ -71,4 +67,3 @@ const AvatarFallback = React.forwardRef<HTMLDivElement, AvatarFallbackProps>(
 AvatarFallback.displayName = "AvatarFallback";
 
 export { Avatar, AvatarImage, AvatarFallback, avatarVariants };
-

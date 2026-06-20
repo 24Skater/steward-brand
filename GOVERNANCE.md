@@ -18,6 +18,7 @@ Succession plan: If the current maintainer is unavailable for more than 60 days,
 - Removing an icon from `@steward-apps/icons`
 
 Breaking changes must be:
+
 1. Announced in a GitHub issue tagged `breaking-change`
 2. Listed in `CHANGELOG.md` under the affected version
 3. Accompanied by a migration guide before the change ships
@@ -37,6 +38,7 @@ Breaking changes must be:
 ## CHANGELOG Ownership
 
 The releasing maintainer is responsible for writing the CHANGELOG entry before merging the version PR. Entries must:
+
 - State what changed, not just how
 - Include migration instructions for any deprecation or removal
 - Credit contributors

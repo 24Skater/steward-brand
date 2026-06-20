@@ -80,4 +80,3 @@ We use the following tools to maintain security:
 ## Contact
 
 For non-vulnerability security questions, please open a GitHub Discussion or contact us at security@steward.church.
-

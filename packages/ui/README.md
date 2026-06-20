@@ -92,13 +92,7 @@ import { Input, FormField, Label } from "@steward-apps/ui";
 ### Select
 
 ```tsx
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@steward-apps/ui";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@steward-apps/ui";
 
 <Select>
   <SelectTrigger>
@@ -109,7 +103,7 @@ import {
     <SelectItem value="member">Member</SelectItem>
     <SelectItem value="guest">Guest</SelectItem>
   </SelectContent>
-</Select>
+</Select>;
 ```
 
 ### Card
@@ -129,13 +123,11 @@ import {
     <CardTitle>Account Settings</CardTitle>
     <CardDescription>Manage your account preferences</CardDescription>
   </CardHeader>
-  <CardContent>
-    {/* Form fields */}
-  </CardContent>
+  <CardContent>{/* Form fields */}</CardContent>
   <CardFooter>
     <Button>Save changes</Button>
   </CardFooter>
-</Card>
+</Card>;
 ```
 
 ### Badge
@@ -186,29 +178,20 @@ import {
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Confirm Action</DialogTitle>
-      <DialogDescription>
-        Are you sure you want to continue?
-      </DialogDescription>
+      <DialogDescription>Are you sure you want to continue?</DialogDescription>
     </DialogHeader>
     <DialogFooter>
       <Button variant="outline">Cancel</Button>
       <Button>Confirm</Button>
     </DialogFooter>
   </DialogContent>
-</Dialog>
+</Dialog>;
 ```
 
 ### Table
 
 ```tsx
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@steward-apps/ui";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@steward-apps/ui";
 
 <Table>
   <TableHeader>
@@ -225,7 +208,7 @@ import {
       <TableCell>Admin</TableCell>
     </TableRow>
   </TableBody>
-</Table>
+</Table>;
 ```
 
 ### Tabs
@@ -240,7 +223,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@steward-apps/ui";
   </TabsList>
   <TabsContent value="general">General settings...</TabsContent>
   <TabsContent value="security">Security settings...</TabsContent>
-</Tabs>
+</Tabs>;
 ```
 
 ## Dark Mode
@@ -255,7 +238,7 @@ document.documentElement.classList.toggle("dark");
 Or use `data-theme` attribute:
 
 ```html
-<html data-theme="dark">
+<html data-theme="dark"></html>
 ```
 
 ## Accessibility
@@ -274,4 +257,3 @@ All components are fully typed with TypeScript. Import types directly:
 ```tsx
 import type { ButtonProps, CardProps, AlertProps } from "@steward-apps/ui";
 ```
-

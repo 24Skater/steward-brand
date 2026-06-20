@@ -47,10 +47,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
           aria-valuenow={value}
           aria-valuemin={0}
           aria-valuemax={max}
-          className={cn(
-            "w-full overflow-hidden rounded-full bg-surface-muted",
-            sizeClasses[size]
-          )}
+          className={cn("w-full overflow-hidden rounded-full bg-surface-muted", sizeClasses[size])}
         >
           <div
             className="h-full bg-primary transition-all duration-300 ease-in-out rounded-full"
@@ -67,4 +64,3 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
 Progress.displayName = "Progress";
 
 export { Progress };
-

@@ -3,8 +3,10 @@ import { cn } from "../utils";
 
 // ── CurrencyInput ─────────────────────────────────────────────────────────────
 
-export interface CurrencyInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type"> {
+export interface CurrencyInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "onChange" | "value" | "type"
+> {
   /** Numeric value in cents (integer) or dollars (float). Default unit is "dollars". */
   value?: number;
   onChange?: (value: number) => void;

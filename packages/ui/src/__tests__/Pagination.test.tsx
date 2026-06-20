@@ -53,7 +53,8 @@ describe("Pagination", () => {
 
   it("shows ellipsis for large page counts", () => {
     render(<Pagination totalPages={20} currentPage={10} onPageChange={vi.fn()} />);
-    const ellipses = screen.getAllByRole("navigation")[0].querySelectorAll("span");
+    const nav = screen.getByRole("navigation");
+    const ellipses = nav.querySelectorAll("span");
     expect(ellipses.length).toBeGreaterThan(0);
   });
 });
