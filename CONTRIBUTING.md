@@ -13,7 +13,7 @@ Thank you for your interest in contributing to the Steward Design System! This d
 
 ```bash
 # Clone the repository
-git clone https://github.com/steward-org/steward-brand.git
+git clone https://github.com/24Skater/steward-brand.git
 cd steward-brand
 
 # Install dependencies
@@ -195,6 +195,18 @@ When modifying design tokens:
 2. Update theme files if needed: `packages/tokens/src/themes/*.json`
 3. Run `pnpm build:tokens` to regenerate outputs
 4. Update documentation in the README
+
+## Community Governance
+
+This project follows the governance model described in [GOVERNANCE.md](./GOVERNANCE.md). The key points for contributors:
+
+- **Design tokens** are maintainer-controlled. Changes to `tokens.dtcg.json` require maintainer approval. Open an issue first to discuss.
+- **UI components** are welcome via PR. Include a Storybook story and an accessibility note with your PR.
+- **Icons** are submitted as a PR with source SVG. Icons are reviewed for visual consistency (1.5px stroke, consistent padding) and security (no embedded scripts) before merge.
+- **Bug fixes** are always welcome. No prior issue needed for obvious bugs.
+- **Breaking changes** require 90 days notice. Do not open a PR that renames `--st-*` tokens, removes a component, or changes required props without first opening a discussion issue.
+
+If you are unsure whether your change qualifies as breaking, open an issue and ask. We would rather discuss it upfront than block a PR late.
 
 ## Questions?
 

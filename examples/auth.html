@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth Layout — Steward Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="styles/showcase.css">
+
+  <style>
+    /* ── Example nav ─────────────────────────────────────────────── */
+    .example-nav {
+      background: var(--st-surface);
+      border-bottom: 1px solid var(--st-border);
+      padding: var(--st-spacing-3) var(--st-spacing-6);
+      display: flex;
+      gap: var(--st-spacing-2);
+      overflow-x: auto;
+    }
+    .example-nav a {
+      padding: var(--st-spacing-2) var(--st-spacing-4);
+      color: var(--st-muted);
+      text-decoration: none;
+      font-size: var(--st-font-size-small);
+      font-weight: var(--st-font-weight-medium);
+      border-radius: var(--st-radius-sm);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .example-nav a:hover { background: var(--st-surfaceMuted); color: var(--st-fg); }
+    .example-nav a.active { background: var(--st-primary); color: var(--st-primaryFg); }
+
+    /* ── Auth page shell ─────────────────────────────────────────── */
+    .auth-page {
+      min-height: calc(100vh - 94px);
+      display: flex;
+      background: var(--st-bg);
+    }
+
+    /* ── Left column — form ──────────────────────────────────────── */
+    .auth-left {
+      width: 480px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 48px;
+      background: var(--st-surface);
+    }
+
+    .auth-form-wrapper {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    /* Heading */
+    .auth-heading { margin-bottom: 36px; }
+    .auth-heading h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--st-fg);
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .auth-heading p {
+      font-size: 14px;
+      color: var(--st-muted);
+      line-height: 1.6;
+    }
+
+    /* Form fields */
+    .auth-form { display: flex; flex-direction: column; gap: 18px; }
+
+    .field { display: flex; flex-direction: column; gap: 7px; }
+
+    .field-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .field-label {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--st-fg);
+    }
+    .field-aside {
+      font-size: 13px;
+      color: var(--st-link);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .field-aside:hover { opacity: 0.8; text-decoration: underline; }
+
+    /* Input with icon */
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--st-muted);
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+    .input-icon svg { width: 16px; height: 16px; stroke-width: 1.75; }
+
+    .auth-input {
+      width: 100%;
+      height: 42px;
+      border: 1.5px solid var(--st-border);
+      border-radius: var(--st-radius-md);
+      background: var(--st-surface);
+      padding: 0 14px 0 40px;
+      font-size: 14px;
+      font-family: var(--st-font-sans);
+      color: var(--st-fg);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .auth-input::placeholder { color: var(--st-muted); }
+    .auth-input:focus {
+      border-color: var(--st-primary);
+      box-shadow: 0 0 0 3px rgba(232, 184, 71, 0.18);
+    }
+
+    /* Remember me */
+    .remember-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 2px;
+    }
+    .remember-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--st-primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .remember-row label {
+      font-size: 14px;
+      color: var(--st-fg);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Buttons */
+    .auth-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 44px;
+      border-radius: var(--st-radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--st-font-sans);
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .auth-btn-primary {
+      background: var(--st-primary);
+      color: var(--st-primaryFg);
+    }
+    .auth-btn-primary:hover {
+      background: var(--st-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(232,184,71,0.35);
+    }
+    .auth-btn-primary:active { transform: translateY(0); }
+
+    .auth-btn-outline {
+      background: var(--st-surface);
+      color: var(--st-fg);
+      border: 1.5px solid var(--st-border);
+    }
+    .auth-btn-outline:hover { border-color: var(--st-mutedFg); background: var(--st-surfaceMuted); }
+
+    /* OR divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0;
+    }
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--st-border);
+    }
+    .auth-divider span {
+      font-size: 12px;
+      color: var(--st-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Google icon */
+    .google-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* Footer */
+    .auth-footer {
+      margin-top: 28px;
+      font-size: 13.5px;
+      color: var(--st-muted);
+    }
+    .auth-footer a {
+      color: var(--st-link);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .auth-footer a:hover { text-decoration: underline; }
+
+    /* ── Right column — decorative panel ────────────────────────── */
+    .auth-right {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      padding: 24px 24px 24px 0;
+      min-width: 0;
+    }
+
+    .auth-panel {
+      flex: 1;
+      background: var(--st-surfaceMuted);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 48px 32px 36px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--st-border);
+    }
+
+    /* Subtle grid texture on panel */
+    .auth-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    /* ── Panel visual area ───────────────────────────────────────── */
+    .panel-visual {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Main card — stats/chart */
+    .panel-card-main {
+      position: relative;
+      z-index: 1;
+      background: var(--st-surface);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+      padding: 20px 22px 18px;
+      width: 280px;
+      margin-right: -40px;
+      margin-top: 20px;
+      border: 1px solid var(--st-border);
+    }
+
+    .panel-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .panel-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--st-fg);
+      letter-spacing: 0.02em;
+    }
+    .panel-card-period {
+      font-size: 11px;
+      color: var(--st-muted);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .panel-card-period svg { width: 11px; height: 11px; }
+
+    /* Bar chart rows */
+    .chart-rows { display: flex; flex-direction: column; gap: 10px; }
+    .chart-row { display: flex; flex-direction: column; gap: 4px; }
+    .chart-row-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--st-muted);
+    }
+    .chart-row-label span:last-child { font-weight: 500; color: var(--st-fg); }
+    .chart-bar-track {
+      height: 6px;
+      background: var(--st-border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--st-primary);
+    }
+    .chart-bar-fill.muted { background: var(--st-mutedFg); opacity: 0.4; }
+
+    /* Avatar float — top right of main card */
+    .panel-avatar {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      z-index: 3;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid var(--st-surface);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, var(--st-primary) 0%, #C49A2E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--st-primaryFg);
+    }
+
+    /* Floating notification card */
+    .panel-card-float {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-20%);
+      z-index: 4;
+      background: var(--st-surface);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      padding: 16px 18px;
+      width: 220px;
+      border: 1px solid var(--st-border);
+    }
+
+    .float-card-greeting {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--st-fg);
+      margin-bottom: 3px;
+    }
+    .float-card-sub {
+      font-size: 11.5px;
+      color: var(--st-muted);
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .float-stats-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .float-stat-num {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--st-fg);
+      line-height: 1;
+    }
+    .float-stat-label {
+      font-size: 10.5px;
+      color: var(--st-muted);
+      margin-top: 2px;
+    }
+
+    .float-bullets { display: flex; flex-direction: column; gap: 6px; }
+    .float-bullet {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      color: var(--st-fg);
+    }
+    .float-bullet::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--st-primary);
+      flex-shrink: 0;
+    }
+
+    /* Decorative small badge top-left */
+    .panel-badge {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      z-index: 2;
+      background: var(--st-surface);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--st-fg);
+      border: 1px solid var(--st-border);
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+    }
+
+    /* ── Panel text + dots ───────────────────────────────────────── */
+    .panel-bottom {
+      text-align: center;
+      padding-top: 32px;
+    }
+    .panel-heading {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--st-fg);
+      letter-spacing: -0.25px;
+      margin-bottom: 7px;
+    }
+    .panel-desc {
+      font-size: 13px;
+      color: var(--st-muted);
+      line-height: 1.6;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .panel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 18px;
+    }
+    .panel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--st-border);
+      transition: background 0.2s;
+    }
+    .panel-dot.active { background: var(--st-fg); }
+
+    /* ── Responsive — hide right panel on small screens ─────────── */
+    @media (max-width: 860px) {
+      .auth-right { display: none; }
+      .auth-left { width: 100%; padding: 48px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="25" height="32" viewBox="0 0 64 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="28" y="2" width="8" height="32" rx="4" fill="#0D1B2E"/>
+        <rect x="12" y="14" width="40" height="8" rx="4" fill="#0D1B2E"/>
+        <rect x="30" y="32" width="4" height="40" rx="2" fill="#0D1B2E"/>
+        <rect x="34" y="53" width="13" height="5" rx="2.5" fill="#0D1B2E"/>
+        <rect x="34" y="64" width="9" height="5" rx="2.5" fill="#0D1B2E"/>
+      </svg>
+      <span>Steward · Auth Layout</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Example Pages Navigation -->
+  <div class="example-nav">
+    <a href="index.html">Brand Guide</a>
+    <a href="website.html">Website</a>
+    <a href="chms.html">Church Management</a>
+    <a href="crm.html">CRM</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="pos.html">Point of Sale</a>
+    <a href="auth.html" class="active">Auth Layout</a>
+  </div>
+
+  <!-- ── Auth page ──────────────────────────────────────────────── -->
+  <div class="auth-page">
+
+    <!-- LEFT: form column -->
+    <div class="auth-left">
+      <div class="auth-form-wrapper">
+
+        <!-- Heading -->
+        <div class="auth-heading">
+          <h1>Welcome back</h1>
+          <p>Sign in to your account to continue.</p>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" onsubmit="return false;">
+
+          <!-- Email -->
+          <div class="field">
+            <label class="field-label" for="email">Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <i data-lucide="at-sign"></i>
+              </span>
+              <input
+                id="email"
+                type="email"
+                class="auth-input"
+                placeholder="Email address"
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="password">Password</label>
+              <a href="#" class="field-aside">Forgot Password?</a>
+            </div>
+            <div class="input-wrap">
+              <span class="input-icon">
+                <i data-lucide="lock"></i>
+              </span>
+              <input
+                id="password"
+                type="password"
+                class="auth-input"
+                placeholder="Password (min. 8 characters)"
+                autocomplete="current-password"
+              >
+            </div>
+          </div>
+
+          <!-- Remember me -->
+          <div class="remember-row">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+          </div>
+
+          <!-- Sign in button -->
+          <button type="submit" class="auth-btn auth-btn-primary">Sign in</button>
+
+          <!-- OR divider -->
+          <div class="auth-divider"><span>or</span></div>
+
+          <!-- Google sign-in -->
+          <button type="button" class="auth-btn auth-btn-outline">
+            <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Sign in with Google
+          </button>
+
+        </form>
+
+        <!-- Footer -->
+        <p class="auth-footer">
+          Don&rsquo;t have an account?&nbsp;<a href="#">Create one for free</a>
+        </p>
+
+      </div>
+    </div><!-- /auth-left -->
+
+    <!-- RIGHT: decorative panel -->
+    <div class="auth-right">
+      <div class="auth-panel">
+
+        <!-- Visual area with floating cards -->
+        <div class="panel-visual">
+
+          <!-- Live badge — top left -->
+          <div class="panel-badge">
+            <span class="badge-dot"></span>
+            System online
+          </div>
+
+          <!-- Avatar — top right of main card -->
+          <div class="panel-avatar">
+            <i data-lucide="user" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+
+          <!-- Main card — giving chart -->
+          <div class="panel-card-main">
+            <div class="panel-card-header">
+              <span class="panel-card-title">Weekly Giving</span>
+              <span class="panel-card-period">
+                Last 7 Days
+                <i data-lucide="chevron-down"></i>
+              </span>
+            </div>
+            <div class="chart-rows">
+              <div class="chart-row">
+                <div class="chart-row-label">
+                  <span>Online</span>
+                  <span>$8,420</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 84%"></div>
+                </div>
+              </div>
+              <div class="chart-row">
+                <div class="chart-row-label">
+                  <span>In-Person</span>
+                  <span>$5,114</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 51%"></div>
+                </div>
+              </div>
+              <div class="chart-row">
+                <div class="chart-row-label">
+                  <span>Text-to-Give</span>
+                  <span>$2,090</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill muted" style="width: 21%"></div>
+                </div>
+              </div>
+              <div class="chart-row">
+                <div class="chart-row-label">
+                  <span>Recurring</span>
+                  <span>$4,640</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 46%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating notification card -->
+          <div class="panel-card-float">
+            <div class="float-card-greeting">Hey Pastor</div>
+            <div class="float-card-sub">Here&rsquo;s what&rsquo;s happening this week</div>
+            <div class="float-stats-row">
+              <div>
+                <div class="float-stat-num">48</div>
+                <div class="float-stat-label">New Members</div>
+              </div>
+              <div>
+                <div class="float-stat-num">$12,450</div>
+                <div class="float-stat-label">This Month</div>
+              </div>
+            </div>
+            <div class="float-bullets">
+              <div class="float-bullet">Sunday attendance up 12%</div>
+              <div class="float-bullet">3 follow-ups need action</div>
+            </div>
+          </div>
+
+        </div><!-- /panel-visual -->
+
+        <!-- Bottom: heading, description, dots -->
+        <div class="panel-bottom">
+          <div class="panel-heading">Built for ministry teams</div>
+          <p class="panel-desc">
+            Everything your church needs to run smoothly — members, giving, events, and more. Free forever.
+          </p>
+          <div class="panel-dots">
+            <div class="panel-dot active"></div>
+            <div class="panel-dot"></div>
+            <div class="panel-dot"></div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /auth-right -->
+
+  </div><!-- /auth-page -->
+
+  <script>
+    lucide.createIcons();
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

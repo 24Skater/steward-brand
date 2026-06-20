@@ -1,0 +1,27 @@
+{
+  "$description": "Steward Website (Public Marketing) — Product Theme Overrides. Full brand-forward palette using warm parchment and navy. No sidebar. Kingdom Gold primary; navy accent for brand presence.",
+
+  "semantic": {
+    "bg": "{color.neutral.warmSubtle}",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "{color.neutral.warmSurface}",
+
+    "fg": "#0D1B2E",
+    "border": "#DDD0A8",
+
+    "secondary": "#1A2F4A",
+    "secondaryFg": "{color.neutral.warmSurface}",
+    "accent": "#0D1B2E",
+    "accentFg": "{color.neutral.warmSurface}",
+
+    "link": "{color.brand.goldDark}",
+    "focusRing": "{color.brand.gold}",
+
+    "muted": "#6B7A8D",
+    "mutedFg": "#3D4F66",
+
+    "fg-on-primary": "#0D1B2E",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(232, 184, 71, 0.08)"
+  }
+}

@@ -3,7 +3,23 @@
 
   "semantic": {
     "bg": "#FFFBF0",
+    "surface": "{color.neutral.surface}",
     "surfaceMuted": "{color.neutral.warmSurface}",
-    "accent": "#F97316"
+
+    "fg": "#1A1A2E",
+    "border": "#E5D8B0",
+
+    "accent": "#F97316",
+    "accentFg": "#FFFFFF",
+
+    "link": "{color.brand.goldDark}",
+    "focusRing": "#F97316",
+
+    "muted": "#6B7280",
+    "mutedFg": "#374151",
+
+    "fg-on-primary": "#0D1B2E",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(249, 115, 22, 0.08)"
   }
 }

@@ -1,0 +1,33 @@
+{
+  "$description": "Steward CRM — Product Theme Overrides. Relationship-focused palette with warm neutrals. Emerald accent signals healthy relationship status. Kingdom Gold primary for action chrome.",
+
+  "semantic": {
+    "bg": "#FAFAF9",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "#F5F5F4",
+
+    "fg": "#1C1917",
+    "border": "#E7E5E4",
+
+    "accent": "{color.brand.emerald}",
+    "accentFg": "#FFFFFF",
+
+    "link": "{color.brand.goldDark}",
+    "focusRing": "{color.brand.gold}",
+
+    "muted": "#78716C",
+    "mutedFg": "#44403C",
+
+    "fg-on-primary": "#0D1B2E",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(232, 184, 71, 0.08)",
+
+    "sidebar-bg": "#1C1917",
+    "sidebar-fg": "#FAFAF9",
+    "sidebar-muted": "rgba(250, 250, 249, 0.45)",
+    "sidebar-border": "#292524",
+    "sidebar-hover": "rgba(232, 184, 71, 0.1)",
+    "sidebar-active": "{color.brand.gold}",
+    "sidebar-active-fg": "#0D1B2E"
+  }
+}

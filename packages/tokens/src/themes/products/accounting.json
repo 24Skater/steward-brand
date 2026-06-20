@@ -1,0 +1,33 @@
+{
+  "$description": "Steward Accounting — Product Theme Overrides. Clean financial palette with cool-neutral surfaces for data-dense ledger and report views. Kingdom Gold primary; blue accents for action chrome.",
+
+  "semantic": {
+    "bg": "#F8FAFC",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "#F1F5F9",
+
+    "fg": "#0F172A",
+    "border": "#E2E8F0",
+
+    "accent": "{color.brand.blue}",
+    "accentFg": "#FFFFFF",
+
+    "link": "{color.brand.blue}",
+    "focusRing": "{color.brand.gold}",
+
+    "muted": "#64748B",
+    "mutedFg": "#334155",
+
+    "fg-on-primary": "#0D1B2E",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(232, 184, 71, 0.08)",
+
+    "sidebar-bg": "#0F172A",
+    "sidebar-fg": "#F8FAFC",
+    "sidebar-muted": "rgba(248, 250, 252, 0.45)",
+    "sidebar-border": "#1E293B",
+    "sidebar-hover": "rgba(232, 184, 71, 0.1)",
+    "sidebar-active": "{color.brand.gold}",
+    "sidebar-active-fg": "#0D1B2E"
+  }
+}

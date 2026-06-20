@@ -1,0 +1,30 @@
+{
+  "$description": "Steward Register (POS) — Product Theme Overrides. Dark sidebar for quick navigation in a retail/hospitality environment. Data-dense interface optimized for speed.",
+
+  "semantic": {
+    "bg": "#F9FAFB",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "#F3F4F6",
+
+    "fg": "#111827",
+    "border": "#D1D5DB",
+
+    "link": "{color.brand.goldDark}",
+    "focusRing": "{color.brand.gold}",
+
+    "muted": "#6B7280",
+    "mutedFg": "#374151",
+
+    "fg-on-primary": "#0D1B2E",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(232, 184, 71, 0.08)",
+
+    "sidebar-bg": "#111827",
+    "sidebar-fg": "#F9FAFB",
+    "sidebar-muted": "rgba(249, 250, 251, 0.45)",
+    "sidebar-border": "#1F2937",
+    "sidebar-hover": "rgba(232, 184, 71, 0.1)",
+    "sidebar-active": "{color.brand.gold}",
+    "sidebar-active-fg": "#0D1B2E"
+  }
+}

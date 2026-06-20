@@ -2,4 +2,8 @@ packages:
   - "packages/*"
   - "apps/*"
 
+# overrides:
+#   js-yaml: "^4.2.0"      -- move here once @changesets/cli pins a patched version
+#   esbuild: ">=0.28.1"    -- move here once tsup@>=8.6.0 ships with esbuild@0.28+
+
 
