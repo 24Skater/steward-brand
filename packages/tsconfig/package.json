@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/steward-org/steward-brand.git",
+    "url": "https://github.com/24Skater/steward-brand.git",
     "directory": "packages/tsconfig"
   },
   "files": [
