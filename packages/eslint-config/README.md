@@ -2,6 +2,8 @@
 
 Shared ESLint configuration for Steward projects. Uses ESLint flat config (v9+).
 
+Part of the [Steward design system](https://github.com/24Skater/steward-brand).
+
 ## Installation
 
 ```bash

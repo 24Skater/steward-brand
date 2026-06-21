@@ -54,6 +54,8 @@
 - [Development](#development)
 - [Contributing](#contributing)
 
+**Deep dives:** [Brand Identity](docs/brand-identity.md) · [Token Architecture](docs/token-architecture.md) · [Product Themes](docs/product-themes.md)
+
 ---
 
 ## Design System in Action
@@ -674,10 +676,10 @@ pnpm --filter @steward-apps/tokens build
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. Please read the [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
 ```bash
-git clone https://github.com/steward-org/steward-brand.git
+git clone https://github.com/24Skater/steward-brand.git
 cd steward-brand
 pnpm install
 pnpm build

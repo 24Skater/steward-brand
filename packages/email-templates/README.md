@@ -1,6 +1,8 @@
 # @steward-apps/email-templates
 
-HTML email templates for the Steward ecosystem. Uses the same brand colors and typography as the UI components.
+HTML email templates for the Steward ecosystem. Uses the same brand colors and typography as the UI components — values are sourced from the same [brand token system](https://github.com/24Skater/steward-brand/blob/main/docs/token-architecture.md) used by `@steward-apps/tokens`.
+
+Part of the [Steward design system](https://github.com/24Skater/steward-brand).
 
 ## Installation
 
