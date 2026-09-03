@@ -1,5 +1,13 @@
 # @steward-apps/tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- 7b13312: Export the accounting, crm and website product themes. All three were built to
+  `dist/themes/*.css` but missing from the package `exports` map, so no app could
+  import them.
+
 ## 1.1.0
 
 ### Minor Changes
