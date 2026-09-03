@@ -1,8 +1,8 @@
 # Steward Platform
 
 steward-brand publishes the shared `@steward-apps/*` packages every Steward app
-consumes. This file records the platform-level constraints that apply to *this
-repository* and points at the decision record that explains why they exist.
+consumes. This file records the platform-level constraints that apply to _this
+repository_ and points at the decision record that explains why they exist.
 
 **Decision record:** https://claude.ai/code/artifact/fffcde73-8186-4c63-83f9-979d80f82f42
 
@@ -33,10 +33,10 @@ Only two things are planned to arrive here as packages:
 
 A recurring source of confusion, now settled:
 
-| Attribute       | Selects                | Emitted by                         |
-| --------------- | ---------------------- | ---------------------------------- |
-| `data-product`  | which product you are  | `dist/themes/<product>.css`        |
-| `data-theme`    | light or dark          | `dist/tokens.css` (with `.dark`)   |
+| Attribute      | Selects               | Emitted by                       |
+| -------------- | --------------------- | -------------------------------- |
+| `data-product` | which product you are | `dist/themes/<product>.css`      |
+| `data-theme`   | light or dark         | `dist/tokens.css` (with `.dark`) |
 
 They compose - `<html data-product="chms" data-theme="dark">` is valid and
 resolves base → product override → dark override. Do not use `data-theme` for a
