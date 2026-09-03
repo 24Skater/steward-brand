@@ -39,11 +39,11 @@ Every token follows this structure:
 }
 ```
 
-| Field | Required | Purpose |
-|---|---|---|
-| `$value` | Yes | The token value |
-| `$type` | Yes | `color`, `dimension`, `fontFamily`, `fontWeight`, `duration` |
-| `$description` | No | Human-readable intent |
+| Field          | Required | Purpose                                                      |
+| -------------- | -------- | ------------------------------------------------------------ |
+| `$value`       | Yes      | The token value                                              |
+| `$type`        | Yes      | `color`, `dimension`, `fontFamily`, `fontWeight`, `duration` |
+| `$description` | No       | Human-readable intent                                        |
 
 References use curly-brace syntax: `"{color.brand.gold}"` resolves to the value of `color.brand.gold`.
 
@@ -66,7 +66,7 @@ Raw values with no semantic meaning. Named for what they are, not how they're us
     },
     "neutral": {
       "warmSurface": { "$value": "#FDFAF3", "$type": "color" },
-      "warmSubtle":  { "$value": "#F5EED8", "$type": "color" }
+      "warmSubtle": { "$value": "#F5EED8", "$type": "color" }
     }
   }
 }
@@ -81,9 +81,9 @@ Named for how they're used. Reference primitives by value. The base theme (`toke
 ```json
 {
   "semantic": {
-    "primary":    { "$value": "{color.brand.gold}", "$type": "color" },
-    "bg":         { "$value": "{color.neutral.warmSubtle}", "$type": "color" },
-    "surface":    { "$value": "{color.neutral.surface}", "$type": "color" },
+    "primary": { "$value": "{color.brand.gold}", "$type": "color" },
+    "bg": { "$value": "{color.neutral.warmSubtle}", "$type": "color" },
+    "surface": { "$value": "{color.neutral.surface}", "$type": "color" },
     "sidebar-bg": { "$value": "{color.brand.navy}", "$type": "color" }
   }
 }
@@ -97,31 +97,32 @@ Every semantic token becomes a CSS custom property prefixed with `--st-`:
 
 ```css
 :root {
-  --st-primary: #E8B847;
-  --st-primaryFg: #0D1B2E;
-  --st-bg: #FDFAF3;
-  --st-surface: #FFFFFF;
-  --st-surfaceMuted: #F5EED8;
-  --st-fg: #0D1B2E;
-  --st-border: #DDD0A8;
-  --st-sidebar-bg: #0D1B2E;
-  --st-sidebar-fg: #FDFAF3;
+  --st-primary: #e8b847;
+  --st-primaryFg: #0d1b2e;
+  --st-bg: #fdfaf3;
+  --st-surface: #ffffff;
+  --st-surfaceMuted: #f5eed8;
+  --st-fg: #0d1b2e;
+  --st-border: #ddd0a8;
+  --st-sidebar-bg: #0d1b2e;
+  --st-sidebar-fg: #fdfaf3;
   /* ... */
 }
 
 .dark {
-  --st-bg: #0D1B2E;
-  --st-surface: #1A2F4A;
+  --st-bg: #0d1b2e;
+  --st-surface: #1a2f4a;
   /* ... */
 }
 ```
 
-Product themes inject their overrides under a `[data-theme="<product>"]` selector:
+Product themes inject their overrides under a `[data-product="<product>"]` selector, emitted to `dist/themes/<product>.css`:
 
 ```css
-[data-theme="chms"] {
-  --st-primary: #E8B847;
-  --st-sidebar-bg: #0D1B2E;
+[data-product="chms"],
+.steward-chms {
+  --st-primary: #e8b847;
+  --st-sidebar-bg: #0d1b2e;
   /* ... */
 }
 ```
@@ -148,11 +149,11 @@ Product themes inject their overrides under a `[data-theme="<product>"]` selecto
 import { tokens, semanticTokens } from "@steward-apps/tokens";
 
 // Primitive
-const gold = tokens.color.brand.gold;       // "#E8B847"
+const gold = tokens.color.brand.gold; // "#E8B847"
 
 // Semantic (per theme)
 const primary = semanticTokens.light.primary; // "#E8B847"
-const darkBg  = semanticTokens.dark.bg;       // "#0D1B2E"
+const darkBg = semanticTokens.dark.bg; // "#0D1B2E"
 ```
 
 ### In React (via @steward-apps/ui)
@@ -163,20 +164,24 @@ Components consume tokens automatically via Tailwind v4 and the `tailwind.preset
 import { Button } from "@steward-apps/ui";
 
 // No manual token access needed — the component already uses --st-primary
-<Button variant="default">Save</Button>
+<Button variant="default">Save</Button>;
 ```
 
 ### Applying a Product Theme
 
 ```html
 <!-- ChMS theme -->
-<html data-theme="chms">
-
-<!-- Or dynamically -->
-<script>
-  document.documentElement.dataset.theme = "chms";
-</script>
+<link rel="stylesheet" href="@steward-apps/tokens/themes/chms" />
+<html data-product="chms">
+  <!-- Or dynamically -->
+  <script>
+    document.documentElement.dataset.product = "chms";
+  </script>
+</html>
 ```
+
+`data-product` and `data-theme` are separate axes: the first selects the
+product palette, the second selects light or dark.
 
 ---
 
@@ -186,7 +191,7 @@ Dark mode is toggled by adding the `.dark` class to `<html>`. It composes with p
 
 ```html
 <!-- ChMS, dark mode -->
-<html data-theme="chms" class="dark">
+<html data-product="chms" class="dark"></html>
 ```
 
 The token system resolves in this order: base → product override → dark override.
@@ -197,26 +202,26 @@ The token system resolves in this order: base → product override → dark over
 
 Built on 4px increments, matching Tailwind's default scale:
 
-| Token | Value | Tailwind equiv |
-|---|---|---|
-| `--st-spacing-1` | 4px | `p-1` |
-| `--st-spacing-2` | 8px | `p-2` |
-| `--st-spacing-4` | 16px | `p-4` |
-| `--st-spacing-6` | 24px | `p-6` |
-| `--st-spacing-8` | 32px | `p-8` |
-| `--st-spacing-12` | 48px | `p-12` |
+| Token             | Value | Tailwind equiv |
+| ----------------- | ----- | -------------- |
+| `--st-spacing-1`  | 4px   | `p-1`          |
+| `--st-spacing-2`  | 8px   | `p-2`          |
+| `--st-spacing-4`  | 16px  | `p-4`          |
+| `--st-spacing-6`  | 24px  | `p-6`          |
+| `--st-spacing-8`  | 32px  | `p-8`          |
+| `--st-spacing-12` | 48px  | `p-12`         |
 
 ---
 
 ## Border Radius
 
-| Token | Value | Intent |
-|---|---|---|
-| `--st-radius-none` | 0px | Sharp corners (tables, dividers) |
-| `--st-radius-sm` | 6px | Badges, tags, small inputs |
-| `--st-radius-md` | 10px | Cards, buttons, default inputs |
-| `--st-radius-lg` | 16px | Modals, large panels |
-| `--st-radius-full` | 9999px | Pills, avatars |
+| Token              | Value  | Intent                           |
+| ------------------ | ------ | -------------------------------- |
+| `--st-radius-none` | 0px    | Sharp corners (tables, dividers) |
+| `--st-radius-sm`   | 6px    | Badges, tags, small inputs       |
+| `--st-radius-md`   | 10px   | Cards, buttons, default inputs   |
+| `--st-radius-lg`   | 16px   | Modals, large panels             |
+| `--st-radius-full` | 9999px | Pills, avatars                   |
 
 ---
 

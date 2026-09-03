@@ -40,3 +40,7 @@ storybook-static/
 # Cache
 .cache/
 *.tsbuildinfo
+
+# Internal working notes. This repository is public; these are not.
+# See docs/internal/README.md.
+docs/internal/

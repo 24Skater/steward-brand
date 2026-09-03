@@ -4,35 +4,40 @@ Each Steward product gets a theme — a set of semantic token overrides that giv
 
 ## How Themes Work
 
-Every theme file in `packages/tokens/src/themes/products/` overrides only the semantic tokens that differ from the base. Tokens not listed inherit the base value. The build script merges base + override and emits a `[data-theme="<name>"]` CSS block.
+Every theme file in `packages/tokens/src/themes/products/` overrides only the semantic tokens that differ from the base. Tokens not listed inherit the base value. The build script merges base + override and emits a `[data-product="<name>"]` CSS block to `dist/themes/<name>.css`.
 
 ```
 Base tokens (tokens.dtcg.json)
         +
 Product overrides (themes/products/chms.json)
         =
-[data-theme="chms"] { --st-primary: ...; --st-sidebar-bg: ...; }
+[data-product="chms"], .steward-chms { --st-primary: ...; --st-sidebar-bg: ...; }
 ```
 
-To activate a theme, set `data-theme` on `<html>`:
+To activate a theme, import its stylesheet and set `data-product`:
 
 ```html
-<html data-theme="chms">
+<link rel="stylesheet" href="@steward-apps/tokens/themes/chms" />
+<html data-product="chms"></html>
 ```
+
+`data-product` selects _which product_ you are; `data-theme` selects _light or
+dark_. They are two independent axes and must not be conflated — see
+[Theme Composition with Dark Mode](#theme-composition-with-dark-mode).
 
 ---
 
 ## Current Product Themes
 
-| Product | File | `data-theme` value | Primary accent | Sidebar |
-|---|---|---|---|---|
-| ChMS (Congregation) | `chms.json` | `chms` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
-| Accounting | `accounting.json` | `accounting` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
-| CRM | `crm.json` | `crm` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
-| Point of Sale | `register.json` | `register` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
-| Table (Data grid) | `table.json` | `table` | Kingdom Gold `#E8B847` | — |
-| VBS (Vacation Bible School) | `vbs.json` | `vbs` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
-| Website (Marketing) | `website.json` | `website` | Kingdom Gold `#E8B847` | — |
+| Product                     | File              | `data-product` value | Primary accent         | Sidebar        |
+| --------------------------- | ----------------- | -------------------- | ---------------------- | -------------- |
+| ChMS (Congregation)         | `chms.json`       | `chms`               | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| Accounting                  | `accounting.json` | `accounting`         | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| CRM                         | `crm.json`        | `crm`                | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| Point of Sale               | `register.json`   | `register`           | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| Table (Data grid)           | `table.json`      | `table`              | Kingdom Gold `#E8B847` | —              |
+| VBS (Vacation Bible School) | `vbs.json`        | `vbs`                | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| Website (Marketing)         | `website.json`    | `website`            | Kingdom Gold `#E8B847` | —              |
 
 All products share Kingdom Gold as their primary color and Steward Navy as the sidebar background. Products differentiate through surface warmth, border color, hover states, and typographic emphasis — not primary brand colors.
 
@@ -44,44 +49,44 @@ These are the tokens each theme can customize. All others inherit from the base.
 
 ### Color roles
 
-| Token | Purpose |
-|---|---|
-| `--st-bg` | Page background |
-| `--st-surface` | Card / panel background |
+| Token               | Purpose                        |
+| ------------------- | ------------------------------ |
+| `--st-bg`           | Page background                |
+| `--st-surface`      | Card / panel background        |
 | `--st-surfaceMuted` | Subtle fills, alternating rows |
-| `--st-fg` | Body text |
-| `--st-border` | Dividers, input borders |
-| `--st-muted` | Secondary text |
-| `--st-mutedFg` | Tertiary text |
-| `--st-primary` | Primary action (button, CTA) |
-| `--st-primaryFg` | Text on primary |
-| `--st-secondary` | Secondary action |
-| `--st-secondaryFg` | Text on secondary |
-| `--st-accent` | Highlight, selected state |
-| `--st-accentFg` | Text on accent |
-| `--st-link` | Link color |
-| `--st-focusRing` | Keyboard focus ring |
+| `--st-fg`           | Body text                      |
+| `--st-border`       | Dividers, input borders        |
+| `--st-muted`        | Secondary text                 |
+| `--st-mutedFg`      | Tertiary text                  |
+| `--st-primary`      | Primary action (button, CTA)   |
+| `--st-primaryFg`    | Text on primary                |
+| `--st-secondary`    | Secondary action               |
+| `--st-secondaryFg`  | Text on secondary              |
+| `--st-accent`       | Highlight, selected state      |
+| `--st-accentFg`     | Text on accent                 |
+| `--st-link`         | Link color                     |
+| `--st-focusRing`    | Keyboard focus ring            |
 
 ### Interactive states
 
-| Token | Purpose |
-|---|---|
+| Token                | Purpose                          |
+| -------------------- | -------------------------------- |
 | `--st-fg-on-primary` | Text color on primary background |
-| `--st-primary-hover` | Primary button hover |
-| `--st-surface-hover` | Row / item hover |
+| `--st-primary-hover` | Primary button hover             |
+| `--st-surface-hover` | Row / item hover                 |
 
 ### Sidebar
 
-| Token | Purpose |
-|---|---|
-| `--st-sidebar-bg` | Sidebar background |
-| `--st-sidebar-fg` | Sidebar text |
-| `--st-sidebar-muted` | Sidebar secondary text |
-| `--st-sidebar-border` | Sidebar internal border |
-| `--st-sidebar-active-bg` | Active nav item background |
-| `--st-sidebar-active-fg` | Active nav item text |
-| `--st-sidebar-hover-bg` | Nav item hover |
-| `--st-sidebar-section-label` | Section heading text |
+| Token                        | Purpose                    |
+| ---------------------------- | -------------------------- |
+| `--st-sidebar-bg`            | Sidebar background         |
+| `--st-sidebar-fg`            | Sidebar text               |
+| `--st-sidebar-muted`         | Sidebar secondary text     |
+| `--st-sidebar-border`        | Sidebar internal border    |
+| `--st-sidebar-active-bg`     | Active nav item background |
+| `--st-sidebar-active-fg`     | Active nav item text       |
+| `--st-sidebar-hover-bg`      | Nav item hover             |
+| `--st-sidebar-section-label` | Section heading text       |
 
 ---
 
@@ -130,7 +135,7 @@ const PRODUCT_THEMES = [
   "table",
   "vbs",
   "website",
-  "my-product",   // ← add here
+  "my-product", // ← add here
 ];
 ```
 
@@ -140,12 +145,15 @@ const PRODUCT_THEMES = [
 pnpm --filter @steward-apps/tokens build
 ```
 
-Check `dist/tokens.css` for the `[data-theme="my-product"]` block. Then add an example page:
+Check `dist/themes/my-product.css` for the `[data-product="my-product"]` block. Then add an example page:
 
 ```bash
 cp examples/chms.html examples/my-product.html
-# Update the data-theme value and page content
+# Update the data-product value and page content
 ```
+
+Then add the theme to the `exports` map in `packages/tokens/package.json` — a
+theme that builds but is not exported cannot be imported by any app.
 
 ### 4. Add a screenshot test
 
@@ -166,10 +174,14 @@ Dark mode and product themes stack. Dark overrides apply on top of the product t
 
 ```html
 <!-- my-product in dark mode -->
-<html data-theme="my-product" class="dark">
+<html data-product="my-product" data-theme="dark"></html>
 ```
 
-The CSS cascade handles this automatically — `.dark` selectors have higher specificity than `[data-theme]` selectors for color roles that should flip in dark mode.
+The two attributes are orthogonal: `data-product` picks the palette,
+`data-theme` (or the `.dark` class) picks light or dark within it. The CSS
+cascade handles the combination automatically — `.dark` and `[data-theme="dark"]`
+selectors have higher specificity than `[data-product]` for the color roles that
+should flip.
 
 ---
 
