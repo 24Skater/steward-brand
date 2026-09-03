@@ -116,10 +116,10 @@ Every semantic token becomes a CSS custom property prefixed with `--st-`:
 }
 ```
 
-Product themes inject their overrides under a `[data-theme="<product>"]` selector:
+Product themes inject their overrides under a `[data-product="<product>"]` selector, emitted to `dist/themes/<product>.css`:
 
 ```css
-[data-theme="chms"] {
+[data-product="chms"], .steward-chms {
   --st-primary: #E8B847;
   --st-sidebar-bg: #0D1B2E;
   /* ... */
@@ -170,13 +170,17 @@ import { Button } from "@steward-apps/ui";
 
 ```html
 <!-- ChMS theme -->
-<html data-theme="chms">
+<link rel="stylesheet" href="@steward-apps/tokens/themes/chms" />
+<html data-product="chms">
 
 <!-- Or dynamically -->
 <script>
-  document.documentElement.dataset.theme = "chms";
+  document.documentElement.dataset.product = "chms";
 </script>
 ```
+
+`data-product` and `data-theme` are separate axes: the first selects the
+product palette, the second selects light or dark.
 
 ---
 
@@ -186,7 +190,7 @@ Dark mode is toggled by adding the `.dark` class to `<html>`. It composes with p
 
 ```html
 <!-- ChMS, dark mode -->
-<html data-theme="chms" class="dark">
+<html data-product="chms" class="dark">
 ```
 
 The token system resolves in this order: base → product override → dark override.

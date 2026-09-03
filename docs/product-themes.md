@@ -4,27 +4,32 @@ Each Steward product gets a theme — a set of semantic token overrides that giv
 
 ## How Themes Work
 
-Every theme file in `packages/tokens/src/themes/products/` overrides only the semantic tokens that differ from the base. Tokens not listed inherit the base value. The build script merges base + override and emits a `[data-theme="<name>"]` CSS block.
+Every theme file in `packages/tokens/src/themes/products/` overrides only the semantic tokens that differ from the base. Tokens not listed inherit the base value. The build script merges base + override and emits a `[data-product="<name>"]` CSS block to `dist/themes/<name>.css`.
 
 ```
 Base tokens (tokens.dtcg.json)
         +
 Product overrides (themes/products/chms.json)
         =
-[data-theme="chms"] { --st-primary: ...; --st-sidebar-bg: ...; }
+[data-product="chms"], .steward-chms { --st-primary: ...; --st-sidebar-bg: ...; }
 ```
 
-To activate a theme, set `data-theme` on `<html>`:
+To activate a theme, import its stylesheet and set `data-product`:
 
 ```html
-<html data-theme="chms">
+<link rel="stylesheet" href="@steward-apps/tokens/themes/chms" />
+<html data-product="chms">
 ```
+
+`data-product` selects *which product* you are; `data-theme` selects *light or
+dark*. They are two independent axes and must not be conflated — see
+[Theme Composition with Dark Mode](#theme-composition-with-dark-mode).
 
 ---
 
 ## Current Product Themes
 
-| Product | File | `data-theme` value | Primary accent | Sidebar |
+| Product | File | `data-product` value | Primary accent | Sidebar |
 |---|---|---|---|---|
 | ChMS (Congregation) | `chms.json` | `chms` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
 | Accounting | `accounting.json` | `accounting` | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
@@ -140,12 +145,15 @@ const PRODUCT_THEMES = [
 pnpm --filter @steward-apps/tokens build
 ```
 
-Check `dist/tokens.css` for the `[data-theme="my-product"]` block. Then add an example page:
+Check `dist/themes/my-product.css` for the `[data-product="my-product"]` block. Then add an example page:
 
 ```bash
 cp examples/chms.html examples/my-product.html
-# Update the data-theme value and page content
+# Update the data-product value and page content
 ```
+
+Then add the theme to the `exports` map in `packages/tokens/package.json` — a
+theme that builds but is not exported cannot be imported by any app.
 
 ### 4. Add a screenshot test
 
@@ -166,10 +174,14 @@ Dark mode and product themes stack. Dark overrides apply on top of the product t
 
 ```html
 <!-- my-product in dark mode -->
-<html data-theme="my-product" class="dark">
+<html data-product="my-product" data-theme="dark">
 ```
 
-The CSS cascade handles this automatically — `.dark` selectors have higher specificity than `[data-theme]` selectors for color roles that should flip in dark mode.
+The two attributes are orthogonal: `data-product` picks the palette,
+`data-theme` (or the `.dark` class) picks light or dark within it. The CSS
+cascade handles the combination automatically — `.dark` and `[data-theme="dark"]`
+selectors have higher specificity than `[data-product]` for the color roles that
+should flip.
 
 ---
 
