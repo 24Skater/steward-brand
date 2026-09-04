@@ -66,11 +66,11 @@ scoping rather than by separate infrastructure per customer.
 
 The model has three parts:
 
-| Concept | Meaning |
-|---|---|
+| Concept          | Meaning                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
 | **Organization** | One church. Identified by a UUID issued by the control plane, and used unchanged by every product. |
-| **User** | A person. Global — one account across the whole platform. |
-| **Membership** | The link between a user and an organization, carrying that person's roles there. |
+| **User**         | A person. Global — one account across the whole platform.                                          |
+| **Membership**   | The link between a user and an organization, carrying that person's roles there.                   |
 
 Users are global and organization-scoped uniqueness lives on membership, not on the user record.
 This is what allows one person to belong to more than one organization without duplicate accounts.
@@ -159,7 +159,7 @@ A single OIDC provider handles interactive sign-on for every application. Applic
 one authentication provider among their existing ones rather than replacing local authentication,
 which keeps a working sign-in path throughout any migration.
 
-The provider answers *who is this person*. The control plane answers *what may they do* —
+The provider answers _who is this person_. The control plane answers _what may they do_ —
 organization membership and roles are platform data, not identity-provider data. Authorization
 itself stays inside each product, because permission vocabularies are product-specific.
 
@@ -196,12 +196,12 @@ offline against a published key set, and cache the result. Three properties matt
 
 ## Where code lives
 
-| Layer | Home | Shipped as |
-|---|---|---|
+| Layer                                                     | Home                        | Shipped as          |
+| --------------------------------------------------------- | --------------------------- | ------------------- |
 | Design tokens, UI, icons, email templates, shared configs | `steward-brand` (this repo) | Public npm packages |
-| Control plane, provisioning, entitlements, platform data | Platform repository | A deployed service |
-| Tenancy guard, entitlement client | Platform repository | Two npm packages |
-| Product features, domain models, authorization | Each product repository | The application |
+| Control plane, provisioning, entitlements, platform data  | Platform repository         | A deployed service  |
+| Tenancy guard, entitlement client                         | Platform repository         | Two npm packages    |
+| Product features, domain models, authorization            | Each product repository     | The application     |
 
 Only two things are published as packages from the platform layer, and both for the same reason:
 they must run inside the application process. The tenancy guard wraps the ORM, and the entitlement
