@@ -8,8 +8,9 @@ orange, and two used colours that appear nowhere in the token system.
 This is the owning document for how a Steward README looks. If something here
 disagrees with a README, the README is wrong.
 
-Scope: `StewardChMS`, `stewardpos`, `steward-table`, `vbs-app`, `steward-brand`,
-`steward-platform`.
+Scope: `StewardChMS`, `stewardpos`, `steward-table`, `StewardVBS`, `steward-brand`,
+`steward-platform`. `StewardVBS` is cloned locally as `vbs-app`; the GitHub name
+is canonical and the old one only works by redirect.
 
 ---
 
@@ -40,7 +41,7 @@ Every accent is a token. None is invented for the banner.
 | `StewardChMS` | Congregation | `#2563EB` | `color.brand.blue` |
 | `stewardpos` | StewardPOS | `#16A34A` | `color.brand.emerald` |
 | `steward-table` | Table | `#0E7490` | `themes/products/table.json` accent |
-| `vbs-app` | VBS | `#F97316` | `themes/products/vbs.json` accent |
+| `StewardVBS` | VBS | `#F97316` | `themes/products/vbs.json` accent |
 | `steward-brand` | Brand | `#E8B847` | `color.brand.gold` |
 | `steward-platform` | Platform | `#6B7A8D` | `--st-muted` |
 
@@ -67,7 +68,7 @@ renaming assets breaks every external link that points at them.
 | `StewardChMS` | `docs/assets/hero.svg` |
 | `stewardpos` | `docs/brand/hero-banner.svg` |
 | `steward-table` | `docs/assets/hero.svg` |
-| `vbs-app` | `Docs/banner.svg` |
+| `StewardVBS` | `Docs/banner.svg` |
 | `steward-brand` | `assets/readme-hero.svg` |
 | `steward-platform` | `docs/assets/img/hero.svg` |
 
@@ -134,7 +135,7 @@ self-hosted — nothing here requires the others, or us.
 | **[Congregation](https://github.com/24Skater/StewardChMS)** | Members, giving, worship planning, reporting |
 | **[StewardPOS](https://github.com/24Skater/stewardpos)** | Point of sale, inventory, returns |
 | **[Table](https://github.com/24Skater/steward-table)** | Food orders, kitchen display, delivery |
-| **[VBS](https://github.com/24Skater/vbs-app)** | Registration, check-in, reporting |
+| **[VBS](https://github.com/24Skater/StewardVBS)** | Registration, check-in, reporting |
 
 They share one design system — [Steward Brand](https://github.com/24Skater/steward-brand),
 the tokens, components and icons every screen is built from.

@@ -685,7 +685,7 @@ repository.
 | **[Congregation](https://github.com/24Skater/StewardChMS)** | Members, giving, worship planning, reporting |
 | **[StewardPOS](https://github.com/24Skater/stewardpos)** | Point of sale, inventory, returns |
 | **[Table](https://github.com/24Skater/steward-table)** | Food orders, kitchen display, delivery |
-| **[VBS](https://github.com/24Skater/vbs-app)** | Registration, check-in, reporting |
+| **[VBS](https://github.com/24Skater/StewardVBS)** | Registration, check-in, reporting |
 
 A change to a token here reaches all four. That is the point, and it is also the
 reason a token rename is never a small change — see
