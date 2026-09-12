@@ -2,38 +2,29 @@
 
 <br>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/steward-mark-light.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/logo/steward-mark.svg">
-  <img alt="Steward" src="assets/logo/steward-mark.svg" width="72">
-</picture>
+<img src="assets/readme-hero.svg" alt="Steward Brand — the design tokens, React components and ministry icons shared by every Steward application" width="100%">
 
-<br>
-<br>
+<br><br>
 
-# Steward Brand
+<a href="https://github.com/24Skater/steward-brand/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/24Skater/steward-brand/ci.yml?style=flat-square&label=CI&labelColor=0D1B2E&color=E8B847" alt="CI"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-E8B847?style=flat-square&labelColor=0D1B2E" alt="MIT licence"></a>
+<a href="https://24skater.github.io/steward-brand/examples/"><img src="https://img.shields.io/badge/brand%20guide-live-6B7A8D?style=flat-square&labelColor=0D1B2E" alt="Live brand guide"></a>
 
-**Design system, component library, and brand tokens for the Steward church management platform.**
+<br><br>
 
-<br>
+[![tokens](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&label=%40steward-apps%2Ftokens&labelColor=0D1B2E&color=6B7A8D)](https://www.npmjs.com/package/@steward-apps/tokens)
+[![ui](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&label=%40steward-apps%2Fui&labelColor=0D1B2E&color=6B7A8D)](https://www.npmjs.com/package/@steward-apps/ui)
+[![icons](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&label=%40steward-apps%2Ficons&labelColor=0D1B2E&color=6B7A8D)](https://www.npmjs.com/package/@steward-apps/icons)
+[![email-templates](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&label=%40steward-apps%2Femail-templates&labelColor=0D1B2E&color=6B7A8D)](https://www.npmjs.com/package/@steward-apps/email-templates)
 
-[Brand Guide](https://24skater.github.io/steward-brand/examples/) &nbsp;·&nbsp; [Tokens](packages/tokens) &nbsp;·&nbsp; [Components](packages/ui) &nbsp;·&nbsp; [Get Started](#quick-start)
+<br><br>
 
-<br>
+**[Quick start](#quick-start)** &nbsp;·&nbsp;
+**[What's in the box](#whats-in-the-box)** &nbsp;·&nbsp;
+**[Product themes](#product-themes)** &nbsp;·&nbsp;
+**[Brand guide](#brand-guide)** &nbsp;·&nbsp;
+**[Live demo](https://24skater.github.io/steward-brand/examples/)**
 
-[![tokens](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&label=%40steward-apps%2Ftokens&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens)
-[![ui](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&label=%40steward-apps%2Fui&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui)
-[![icons](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&label=%40steward-apps%2Ficons&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons)
-[![email-templates](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&label=%40steward-apps%2Femail-templates&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates)
-
-![License](https://img.shields.io/badge/license-MIT-6B7A8D?style=flat-square)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-42%20passing-6E9F18?style=flat-square&logo=vitest&logoColor=white)
-[![Pages](https://img.shields.io/badge/demo-live-0D1B2E?style=flat-square&logo=github&logoColor=E8B847)](https://24skater.github.io/steward-brand/examples/)
-
-<br>
 <br>
 
 </div>
@@ -54,7 +45,7 @@
 - [Development](#development)
 - [Contributing](#contributing)
 
-**Deep dives:** [Brand Identity](docs/brand-identity.md) · [Token Architecture](docs/token-architecture.md) · [Product Themes](docs/product-themes.md)
+**Deep dives:** [Brand Identity](docs/brand-identity.md) · [Token Architecture](docs/token-architecture.md) · [Product Themes](docs/product-themes.md) · [README Standard](docs/readme-standard.md)
 
 ---
 
@@ -570,16 +561,25 @@ Dark mode inverts the surface and background tokens on `.dark` automatically —
 
 ### Product Naming
 
-In app headers, use the dot-separator format: `Steward · ChMS`
+In app headers, use the dot-separator format: `Steward · Congregation`
 
-| Product           | Name               |
-| ----------------- | ------------------ |
-| Church Management | Steward ChMS       |
-| Point of Sale     | Steward Register   |
-| Finance / Ledger  | Steward Accounting |
-| Contacts          | Steward CRM        |
-| Youth Programming | Steward VBS        |
-| Marketing Site    | Steward Website    |
+| Product           | Name                 | Not                                   |
+| ----------------- | -------------------- | ------------------------------------- |
+| Church Management | Steward Congregation | ChMS is fine as a subtitle            |
+| Point of Sale     | StewardPOS           | ~~Steward Register~~, ~~Steward POS~~ |
+| Food Orders       | Steward Table        | —                                     |
+| Youth Programming | Steward VBS          | —                                     |
+| Finance / Ledger  | Steward Accounting   | —                                     |
+| Contacts          | Steward CRM          | —                                     |
+| Marketing Site    | Steward Website      | —                                     |
+
+**"Register" was rejected for the point of sale** because it collides with VBS
+registration. The theme file is still named `themes/products/register.json`:
+that is a rename with real blast radius across four repositories, not a naming
+decision, and it stays until someone does the migration properly.
+
+Full rules, including how a README presents all of this, in
+[readme-standard.md](docs/readme-standard.md).
 
 ### Voice & Tone
 
@@ -671,6 +671,29 @@ pnpm --filter @steward-apps/tokens build
 
 # → packages/tokens/dist/themes/my-product.css
 ```
+
+---
+
+## The Steward family
+
+Steward is four applications on one design system — this one. Each application
+runs standalone and self-hosted; what they share is everything in this
+repository.
+
+| Application                                                 | What it does                                 |
+| ----------------------------------------------------------- | -------------------------------------------- |
+| **[Congregation](https://github.com/24Skater/StewardChMS)** | Members, giving, worship planning, reporting |
+| **[StewardPOS](https://github.com/24Skater/stewardpos)**    | Point of sale, inventory, returns            |
+| **[Table](https://github.com/24Skater/steward-table)**      | Food orders, kitchen display, delivery       |
+| **[VBS](https://github.com/24Skater/StewardVBS)**           | Registration, check-in, reporting            |
+
+A change to a token here reaches all four. That is the point, and it is also the
+reason a token rename is never a small change — see
+[token-architecture.md](docs/token-architecture.md).
+
+The six repositories' READMEs are held to one look by
+[readme-standard.md](docs/readme-standard.md); the banners are generated by
+[`scripts/readme-hero.mjs`](scripts/readme-hero.mjs) rather than drawn by hand.
 
 ---
 
