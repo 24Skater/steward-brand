@@ -36,14 +36,14 @@ banner by hand is how the drift started.
 
 Every accent is a token. None is invented for the banner.
 
-| Repository | Product | Accent | Where it comes from |
-| --- | --- | --- | --- |
-| `StewardChMS` | Congregation | `#2563EB` | `color.brand.blue` |
-| `stewardpos` | StewardPOS | `#16A34A` | `color.brand.emerald` |
-| `steward-table` | Table | `#0E7490` | `themes/products/table.json` accent |
-| `StewardVBS` | VBS | `#F97316` | `themes/products/vbs.json` accent |
-| `steward-brand` | Brand | `#E8B847` | `color.brand.gold` |
-| `steward-platform` | Platform | `#6B7A8D` | `--st-muted` |
+| Repository         | Product      | Accent    | Where it comes from                 |
+| ------------------ | ------------ | --------- | ----------------------------------- |
+| `StewardChMS`      | Congregation | `#2563EB` | `color.brand.blue`                  |
+| `stewardpos`       | StewardPOS   | `#16A34A` | `color.brand.emerald`               |
+| `steward-table`    | Table        | `#0E7490` | `themes/products/table.json` accent |
+| `StewardVBS`       | VBS          | `#F97316` | `themes/products/vbs.json` accent   |
+| `steward-brand`    | Brand        | `#E8B847` | `color.brand.gold`                  |
+| `steward-platform` | Platform     | `#6B7A8D` | `--st-muted`                        |
 
 Two of these need their reasoning recorded, because the obvious choice was wrong
 in both cases.
@@ -63,14 +63,14 @@ absence of an accent is the point.
 These differ per repository because each already had its own convention, and
 renaming assets breaks every external link that points at them.
 
-| Repository | Path |
-| --- | --- |
-| `StewardChMS` | `docs/assets/hero.svg` |
-| `stewardpos` | `docs/brand/hero-banner.svg` |
-| `steward-table` | `docs/assets/hero.svg` |
-| `StewardVBS` | `Docs/banner.svg` |
-| `steward-brand` | `assets/readme-hero.svg` |
-| `steward-platform` | `docs/assets/img/hero.svg` |
+| Repository         | Path                         |
+| ------------------ | ---------------------------- |
+| `StewardChMS`      | `docs/assets/hero.svg`       |
+| `stewardpos`       | `docs/brand/hero-banner.svg` |
+| `steward-table`    | `docs/assets/hero.svg`       |
+| `StewardVBS`       | `Docs/banner.svg`            |
+| `steward-brand`    | `assets/readme-hero.svg`     |
+| `steward-platform` | `docs/assets/img/hero.svg`   |
 
 ---
 
@@ -130,12 +130,12 @@ reason a visitor who arrives at VBS learns that Congregation exists.
 Steward is four applications on one design system. Each one runs standalone and
 self-hosted — nothing here requires the others, or us.
 
-| Application | What it does |
-| --- | --- |
+| Application                                                 | What it does                                 |
+| ----------------------------------------------------------- | -------------------------------------------- |
 | **[Congregation](https://github.com/24Skater/StewardChMS)** | Members, giving, worship planning, reporting |
-| **[StewardPOS](https://github.com/24Skater/stewardpos)** | Point of sale, inventory, returns |
-| **[Table](https://github.com/24Skater/steward-table)** | Food orders, kitchen display, delivery |
-| **[VBS](https://github.com/24Skater/StewardVBS)** | Registration, check-in, reporting |
+| **[StewardPOS](https://github.com/24Skater/stewardpos)**    | Point of sale, inventory, returns            |
+| **[Table](https://github.com/24Skater/steward-table)**      | Food orders, kitchen display, delivery       |
+| **[VBS](https://github.com/24Skater/StewardVBS)**           | Registration, check-in, reporting            |
 
 They share one design system — [Steward Brand](https://github.com/24Skater/steward-brand),
 the tokens, components and icons every screen is built from.
@@ -151,11 +151,11 @@ makes the set look like three.
 The brand voice in [brand-identity.md](brand-identity.md) applies to READMEs
 too: a helpful teammate, not enterprise software.
 
-| Write this | Not this |
-| --- | --- |
-| "Totals are recomputed on the server." | "Leverages robust server-side validation." |
-| "Runs on one machine with Docker." | "Enterprise-grade containerised deployment." |
-| "Not tested with more than 5,000 members." | *(silence)* |
+| Write this                                 | Not this                                     |
+| ------------------------------------------ | -------------------------------------------- |
+| "Totals are recomputed on the server."     | "Leverages robust server-side validation."   |
+| "Runs on one machine with Docker."         | "Enterprise-grade containerised deployment." |
+| "Not tested with more than 5,000 members." | _(silence)_                                  |
 
 Specific rules, all of them things that went wrong at least once:
 
@@ -176,12 +176,12 @@ Specific rules, all of them things that went wrong at least once:
 Settled, and the two stale spellings that keep coming back are listed so they
 can be recognised.
 
-| Product | Written as | Not |
-| --- | --- | --- |
+| Product           | Written as               | Not                                                      |
+| ----------------- | ------------------------ | -------------------------------------------------------- |
 | Church management | **Steward Congregation** | ~~Steward Register~~ for POS; ChMS is fine as a subtitle |
-| Point of sale | **StewardPOS** | ~~Steward Register~~, ~~Steward POS~~ |
-| Food orders | **Steward Table** | — |
-| Youth programming | **Steward VBS** | — |
+| Point of sale     | **StewardPOS**           | ~~Steward Register~~, ~~Steward POS~~                    |
+| Food orders       | **Steward Table**        | —                                                        |
+| Youth programming | **Steward VBS**          | —                                                        |
 
 "Register" was rejected for the point of sale because it collides with VBS
 registration. The token file is still named `themes/products/register.json` and

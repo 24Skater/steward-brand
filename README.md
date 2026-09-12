@@ -563,15 +563,15 @@ Dark mode inverts the surface and background tokens on `.dark` automatically —
 
 In app headers, use the dot-separator format: `Steward · Congregation`
 
-| Product           | Name                   | Not                                |
-| ----------------- | ---------------------- | ---------------------------------- |
-| Church Management | Steward Congregation   | ChMS is fine as a subtitle          |
-| Point of Sale     | StewardPOS             | ~~Steward Register~~, ~~Steward POS~~ |
-| Food Orders       | Steward Table          | —                                  |
-| Youth Programming | Steward VBS            | —                                  |
-| Finance / Ledger  | Steward Accounting     | —                                  |
-| Contacts          | Steward CRM            | —                                  |
-| Marketing Site    | Steward Website        | —                                  |
+| Product           | Name                 | Not                                   |
+| ----------------- | -------------------- | ------------------------------------- |
+| Church Management | Steward Congregation | ChMS is fine as a subtitle            |
+| Point of Sale     | StewardPOS           | ~~Steward Register~~, ~~Steward POS~~ |
+| Food Orders       | Steward Table        | —                                     |
+| Youth Programming | Steward VBS          | —                                     |
+| Finance / Ledger  | Steward Accounting   | —                                     |
+| Contacts          | Steward CRM          | —                                     |
+| Marketing Site    | Steward Website      | —                                     |
 
 **"Register" was rejected for the point of sale** because it collides with VBS
 registration. The theme file is still named `themes/products/register.json`:
@@ -680,12 +680,12 @@ Steward is four applications on one design system — this one. Each application
 runs standalone and self-hosted; what they share is everything in this
 repository.
 
-| Application | What it does |
-| --- | --- |
+| Application                                                 | What it does                                 |
+| ----------------------------------------------------------- | -------------------------------------------- |
 | **[Congregation](https://github.com/24Skater/StewardChMS)** | Members, giving, worship planning, reporting |
-| **[StewardPOS](https://github.com/24Skater/stewardpos)** | Point of sale, inventory, returns |
-| **[Table](https://github.com/24Skater/steward-table)** | Food orders, kitchen display, delivery |
-| **[VBS](https://github.com/24Skater/StewardVBS)** | Registration, check-in, reporting |
+| **[StewardPOS](https://github.com/24Skater/stewardpos)**    | Point of sale, inventory, returns            |
+| **[Table](https://github.com/24Skater/steward-table)**      | Food orders, kitchen display, delivery       |
+| **[VBS](https://github.com/24Skater/StewardVBS)**           | Registration, check-in, reporting            |
 
 A change to a token here reaches all four. That is the point, and it is also the
 reason a token rename is never a small change — see
