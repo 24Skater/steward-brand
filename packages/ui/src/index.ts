@@ -138,3 +138,9 @@ export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem } from "./compone
 export { Spinner, type SpinnerProps } from "./components/Spinner";
 export { Combobox, type ComboboxProps, type ComboboxOption } from "./components/Combobox";
 export { CurrencyInput, type CurrencyInputProps } from "./components/CurrencyInput";
+export {
+  AppSwitcher,
+  type AppSwitcherProps,
+  type AppSwitcherApp,
+  type AppAccess,
+} from "./components/AppSwitcher";

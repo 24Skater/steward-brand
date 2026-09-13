@@ -91,14 +91,14 @@ The auth layout ships as a composable React component — drop it in and both th
 
 Six packages — one shared design language across every Steward product:
 
-| Package                                                     | npm                                                                                                                                                              | Contents                                                   | Key exports                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
-| [`@steward-apps/tokens`](packages/tokens)                   | [![npm](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens)                   | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css`            |
-| [`@steward-apps/ui`](packages/ui)                           | [![npm](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui)                           | 25+ React components built on Radix UI + Tailwind v4       | `Button`, `Sidebar`, `Pagination`, `Combobox`, …     |
-| [`@steward-apps/icons`](packages/icons)                     | [![npm](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons)                     | Ministry-specific SVG icon set                             | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, …      |
-| [`@steward-apps/email-templates`](packages/email-templates) | [![npm](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates) | Inline-style HTML email templates                          | `welcomeEmail`, `receiptEmail`, `passwordResetEmail` |
-| [`@steward-apps/eslint-config`](packages/eslint-config)     | [![npm](https://img.shields.io/npm/v/@steward-apps/eslint-config?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/eslint-config)     | Shared ESLint configuration                                | `base`, `react`                                      |
-| [`@steward-apps/tsconfig`](packages/tsconfig)               | [![npm](https://img.shields.io/npm/v/@steward-apps/tsconfig?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tsconfig)               | Shared TypeScript configurations                           | `base.json`, `library.json`, `react.json`            |
+| Package                                                     | npm                                                                                                                                                              | Contents                                                   | Key exports                                                     |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------- |
+| [`@steward-apps/tokens`](packages/tokens)                   | [![npm](https://img.shields.io/npm/v/@steward-apps/tokens?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tokens)                   | DTCG design tokens compiled to CSS variables, JS, and JSON | `tokens.css`, `tokens.js`, `themes/*.css`                       |
+| [`@steward-apps/ui`](packages/ui)                           | [![npm](https://img.shields.io/npm/v/@steward-apps/ui?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/ui)                           | 25+ React components built on Radix UI + Tailwind v4       | `Button`, `Sidebar`, `Pagination`, `Combobox`, `AppSwitcher`, … |
+| [`@steward-apps/icons`](packages/icons)                     | [![npm](https://img.shields.io/npm/v/@steward-apps/icons?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/icons)                     | Ministry-specific SVG icon set                             | `GivingIcon`, `AttendanceIcon`, `PrayerIcon`, …                 |
+| [`@steward-apps/email-templates`](packages/email-templates) | [![npm](https://img.shields.io/npm/v/@steward-apps/email-templates?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/email-templates) | Inline-style HTML email templates                          | `welcomeEmail`, `receiptEmail`, `passwordResetEmail`            |
+| [`@steward-apps/eslint-config`](packages/eslint-config)     | [![npm](https://img.shields.io/npm/v/@steward-apps/eslint-config?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/eslint-config)     | Shared ESLint configuration                                | `base`, `react`                                                 |
+| [`@steward-apps/tsconfig`](packages/tsconfig)               | [![npm](https://img.shields.io/npm/v/@steward-apps/tsconfig?style=flat-square&color=0D1B2E)](https://www.npmjs.com/package/@steward-apps/tsconfig)               | Shared TypeScript configurations                           | `base.json`, `library.json`, `react.json`                       |
 
 ---
 
@@ -424,11 +424,12 @@ export function AppSidebar({ path }: { path: string }) {
 
 **Navigation**
 
-| Component                                     | Description                      |
-| --------------------------------------------- | -------------------------------- |
-| `Tabs` `TabsList` `TabsTrigger` `TabsContent` | Horizontal tab panels            |
-| `DropdownMenu`                                | Accessible dropdown via Radix UI |
-| `Breadcrumb`                                  | Path trail with aria-current     |
+| Component                                     | Description                                |
+| --------------------------------------------- | ------------------------------------------ |
+| `Tabs` `TabsList` `TabsTrigger` `TabsContent` | Horizontal tab panels                      |
+| `DropdownMenu`                                | Accessible dropdown via Radix UI           |
+| `Breadcrumb`                                  | Path trail with aria-current               |
+| `AppSwitcher`                                 | Move between the Steward apps a church has |
 
 **Containers**
 
@@ -638,10 +639,10 @@ pnpm screenshots
 pnpm screenshots:compare
 ```
 
-| Suite                | Framework                | Coverage                                                                               |
-| -------------------- | ------------------------ | -------------------------------------------------------------------------------------- |
-| Component unit tests | Vitest + Testing Library | 42 tests across Spinner · Breadcrumb · Pagination · Sidebar · Combobox · CurrencyInput |
-| Visual regression    | Playwright               | 14 screenshots — 7 pages × light + dark                                                |
+| Suite                | Framework                | Coverage                                                                                             |
+| -------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Component unit tests | Vitest + Testing Library | 55 tests across Spinner · Breadcrumb · Pagination · Sidebar · Combobox · CurrencyInput · AppSwitcher |
+| Visual regression    | Playwright               | 14 screenshots — 7 pages × light + dark                                                              |
 
 ### Adding a Component
 
