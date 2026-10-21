@@ -8,8 +8,8 @@ orange, and two used colours that appear nowhere in the token system.
 This is the owning document for how a Steward README looks. If something here
 disagrees with a README, the README is wrong.
 
-Scope: `StewardChMS`, `stewardpos`, `steward-table`, `StewardVBS`, `steward-brand`,
-`steward-platform`. `StewardVBS` is cloned locally as `vbs-app`; the GitHub name
+Scope: `StewardChMS`, `stewardpos`, `steward-table`, `StewardVBS`, `steward-display`,
+`steward-brand`, `steward-platform`. `StewardVBS` is cloned locally as `vbs-app`; the GitHub name
 is canonical and the old one only works by redirect.
 
 ---
@@ -36,14 +36,15 @@ banner by hand is how the drift started.
 
 Every accent is a token. None is invented for the banner.
 
-| Repository         | Product      | Accent    | Where it comes from                 |
-| ------------------ | ------------ | --------- | ----------------------------------- |
-| `StewardChMS`      | Congregation | `#2563EB` | `color.brand.blue`                  |
-| `stewardpos`       | StewardPOS   | `#16A34A` | `color.brand.emerald`               |
-| `steward-table`    | Table        | `#0E7490` | `themes/products/table.json` accent |
-| `StewardVBS`       | VBS          | `#F97316` | `themes/products/vbs.json` accent   |
-| `steward-brand`    | Brand        | `#E8B847` | `color.brand.gold`                  |
-| `steward-platform` | Platform     | `#6B7A8D` | `--st-muted`                        |
+| Repository         | Product      | Accent    | Where it comes from                   |
+| ------------------ | ------------ | --------- | ------------------------------------- |
+| `StewardChMS`      | Congregation | `#2563EB` | `color.brand.blue`                    |
+| `stewardpos`       | StewardPOS   | `#16A34A` | `color.brand.emerald`                 |
+| `steward-table`    | Table        | `#0E7490` | `themes/products/table.json` accent   |
+| `StewardVBS`       | VBS          | `#F97316` | `themes/products/vbs.json` accent     |
+| `steward-display`  | Display      | `#7C3AED` | `themes/products/display.json` accent |
+| `steward-brand`    | Brand        | `#E8B847` | `color.brand.gold`                    |
+| `steward-platform` | Platform     | `#6B7A8D` | `--st-muted`                          |
 
 Two of these need their reasoning recorded, because the obvious choice was wrong
 in both cases.
@@ -69,6 +70,7 @@ renaming assets breaks every external link that points at them.
 | `stewardpos`       | `docs/brand/hero-banner.svg` |
 | `steward-table`    | `docs/assets/hero.svg`       |
 | `StewardVBS`       | `Docs/banner.svg`            |
+| `steward-display`  | `docs/assets/hero.svg`       |
 | `steward-brand`    | `assets/readme-hero.svg`     |
 | `steward-platform` | `docs/assets/img/hero.svg`   |
 
@@ -95,7 +97,7 @@ badge is a thing that goes stale and makes a live repository look abandoned.
 
 ## Section order
 
-Product applications — Congregation, StewardPOS, Table, VBS — use this order.
+Product applications — Congregation, StewardPOS, Table, VBS, Display — use this order.
 Deviating needs a reason better than preference.
 
 1. **Hero** — banner, badge row, inline nav
@@ -127,7 +129,7 @@ reason a visitor who arrives at VBS learns that Congregation exists.
 ```markdown
 ## The Steward family
 
-Steward is four applications on one design system. Each one runs standalone and
+Steward is five applications on one design system. Each one runs standalone and
 self-hosted — nothing here requires the others, or us.
 
 | Application                                                 | What it does                                 |
@@ -136,6 +138,7 @@ self-hosted — nothing here requires the others, or us.
 | **[StewardPOS](https://github.com/24Skater/stewardpos)**    | Point of sale, inventory, returns            |
 | **[Table](https://github.com/24Skater/steward-table)**      | Food orders, kitchen display, delivery       |
 | **[VBS](https://github.com/24Skater/StewardVBS)**           | Registration, check-in, reporting            |
+| **[Display](https://github.com/24Skater/steward-display)**  | Lobby screens, announcements, TV pairing     |
 
 They share one design system — [Steward Brand](https://github.com/24Skater/steward-brand),
 the tokens, components and icons every screen is built from.
@@ -182,6 +185,7 @@ can be recognised.
 | Point of sale     | **StewardPOS**           | ~~Steward Register~~, ~~Steward POS~~                    |
 | Food orders       | **Steward Table**        | —                                                        |
 | Youth programming | **Steward VBS**          | —                                                        |
+| Signage           | **Steward Display**      | —                                                        |
 
 "Register" was rejected for the point of sale because it collides with VBS
 registration. The token file is still named `themes/products/register.json` and

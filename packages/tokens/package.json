@@ -23,6 +23,7 @@
     "./themes/accounting": "./dist/themes/accounting.css",
     "./themes/chms": "./dist/themes/chms.css",
     "./themes/crm": "./dist/themes/crm.css",
+    "./themes/display": "./dist/themes/display.css",
     "./themes/register": "./dist/themes/register.css",
     "./themes/table": "./dist/themes/table.css",
     "./themes/vbs": "./dist/themes/vbs.css",

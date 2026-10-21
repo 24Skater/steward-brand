@@ -35,6 +35,7 @@ dark_. They are two independent axes and must not be conflated — see
 | Accounting                  | `accounting.json` | `accounting`         | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
 | CRM                         | `crm.json`        | `crm`                | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
 | Point of Sale               | `register.json`   | `register`           | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
+| Display (Signage)           | `display.json`    | `display`            | Kingdom Gold `#E8B847` | Navy `#1B2A41` |
 | Table (Data grid)           | `table.json`      | `table`              | Kingdom Gold `#E8B847` | —              |
 | VBS (Vacation Bible School) | `vbs.json`        | `vbs`                | Kingdom Gold `#E8B847` | Navy `#0D1B2E` |
 | Website (Marketing)         | `website.json`    | `website`            | Kingdom Gold `#E8B847` | —              |

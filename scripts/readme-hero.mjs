@@ -95,6 +95,12 @@ const repos = [
     meta: ['Self-hosted', 'MIT', 'PostgreSQL', 'Docker'],
     alt: 'Steward VBS — self-hosted Vacation Bible School management covering registration, daily check-in and reporting.' },
 
+  { out: 'C:/Users/ramos/GitHub/steward-display/docs/assets/hero.svg',
+    name: 'Display', accent: '#7C3AED', // themes/display.json accent
+    tagline: 'Lobby and hallway screens a church builds once and every TV keeps showing.',
+    meta: ['Self-hosted', 'MIT', 'PostgreSQL', 'Docker'],
+    alt: 'Steward Display — self-hosted church signage: build screens from widgets and pair any TV with a code.' },
+
   { out: 'C:/Users/ramos/GitHub/steward-brand/assets/readme-hero.svg',
     name: 'Brand', accent: '#E8B847', // color.brand.gold
     tagline: 'Tokens, components and icons every Steward application is built from.',

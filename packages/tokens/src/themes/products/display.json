@@ -1,0 +1,33 @@
+{
+  "$description": "Steward Display - Product Theme Overrides. Lobby and hallway signage. The admin keeps ChMS's warm parchment so a church moving between the two feels at home; the accent is violet so Display reads as its own product on a navy banner. Borders and muted text are darker than ChMS's because a signage editor is used standing up, at arm's length, and its borders delimit drop zones that must clear 3:1.",
+
+  "semantic": {
+    "bg": "{color.neutral.warmSubtle}",
+    "surface": "{color.neutral.surface}",
+    "surfaceMuted": "{color.neutral.warmSurface}",
+
+    "fg": "#0D1B2E",
+    "border": "#B8A778",
+
+    "accent": "#7C3AED",
+    "accentFg": "#FFFFFF",
+
+    "link": "{color.brand.blue}",
+    "focusRing": "{color.brand.blue}",
+
+    "muted": "#57647A",
+    "mutedFg": "#334155",
+
+    "success": "#15803D",
+
+    "fg-on-primary": "#1B2A41",
+    "primary-hover": "{color.brand.goldDark}",
+    "surface-hover": "rgba(232, 184, 71, 0.08)",
+
+    "sidebar-bg": "{color.brand.navy}",
+    "sidebar-fg": "{color.neutral.warmSurface}",
+    "sidebar-border": "#1A2F4A",
+    "sidebar-active": "{color.brand.gold}",
+    "sidebar-active-fg": "{color.brand.navy}"
+  }
+}
