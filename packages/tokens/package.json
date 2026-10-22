@@ -1,6 +1,6 @@
 {
   "name": "@steward-apps/tokens",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Design tokens for the Steward design system",
   "license": "MIT",
   "repository": {

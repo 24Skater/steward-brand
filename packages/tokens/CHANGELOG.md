@@ -1,5 +1,11 @@
 # @steward-apps/tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- ac8a97b: Add the Display product theme (`@steward-apps/tokens/themes/display`, `data-product="display"`): warm parchment admin, violet accent, and darker borders and muted text than ChMS so drop zones and secondary copy clear WCAG on a signage editor.
+
 ## 1.2.0
 
 ### Minor Changes
