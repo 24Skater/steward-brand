@@ -52,8 +52,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'
-          # Shows npm's Trusted Publishing exchange in the log if a publish fails.
-          NPM_CONFIG_LOGLEVEL: verbose
 
       - name: Create GitHub Releases
         if: steps.changesets.outputs.published == 'true'
