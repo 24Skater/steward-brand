@@ -677,7 +677,7 @@ pnpm --filter @steward-apps/tokens build
 
 ## The Steward family
 
-Steward is four applications on one design system — this one. Each application
+Steward is five applications on one design system — this one. Each application
 runs standalone and self-hosted; what they share is everything in this
 repository.
 
@@ -687,8 +687,9 @@ repository.
 | **[StewardPOS](https://github.com/24Skater/stewardpos)**    | Point of sale, inventory, returns            |
 | **[Table](https://github.com/24Skater/steward-table)**      | Food orders, kitchen display, delivery       |
 | **[VBS](https://github.com/24Skater/StewardVBS)**           | Registration, check-in, reporting            |
+| **[Display](https://github.com/24Skater/steward-display)**  | Lobby screens, announcements, TV pairing     |
 
-A change to a token here reaches all four. That is the point, and it is also the
+A change to a token here reaches all five. That is the point, and it is also the
 reason a token rename is never a small change — see
 [token-architecture.md](docs/token-architecture.md).
 
