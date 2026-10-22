@@ -27,7 +27,10 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
+          # No registry-url: with it, setup-node writes an .npmrc holding a
+          # placeholder token (NODE_AUTH_TOKEN=XXXXX-...), and npm sends that
+          # instead of the Trusted Publishing credential. The default registry
+          # is npmjs.org anyway.
 
       # npm Trusted Publishing: the registry trusts this workflow through GitHub's
       # OIDC token (permissions: id-token: write), so no npm token is stored,
@@ -49,6 +52,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: 'true'
+          # Shows npm's Trusted Publishing exchange in the log if a publish fails.
+          NPM_CONFIG_LOGLEVEL: verbose
 
       - name: Create GitHub Releases
         if: steps.changesets.outputs.published == 'true'
